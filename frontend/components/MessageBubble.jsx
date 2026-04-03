@@ -1,5 +1,7 @@
 'use client';
 
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { playAudioBase64 } from '../lib/api';
 
 function formatTime(date) {
@@ -41,7 +43,42 @@ export default function MessageBubble({ message }) {
 
       <div className="message-bubble">
         <div className="bubble-content">
-          {content}
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            components={{
+              // Custom components for better styling
+              h1: ({children}) => <h1 style={{fontSize: '1.5em', fontWeight: 'bold', margin: '0.5em 0'}}>{children}</h1>,
+              h2: ({children}) => <h2 style={{fontSize: '1.3em', fontWeight: 'bold', margin: '0.4em 0'}}>{children}</h2>,
+              h3: ({children}) => <h3 style={{fontSize: '1.2em', fontWeight: 'bold', margin: '0.3em 0'}}>{children}</h3>,
+              ul: ({children}) => <ul style={{margin: '0.5em 0', paddingLeft: '1.5em'}}>{children}</ul>,
+              ol: ({children}) => <ol style={{margin: '0.5em 0', paddingLeft: '1.5em'}}>{children}</ol>,
+              li: ({children}) => <li style={{margin: '0.2em 0'}}>{children}</li>,
+              p: ({children}) => <p style={{margin: '0.3em 0'}}>{children}</p>,
+              strong: ({children}) => <strong style={{fontWeight: 'bold'}}>{children}</strong>,
+              em: ({children}) => <em style={{fontStyle: 'italic'}}>{children}</em>,
+              code: ({children}) => <code style={{
+                backgroundColor: '#f1f1f1',
+                padding: '0.1em 0.3em',
+                borderRadius: '3px',
+                fontFamily: 'monospace'
+              }}>{children}</code>,
+              pre: ({children}) => <pre style={{
+                backgroundColor: '#f1f1f1',
+                padding: '0.5em',
+                borderRadius: '5px',
+                overflow: 'auto',
+                margin: '0.5em 0'
+              }}>{children}</pre>,
+              blockquote: ({children}) => <blockquote style={{
+                borderLeft: '4px solid #ddd',
+                paddingLeft: '1em',
+                margin: '0.5em 0',
+                color: '#666'
+              }}>{children}</blockquote>
+            }}
+          >
+            {content}
+          </ReactMarkdown>
         </div>
 
         <div className="bubble-meta">

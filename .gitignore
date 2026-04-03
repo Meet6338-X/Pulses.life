@@ -110,3 +110,8 @@ build/
 # API keys and secrets
 secrets/
 keys/
+
+# MediRoute integration (separate system)
+nextmodule/
+nextmodule.zip
+Pulses.life/
