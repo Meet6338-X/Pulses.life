@@ -107,22 +107,22 @@
     /* ─── NAV ─── */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: all .3s ease; }
     nav.scrolled { background: rgba(255,255,255,.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); box-shadow: var(--shadow-sm); }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 120px; }
     .nav-logo { display: flex; align-items: center; gap: 12px; }
-    .nav-logo img { height: 40px; width: auto; }
-    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-logo img { height: 100px; width: auto; }
+    .nav-links { display: flex; align-items: center; flex: 1; justify-content: space-around; }
     .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color .2s; }
     .nav-links a:hover { color: var(--blue); }
     .nav-cta { display: flex; align-items: center; gap: 12px; }
     .hamburger { display: none; flex-direction: column; gap: 5px; background: none; padding: 8px; }
     .hamburger span { display: block; width: 22px; height: 2px; background: var(--text-primary); border-radius: 2px; transition: all .3s; }
-    .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 20px 24px; z-index: 999; }
+    .mobile-menu { display: none; position: fixed; top: 120px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 20px 24px; z-index: 999; }
     .mobile-menu.open { display: block; }
     .mobile-menu a { display: block; padding: 12px 0; font-weight: 500; color: var(--text-secondary); border-bottom: 1px solid var(--border); }
     .mobile-menu a:last-of-type { border: none; }
 
     /* ─── HERO ─── */
-    .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 72px; background: #fff; }
+    .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 120px; background: #fff; }
     .hero-bg { position: absolute; inset: 0; pointer-events: none; }
     .hero-blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .12; }
     .blob1 { width: 700px; height: 700px; top: -200px; right: -150px; background: radial-gradient(circle, #1a56db, #0d9488); }
