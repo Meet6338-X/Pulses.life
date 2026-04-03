@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pulses.life — Voice-First AI Health Companion for India | Multilingual Healthcare</title>
+  <meta name="description" content="Pulses.life is India's voice-first multilingual AI health companion. Get medical guidance, hospital navigation & emergency response in 22 Indian languages via WhatsApp." />
+  <meta name="keywords" content="AI health companion India, multilingual healthcare, voice health app, hospital navigation India, emergency health response, WhatsApp health bot, Indian languages healthcare" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Pulses.life" />
+  <link rel="canonical" href="https://pulses.life/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pulses.life/" />
+  <meta property="og:title" content="Pulses.life — Voice-First AI Health Companion for India" />
+  <meta property="og:description" content="India's voice-first multilingual AI health companion. Medical guidance, hospital navigation & emergency response in 22 Indian languages." />
+  <meta property="og:image" content="https://pulses.life/og-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://pulses.life/" />
+  <meta name="twitter:title" content="Pulses.life — Voice-First AI Health Companion for India" />
+  <meta name="twitter:description" content="India's voice-first multilingual AI health companion in 22 languages." />
+  <meta name="twitter:image" content="https://pulses.life/og-image.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Pulses.life",
+      "url": "https://pulses.life",
+      "description": "Voice-first multilingual AI health companion for India supporting 22 Indian languages via WhatsApp, mobile app, and web platform.",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web, Android, iOS",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "creator": [
+        { "@type": "Person", "name": "Meet Shah", "sameAs": "https://www.linkedin.com/in/meet-shah-co" },
+        { "@type": "Person", "name": "Shivam Raut", "sameAs": "https://www.linkedin.com/in/shivamraut1610" },
+        { "@type": "Person", "name": "Dipak Pote", "sameAs": "https://github.com/Dipak-coder-06" },
+        { "@type": "Person", "name": "Pooja Wavdara", "sameAs": "https://github.com/Poojax21" }
+      ],
+      "sameAs": ["https://github.com/Pulses-life"]
+    }
+    </script>
+
+  <style>
+    :root {
+      --blue: #1a56db;
+      --blue-light: #3b82f6;
+      --blue-pale: #eff6ff;
+      --green: #059669;
+      --green-light: #10b981;
+      --green-pale: #ecfdf5;
+      --teal: #0d9488;
+      --grad: linear-gradient(135deg, #1a56db 0%, #0d9488 50%, #059669 100%);
+      --grad-soft: linear-gradient(135deg, #eff6ff 0%, #ecfdf5 100%);
+      --white: #ffffff;
+      --surface: #f8fafc;
+      --border: #e2e8f0;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+      --shadow-md: 0 4px 24px rgba(0,0,0,.08), 0 1px 4px rgba(0,0,0,.04);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,.1), 0 4px 16px rgba(0,0,0,.06);
+      --shadow-blue: 0 8px 32px rgba(26,86,219,.2);
+      --shadow-green: 0 8px 32px rgba(5,150,105,.2);
+      --r-sm: 12px; --r-md: 20px; --r-lg: 32px; --r-xl: 48px;
+      --font-head: 'Bricolage Grotesque', sans-serif;
+      --font-body: 'Figtree', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-body); background: var(--white); color: var(--text-primary); overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; border: none; font-family: inherit; }
+
+    /* ─── UTILITIES ─── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .grad-text { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; padding: 6px 14px; border-radius: 99px; }
+    .badge-blue { background: var(--blue-pale); color: var(--blue); border: 1px solid rgba(26,86,219,.15); }
+    .badge-green { background: var(--green-pale); color: var(--green); border: 1px solid rgba(5,150,105,.15); }
+    .dot-pulse { width: 6px; height: 6px; border-radius: 50%; background: currentColor; animation: pulse-dot 2s ease-in-out infinite; }
+    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.8)} }
+
+    /* ─── BUTTONS ─── */
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-body); font-weight: 600; font-size: 15px; padding: 14px 28px; border-radius: 99px; transition: all .25s cubic-bezier(.4,0,.2,1); white-space: nowrap; }
+    .btn-primary { background: var(--grad); color: #fff; box-shadow: var(--shadow-blue); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(26,86,219,.3); }
+    .btn-secondary { background: var(--white); color: var(--blue); border: 1.5px solid var(--border); }
+    .btn-secondary:hover { border-color: var(--blue); background: var(--blue-pale); transform: translateY(-1px); }
+    .btn-outline-white { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.4); }
+    .btn-outline-white:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.7); }
+    .btn-lg { padding: 16px 36px; font-size: 16px; }
+    .btn-sm { padding: 10px 20px; font-size: 13px; }
+
+    /* ─── NAV ─── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: all .3s ease; }
+    nav.scrolled { background: rgba(255,255,255,.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-logo img { height: 40px; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color .2s; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-cta { display: flex; align-items: center; gap: 12px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; padding: 8px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text-primary); border-radius: 2px; transition: all .3s; }
+    .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 20px 24px; z-index: 999; }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; padding: 12px 0; font-weight: 500; color: var(--text-secondary); border-bottom: 1px solid var(--border); }
+    .mobile-menu a:last-of-type { border: none; }
+
+    /* ─── HERO ─── */
+    .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 72px; background: #fff; }
+    .hero-bg { position: absolute; inset: 0; pointer-events: none; }
+    .hero-blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .12; }
+    .blob1 { width: 700px; height: 700px; top: -200px; right: -150px; background: radial-gradient(circle, #1a56db, #0d9488); }
+    .blob2 { width: 500px; height: 500px; bottom: -100px; left: -100px; background: radial-gradient(circle, #059669, #10b981); }
+    .hero-grid-lines { position: absolute; inset: 0; background-image: linear-gradient(rgba(26,86,219,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(26,86,219,.04) 1px, transparent 1px); background-size: 60px 60px; }
+    .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 1; padding: 80px 0 60px; }
+    .hero-left {}
+    .hero-badge { margin-bottom: 28px; }
+    h1.hero-title { font-family: var(--font-head); font-size: clamp(42px, 5vw, 70px); font-weight: 800; line-height: 1.05; letter-spacing: -.03em; margin-bottom: 24px; }
+    .hero-title em { font-style: normal; }
+    .hero-sub { font-size: 18px; line-height: 1.65; color: var(--text-secondary); margin-bottom: 40px; max-width: 480px; }
+    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
+    .hero-stats { display: flex; gap: 40px; }
+    .stat-item { display: flex; flex-direction: column; gap: 4px; }
+    .stat-num { font-family: var(--font-head); font-size: 28px; font-weight: 700; line-height: 1; }
+    .stat-label { font-size: 12px; font-weight: 500; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .06em; }
+
+    /* ─── HERO VISUAL ─── */
+    .hero-right { position: relative; display: flex; justify-content: center; }
+    .phone-mockup { position: relative; width: 280px; margin: 0 auto; z-index: 2; }
+    .phone-frame { background: var(--text-primary); border-radius: 44px; padding: 14px; box-shadow: var(--shadow-lg), 0 0 0 1px rgba(255,255,255,.1); animation: float-phone 6s ease-in-out infinite; }
+    @keyframes float-phone { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-16px)} }
+    .phone-screen { background: var(--grad-soft); border-radius: 32px; overflow: hidden; aspect-ratio: 9/19; display: flex; flex-direction: column; }
+    .phone-status { height: 36px; background: rgba(255,255,255,.8); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); border-bottom: 1px solid var(--border); }
+    .phone-content { flex: 1; padding: 16px; display: flex; flex-direction: column; gap: 12px; overflow: hidden; }
+    .chat-bubble { padding: 10px 14px; border-radius: 18px; font-size: 11px; line-height: 1.5; max-width: 85%; animation: chat-in .5s ease-out both; }
+    .chat-bubble.bot { background: #fff; color: var(--text-primary); border-bottom-left-radius: 4px; align-self: flex-start; box-shadow: var(--shadow-sm); }
+    .chat-bubble.user { background: var(--grad); color: #fff; border-bottom-right-radius: 4px; align-self: flex-end; }
+    @keyframes chat-in { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+    .chat-bubble:nth-child(1){animation-delay:.2s} .chat-bubble:nth-child(2){animation-delay:.8s} .chat-bubble:nth-child(3){animation-delay:1.4s} .chat-bubble:nth-child(4){animation-delay:2s}
+    .voice-indicator { display: flex; align-items: center; justify-content: center; gap: 4px; margin-top: 8px; }
+    .voice-bar { width: 3px; border-radius: 3px; background: var(--grad); animation: voice 1s ease-in-out infinite; }
+    .voice-bar:nth-child(1){height:12px;animation-delay:0s} .voice-bar:nth-child(2){height:24px;animation-delay:.15s} .voice-bar:nth-child(3){height:18px;animation-delay:.3s} .voice-bar:nth-child(4){height:30px;animation-delay:.45s} .voice-bar:nth-child(5){height:16px;animation-delay:.6s} .voice-bar:nth-child(6){height:22px;animation-delay:.75s} .voice-bar:nth-child(7){height:10px;animation-delay:.9s}
+    @keyframes voice { 0%,100%{transform:scaleY(.4)} 50%{transform:scaleY(1)} }
+    .phone-lang { font-family: var(--font-mono); font-size: 9px; text-align: center; color: var(--text-muted); padding: 8px; background: rgba(255,255,255,.6); }
+
+    /* floating cards around phone */
+    .float-card { position: absolute; background: #fff; border-radius: var(--r-sm); padding: 14px 18px; box-shadow: var(--shadow-md); border: 1px solid var(--border); font-size: 12px; z-index: 3; white-space: nowrap; }
+    .float-card-icon { font-size: 20px; margin-bottom: 4px; }
+    .float-card-label { font-weight: 600; color: var(--text-primary); font-size: 11px; }
+    .float-card-sub { color: var(--text-muted); font-size: 10px; }
+    .fc1 { top: 60px; left: -80px; animation: float-card1 5s ease-in-out infinite; }
+    .fc2 { top: 200px; right: -90px; animation: float-card2 5.5s ease-in-out infinite; }
+    .fc3 { bottom: 120px; left: -70px; animation: float-card3 4.5s ease-in-out infinite; }
+    @keyframes float-card1 { 0%,100%{transform:translateY(0) rotate(-2deg)} 50%{transform:translateY(-8px) rotate(-2deg)} }
+    @keyframes float-card2 { 0%,100%{transform:translateY(0) rotate(2deg)} 50%{transform:translateY(-10px) rotate(2deg)} }
+    @keyframes float-card3 { 0%,100%{transform:translateY(0) rotate(-1deg)} 50%{transform:translateY(-6px) rotate(-1deg)} }
+
+    /* ECG line */
+    .ecg-container { position: absolute; bottom: 60px; left: 0; right: 0; height: 80px; pointer-events: none; opacity: .15; }
+    .ecg-svg { width: 100%; height: 100%; }
+
+    /* ─── TRUST BAND ─── */
+    .trust-band { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 0; overflow: hidden; }
+    .trust-track { display: flex; gap: 60px; animation: scroll-track 30s linear infinite; width: max-content; }
+    .trust-track:hover { animation-play-state: paused; }
+    .trust-item { display: flex; align-items: center; gap: 10px; white-space: nowrap; font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+    .trust-icon { font-size: 20px; }
+    @keyframes scroll-track { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 96px 0; }
+    .section-label { margin-bottom: 16px; }
+    .section-title { font-family: var(--font-head); font-size: clamp(32px, 4vw, 52px); font-weight: 800; line-height: 1.1; letter-spacing: -.03em; margin-bottom: 20px; }
+    .section-sub { font-size: 18px; line-height: 1.65; color: var(--text-secondary); max-width: 560px; }
+    .section-header { margin-bottom: 64px; }
+    .section-header.centered { text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .section-header.centered .section-sub { text-align: center; }
+
+    /* ─── FEATURES ─── */
+    .features { background: var(--white); }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .feat-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--r-md); padding: 32px; transition: all .3s cubic-bezier(.4,0,.2,1); position: relative; overflow: hidden; }
+    .feat-card::before { content: ''; position: absolute; inset: 0; background: var(--grad-soft); opacity: 0; transition: opacity .3s; }
+    .feat-card:hover { border-color: transparent; box-shadow: var(--shadow-md); transform: translateY(-4px); }
+    .feat-card:hover::before { opacity: 1; }
+    .feat-card.featured { grid-column: span 2; background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); border-color: transparent; color: #fff; }
+    .feat-card.featured::before { display: none; }
+    .feat-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px; position: relative; z-index: 1; }
+    .feat-icon-blue { background: var(--blue-pale); }
+    .feat-icon-green { background: var(--green-pale); }
+    .feat-icon-teal { background: #f0fdfa; }
+    .feat-card.featured .feat-icon { background: rgba(255,255,255,.1); }
+    .feat-title { font-family: var(--font-head); font-size: 20px; font-weight: 700; margin-bottom: 12px; letter-spacing: -.02em; position: relative; z-index: 1; }
+    .feat-desc { font-size: 14px; line-height: 1.65; color: var(--text-secondary); position: relative; z-index: 1; }
+    .feat-card.featured .feat-desc { color: rgba(255,255,255,.7); }
+    .feat-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; position: relative; z-index: 1; }
+    .feat-tag { font-family: var(--font-mono); font-size: 10px; padding: 4px 10px; border-radius: 99px; background: rgba(255,255,255,.1); color: rgba(255,255,255,.8); border: 1px solid rgba(255,255,255,.15); }
+
+    /* ─── HOW IT WORKS ─── */
+    .how { background: var(--surface); }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; position: relative; }
+    .steps::before { content: ''; position: absolute; top: 36px; left: calc(12.5% + 20px); right: calc(12.5% + 20px); height: 2px; background: linear-gradient(90deg, var(--blue), var(--teal), var(--green)); border-radius: 2px; }
+    .step { text-align: center; position: relative; }
+    .step-num { width: 72px; height: 72px; border-radius: 50%; background: var(--grad); color: #fff; font-family: var(--font-head); font-size: 24px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; box-shadow: var(--shadow-blue); position: relative; z-index: 1; }
+    .step-title { font-family: var(--font-head); font-size: 17px; font-weight: 700; margin-bottom: 10px; letter-spacing: -.01em; }
+    .step-desc { font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
+
+    /* ─── PLATFORM ─── */
+    .platform { background: var(--white); }
+    .platform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .platform-card { border-radius: var(--r-lg); padding: 48px; position: relative; overflow: hidden; }
+    .platform-card.mobile { background: linear-gradient(135deg, var(--blue) 0%, var(--teal) 100%); color: #fff; }
+    .platform-card.web { background: linear-gradient(135deg, var(--green) 0%, var(--teal) 100%); color: #fff; }
+    .platform-card::after { content: ''; position: absolute; top: -60px; right: -60px; width: 250px; height: 250px; border-radius: 50%; background: rgba(255,255,255,.06); }
+    .platform-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: .15em; text-transform: uppercase; opacity: .7; margin-bottom: 16px; }
+    .platform-title { font-family: var(--font-head); font-size: 32px; font-weight: 800; margin-bottom: 16px; letter-spacing: -.03em; line-height: 1.1; }
+    .platform-desc { font-size: 15px; line-height: 1.65; opacity: .85; margin-bottom: 32px; }
+    .platform-features { display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
+    .platform-feat { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 500; }
+    .platform-feat-icon { width: 28px; height: 28px; border-radius: 8px; background: rgba(255,255,255,.2); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+    .btn-white { background: #fff; border-radius: 99px; padding: 12px 28px; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; transition: all .25s; }
+    .btn-white.blue { color: var(--blue); }
+    .btn-white.blue:hover { background: var(--blue-pale); transform: translateY(-2px); }
+    .btn-white.green { color: var(--green); }
+    .btn-white.green:hover { background: var(--green-pale); transform: translateY(-2px); }
+
+    /* ─── CITY INTELLIGENCE ─── */
+    .city { background: var(--surface); }
+    .city-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .city-visual { position: relative; }
+    .city-map { background: linear-gradient(135deg, #0f172a, #1e3a5f); border-radius: var(--r-lg); padding: 32px; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .map-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size: 40px 40px; }
+    .map-dot { position: absolute; border-radius: 50%; }
+    .map-dot.risk-high { background: #ef4444; box-shadow: 0 0 20px rgba(239,68,68,.5); }
+    .map-dot.risk-med { background: #f59e0b; box-shadow: 0 0 16px rgba(245,158,11,.4); }
+    .map-dot.risk-low { background: var(--green-light); box-shadow: 0 0 12px rgba(16,185,129,.4); }
+    .map-dot-pulse { animation: map-pulse 3s ease-in-out infinite; }
+    @keyframes map-pulse { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.4);opacity:.6} }
+    .map-label { position: absolute; bottom: 20px; left: 20px; display: flex; gap: 12px; }
+    .map-leg { display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,.7); }
+    .map-leg-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .city-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+    .city-stat { background: #fff; border: 1.5px solid var(--border); border-radius: var(--r-sm); padding: 20px; }
+    .city-stat-num { font-family: var(--font-head); font-size: 28px; font-weight: 700; margin-bottom: 4px; }
+    .city-stat-label { font-size: 12px; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .06em; }
+    .city-benefits { display: flex; flex-direction: column; gap: 24px; }
+    .city-benefit { display: flex; gap: 16px; align-items: flex-start; }
+    .cb-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+
+    /* ─── TEAM ─── */
+    .team { background: var(--white); }
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 32px; justify-content: center; }
+    .team-card { border: 1.5px solid var(--border); border-radius: var(--r-md); overflow: hidden; transition: all .3s; }
+    .team-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); border-color: var(--blue-light); }
+    .team-top { height: 160px; background: var(--grad); position: relative; }
+    .team-avatar { width: 88px; height: 88px; border-radius: 50%; background: rgba(255,255,255,.2); border: 4px solid #fff; position: absolute; bottom: -44px; left: 32px; display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-size: 32px; font-weight: 800; color: #fff; overflow: hidden; }
+    .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .team-body { padding: 56px 32px 32px; }
+    .team-name { font-family: var(--font-head); font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+    .team-role { font-size: 13px; font-weight: 500; color: var(--blue); margin-bottom: 12px; }
+    .team-bio { font-size: 13px; line-height: 1.65; color: var(--text-secondary); margin-bottom: 20px; }
+    .team-links { display: flex; gap: 12px; }
+    .team-link { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--blue); border: 1.5px solid var(--border); border-radius: 99px; padding: 6px 14px; transition: all .2s; }
+    .team-link:hover { background: var(--blue-pale); border-color: var(--blue); }
+
+    /* ─── EMERGENCY BANNER ─── */
+    .emergency { background: linear-gradient(135deg, #7f1d1d, #991b1b); padding: 48px 0; color: #fff; }
+    .emergency-inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+    .emergency-text h2 { font-family: var(--font-head); font-size: 32px; font-weight: 800; margin-bottom: 8px; }
+    .emergency-text p { opacity: .85; font-size: 16px; }
+    .emergency-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .btn-emergency { background: #fff; color: #991b1b; border-radius: 99px; padding: 14px 28px; font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; transition: all .25s; }
+    .btn-emergency:hover { transform: scale(1.04); box-shadow: 0 0 24px rgba(255,255,255,.3); }
+
+    /* ─── CTA ─── */
+    .cta-section { background: var(--text-primary); padding: 120px 0; position: relative; overflow: hidden; }
+    .cta-bg-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(26,86,219,.3) 0%, transparent 70%); pointer-events: none; }
+    .cta-inner { text-align: center; position: relative; z-index: 1; }
+    .cta-title { font-family: var(--font-head); font-size: clamp(36px, 5vw, 64px); font-weight: 800; color: #fff; letter-spacing: -.04em; line-height: 1.05; margin-bottom: 24px; }
+    .cta-sub { font-size: 18px; color: rgba(255,255,255,.65); margin-bottom: 48px; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.65; }
+    .cta-actions { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .cta-note { margin-top: 24px; font-size: 13px; color: rgba(255,255,255,.4); font-family: var(--font-mono); }
+
+    /* ─── FOOTER ─── */
+    footer { background: #070d14; color: rgba(255,255,255,.6); padding: 72px 0 40px; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+    .footer-brand { display: flex; flex-direction: column; gap: 20px; }
+    .footer-logo { display: flex; align-items: center; gap: 12px; }
+    .footer-logo img { height: 36px; filter: brightness(0) invert(1); opacity: .9; }
+    .footer-tagline { font-size: 14px; line-height: 1.7; max-width: 280px; }
+    .footer-socials { display: flex; gap: 12px; }
+    .social-btn { width: 36px; height: 36px; border-radius: 10px; background: rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; font-size: 16px; transition: all .2s; border: 1px solid rgba(255,255,255,.1); }
+    .social-btn:hover { background: rgba(255,255,255,.15); transform: translateY(-2px); }
+    .footer-col h4 { font-family: var(--font-head); font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 20px; letter-spacing: -.01em; }
+    .footer-links { display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a { font-size: 13px; transition: color .2s; }
+    .footer-links a:hover { color: var(--green-light); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding-top: 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-copy { font-size: 12px; font-family: var(--font-mono); }
+    .footer-policy { display: flex; gap: 24px; }
+    .footer-policy a { font-size: 12px; font-family: var(--font-mono); transition: color .2s; }
+    .footer-policy a:hover { color: var(--green-light); }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: .1s; } .reveal-d2 { transition-delay: .2s; } .reveal-d3 { transition-delay: .3s; } .reveal-d4 { transition-delay: .4s; }
+
+    /* ─── WHATSAPP FLOAT ─── */
+    .wa-float { position: fixed; bottom: 32px; right: 32px; z-index: 500; }
+    .wa-btn { width: 56px; height: 56px; border-radius: 50%; background: #25d366; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,.4); transition: transform .25s; font-size: 28px; }
+    .wa-btn:hover { transform: scale(1.1); }
+    .wa-tooltip { position: absolute; right: 68px; bottom: 12px; background: var(--text-primary); color: #fff; border-radius: 8px; padding: 8px 14px; font-size: 12px; font-weight: 600; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .25s; }
+    .wa-tooltip::after { content: ''; position: absolute; right: -6px; top: 50%; transform: translateY(-50%); border: 6px solid transparent; border-right: none; border-left-color: var(--text-primary); }
+    .wa-float:hover .wa-tooltip { opacity: 1; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .feat-card.featured { grid-column: span 2; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .hero-inner { grid-template-columns: 1fr; gap: 60px; text-align: center; }
+      .hero-left { order: 1; }
+      .hero-right { order: 2; }
+      .hero-sub { margin-left: auto; margin-right: auto; }
+      .hero-actions { justify-content: center; }
+      .hero-stats { justify-content: center; }
+      .features-grid { grid-template-columns: 1fr; }
+      .feat-card.featured { grid-column: span 1; }
+      .steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .steps::before { display: none; }
+      .platform-grid { grid-template-columns: 1fr; }
+      .city-inner { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .emergency-inner { flex-direction: column; text-align: center; }
+      .float-card { display: none; }
+      section { padding: 64px 0; }
+    }
+    @media (max-width: 480px) {
+      .steps { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .city-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+       <a href="/" class="nav-logo" aria-label="Pulses.life Home">
+         <img src="logo.jpeg" alt="Pulses.life Logo — Voice-First AI Healthcare India" width="180" height="40" onerror="this.style.display='none';this.nextSibling.style.display='flex'" />
+         <span style="display:none;align-items:center;gap:8px;font-family:var(--font-head);font-weight:800;font-size:22px;letter-spacing:-.03em">
+           <span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Pulses</span><span style="color:var(--green)">.life</span>
+         </span>
+       </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#features">Features</a>
+        <a href="#platform">Platform</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#city">Intelligence</a>
+        <a href="#team">Team</a>
+      </nav>
+      <div class="nav-cta">
+        <span class="badge badge-green"><span class="dot-pulse"></span>System Active</span>
+        <a href="#get-started" class="btn btn-primary btn-sm">Get Early Access</a>
+      </div>
+      <button class="hamburger" aria-label="Toggle menu" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#features" onclick="this.parentElement.classList.remove('open')">Features</a>
+  <a href="#platform" onclick="this.parentElement.classList.remove('open')">Platform</a>
+  <a href="#how-it-works" onclick="this.parentElement.classList.remove('open')">How It Works</a>
+  <a href="#city" onclick="this.parentElement.classList.remove('open')">City Intelligence</a>
+  <a href="#team" onclick="this.parentElement.classList.remove('open')">Team</a>
+  <a href="#get-started" onclick="this.parentElement.classList.remove('open')" style="margin-top:16px;color:var(--blue)">Get Early Access →</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" aria-label="Hero section">
+  <div class="hero-bg">
+    <div class="hero-blob blob1"></div>
+    <div class="hero-blob blob2"></div>
+    <div class="hero-grid-lines"></div>
+  </div>
+
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span class="badge badge-blue"><span class="dot-pulse"></span>India's First Voice-First Health AI</span>
+        </div>
+        <h1 class="hero-title">
+          Healthcare in <em class="grad-text">Your Language,</em><br />At Your Fingertips
+        </h1>
+        <p class="hero-sub">Pulses.life delivers AI-powered medical guidance, hospital navigation, and emergency response in <strong>22 Indian languages</strong> — accessible via WhatsApp, mobile app, and web. No barriers, no confusion.</p>
+        <div class="hero-actions">
+          <a href="#get-started" class="btn btn-primary btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+            Start with WhatsApp
+          </a>
+          <a href="#platform" class="btn btn-secondary">Explore Platform</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-num grad-text">22+</span>
+            <span class="stat-label">Languages</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num grad-text">0</span>
+            <span class="stat-label">App Install Needed</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num grad-text">24/7</span>
+            <span class="stat-label">AI Availability</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <!-- Floating info cards -->
+        <div class="float-card fc1">
+          <div class="float-card-icon">🌍</div>
+          <div class="float-card-label">22 Indian Languages</div>
+          <div class="float-card-sub">Hindi · Tamil · Telugu · ...</div>
+        </div>
+        <div class="float-card fc2">
+          <div class="float-card-icon">🚨</div>
+          <div class="float-card-label">Emergency Detected</div>
+          <div class="float-card-sub">Nearest hospital: 1.2 km</div>
+        </div>
+        <div class="float-card fc3">
+          <div class="float-card-icon">🏥</div>
+          <div class="float-card-label">Hospital Found</div>
+          <div class="float-card-sub">Govt-verified · 5 min away</div>
+        </div>
+
+        <!-- Phone mockup -->
+        <div class="phone-mockup">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <div class="phone-status">pulses.life · WhatsApp AI</div>
+              <div class="phone-content">
+                <div class="chat-bubble bot">🏥 नमस्ते! मैं Pulses.life हूँ। आपके लक्षण बताएं।</div>
+                <div class="chat-bubble user">मुझे सिरदर्द और बुखार है</div>
+                <div class="chat-bubble bot">समझ गया। बुखार कितने दिनों से है? आपके निकट सरकारी अस्पताल 1.2 किमी दूर है।</div>
+                <div class="chat-bubble user">2 दिन से है</div>
+                <div class="voice-indicator">
+                  <div class="voice-bar"></div><div class="voice-bar"></div><div class="voice-bar"></div><div class="voice-bar"></div><div class="voice-bar"></div><div class="voice-bar"></div><div class="voice-bar"></div>
+                </div>
+              </div>
+              <div class="phone-lang">🎙️ Voice Active · Hindi · Analyzing symptoms...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST BAND ===== -->
+<div class="trust-band" aria-label="Trusted by and key features">
+  <div class="trust-track">
+    <div class="trust-item"><span class="trust-icon">🇮🇳</span> Made for India</div>
+    <div class="trust-item"><span class="trust-icon">🏥</span> Government Dataset Powered</div>
+    <div class="trust-item"><span class="trust-icon">🔒</span> RAG-Based Safe AI</div>
+    <div class="trust-item"><span class="trust-icon">💬</span> Zero-Install via WhatsApp</div>
+    <div class="trust-item"><span class="trust-icon">🚨</span> Emergency Detection</div>
+    <div class="trust-item"><span class="trust-icon">🌐</span> 22 Indian Languages</div>
+    <div class="trust-item"><span class="trust-icon">📊</span> City Health Intelligence</div>
+    <div class="trust-item"><span class="trust-icon">🧠</span> WHO Verified Sources</div>
+    <!-- Duplicate for infinite scroll -->
+    <div class="trust-item"><span class="trust-icon">🇮🇳</span> Made for India</div>
+    <div class="trust-item"><span class="trust-icon">🏥</span> Government Dataset Powered</div>
+    <div class="trust-item"><span class="trust-icon">🔒</span> RAG-Based Safe AI</div>
+    <div class="trust-item"><span class="trust-icon">💬</span> Zero-Install via WhatsApp</div>
+    <div class="trust-item"><span class="trust-icon">🚨</span> Emergency Detection</div>
+    <div class="trust-item"><span class="trust-icon">🌐</span> 22 Indian Languages</div>
+    <div class="trust-item"><span class="trust-icon">📊</span> City Health Intelligence</div>
+    <div class="trust-item"><span class="trust-icon">🧠</span> WHO Verified Sources</div>
+  </div>
+</div>
+
+<!-- ===== FEATURES ===== -->
+<section class="features" id="features" aria-label="Core features">
+  <div class="container">
+    <div class="section-header centered">
+      <div class="section-label"><span class="badge badge-blue">Core Capabilities</span></div>
+      <h2 class="section-title">A Complete Health Ecosystem</h2>
+      <p class="section-sub">Six powerful pillars that together form India's most accessible health intelligence platform.</p>
+    </div>
+    <div class="features-grid">
+      <article class="feat-card featured reveal">
+        <div class="feat-icon"><span style="font-size:28px">🎙️</span></div>
+        <h3 class="feat-title">Voice-First Multilingual AI</h3>
+        <p class="feat-desc">Speak your symptoms in your native language — Hindi, Tamil, Telugu, Bengali, Marathi, or any of 22 Indian languages. Our AI understands, processes, and responds in the same language. No English required, no typing needed.</p>
+        <div class="feat-tags">
+          <span class="feat-tag">Hindi</span><span class="feat-tag">Tamil</span><span class="feat-tag">Telugu</span><span class="feat-tag">Bengali</span><span class="feat-tag">Marathi</span><span class="feat-tag">+17 more</span>
+        </div>
+      </article>
+
+      <article class="feat-card reveal reveal-d1">
+        <div class="feat-icon feat-icon-blue">🧠</div>
+        <h3 class="feat-title">Safe AI Medical Guidance</h3>
+        <p class="feat-desc">RAG-based AI using only verified sources — WHO, NHP, and clinical datasets. Zero hallucinations. Accurate symptom triage, department recommendations, and preventive guidance.</p>
+      </article>
+
+      <article class="feat-card reveal reveal-d2">
+        <div class="feat-icon feat-icon-green">🏥</div>
+        <h3 class="feat-title">Intelligent Hospital Navigation</h3>
+        <p class="feat-desc">Find the nearest government-verified healthcare facility based on your symptoms, distance, and specialty needs. Turn-by-turn directions included.</p>
+      </article>
+
+      <article class="feat-card reveal reveal-d3">
+        <div class="feat-icon feat-icon-teal">🚨</div>
+        <h3 class="feat-title">Emergency Detection & Response</h3>
+        <p class="feat-desc">Chest pain, stroke signs, breathing difficulty — automatically detected. One-tap call to 108 with real-time hospital routing and ETA.</p>
+      </article>
+
+      <article class="feat-card reveal reveal-d1">
+        <div class="feat-icon feat-icon-blue">📊</div>
+        <h3 class="feat-title">Personal Health Dashboard</h3>
+        <p class="feat-desc">Track symptoms, view health trends over time, and receive AI-generated insights on recurring patterns. Early detection of chronic conditions made simple.</p>
+      </article>
+
+      <article class="feat-card reveal reveal-d2">
+        <div class="feat-icon feat-icon-green">🌿</div>
+        <h3 class="feat-title">Environmental Health Alerts</h3>
+        <p class="feat-desc">Live AQI monitoring and weather correlation with health risk. Get asthma alerts, pollution warnings, and seasonal illness advisories for your area.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="how" id="how-it-works" aria-label="How Pulses.life works">
+  <div class="container">
+    <div class="section-header centered">
+      <div class="section-label"><span class="badge badge-green">Simple Process</span></div>
+      <h2 class="section-title">Healthcare in 4 Simple Steps</h2>
+      <p class="section-sub">From symptom to solution in under 60 seconds. Available 24/7, in your language.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <h3 class="step-title">Speak Your Symptoms</h3>
+        <p class="step-desc">Open WhatsApp or our app. Speak or type symptoms in your native language — no English needed.</p>
+      </div>
+      <div class="step reveal reveal-d1">
+        <div class="step-num">2</div>
+        <h3 class="step-title">AI Analyzes Instantly</h3>
+        <p class="step-desc">Our RAG-powered AI processes your input against verified medical databases for accurate triage.</p>
+      </div>
+      <div class="step reveal reveal-d2">
+        <div class="step-num">3</div>
+        <h3 class="step-title">Get Guidance & Direction</h3>
+        <p class="step-desc">Receive medical guidance, nearest hospital recommendation, and step-by-step directions.</p>
+      </div>
+      <div class="step reveal reveal-d3">
+        <div class="step-num">4</div>
+        <h3 class="step-title">Emergency? Instant Response</h3>
+        <p class="step-desc">Critical symptoms trigger emergency mode with one-tap 108 call and live ambulance routing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PLATFORM ===== -->
+<section class="platform" id="platform" aria-label="Platform options">
+  <div class="container">
+    <div class="section-header centered">
+      <div class="section-label"><span class="badge badge-blue">Two Platforms</span></div>
+      <h2 class="section-title">Choose How You Access Care</h2>
+      <p class="section-sub">A lightweight WhatsApp entry point and a powerful web & mobile dashboard — both seamlessly connected.</p>
+    </div>
+    <div class="platform-grid">
+      <div class="platform-card mobile reveal">
+        <p class="platform-label">Mobile Platform</p>
+        <h3 class="platform-title">Zero-Install WhatsApp & App</h3>
+        <p class="platform-desc">No app required to get started. Message us on WhatsApp or download our native app for richer features. Works on any smartphone.</p>
+        <div class="platform-features">
+          <div class="platform-feat"><div class="platform-feat-icon">🎙️</div> Voice symptom input in 22 languages</div>
+          <div class="platform-feat"><div class="platform-feat-icon">🗺️</div> Real-time hospital GPS navigation</div>
+          <div class="platform-feat"><div class="platform-feat-icon">🚨</div> One-tap 108 emergency call</div>
+          <div class="platform-feat"><div class="platform-feat-icon">💊</div> Medicine reminders & health habits</div>
+        </div>
+        <a href="#get-started" class="btn-white blue">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 17.89c-.262.734-1.532 1.408-2.104 1.483-.571.076-1.27.109-2.049-.131-.476-.148-1.084-.345-1.862-.678-3.278-1.415-5.42-4.712-5.585-4.931C6.13 13.414 5 11.892 5 10.313c0-1.581.826-2.362 1.12-2.685.273-.298.596-.372.795-.372.199 0 .397.002.57.011.199.009.466-.075.729.556.271.652.918 2.249.999 2.409.082.16.136.348.027.561-.108.214-.163.347-.324.534-.163.186-.342.416-.487.559-.163.158-.333.33-.144.647.19.318.843 1.39 1.808 2.25 1.242 1.108 2.29 1.451 2.613 1.615.322.164.51.136.698-.082.189-.218.809-.943 1.023-1.268.214-.325.428-.271.72-.163.291.107 1.852.874 2.168 1.033.317.16.527.239.607.373.08.134.08.773-.18 1.514z"/></svg>
+          Connect on WhatsApp
+        </a>
+      </div>
+      <div class="platform-card web reveal reveal-d2">
+        <p class="platform-label">Web Platform</p>
+        <h3 class="platform-title">Full Health Intelligence Dashboard</h3>
+        <p class="platform-desc">The complete Pulses.life experience — city health maps, personal analytics, AI insights, environmental data, and government scheme access.</p>
+        <div class="platform-features">
+          <div class="platform-feat"><div class="platform-feat-icon">📊</div> Personal health trends & analytics</div>
+          <div class="platform-feat"><div class="platform-feat-icon">🗺️</div> City-level symptom heatmaps</div>
+          <div class="platform-feat"><div class="platform-feat-icon">🌿</div> AQI & environmental monitoring</div>
+          <div class="platform-feat"><div class="platform-feat-icon">🏛️</div> Government health scheme access</div>
+        </div>
+        <a href="#get-started" class="btn-white green">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Open Web Dashboard
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CITY INTELLIGENCE ===== -->
+<section class="city" id="city" aria-label="City health intelligence">
+  <div class="container">
+    <div class="city-inner">
+      <div class="city-visual reveal">
+        <div class="city-map">
+          <div class="map-grid"></div>
+          <!-- Risk dots -->
+          <div class="map-dot risk-high map-dot-pulse" style="width:24px;height:24px;top:30%;left:40%;animation-delay:.5s"></div>
+          <div class="map-dot risk-high" style="width:16px;height:16px;top:45%;left:55%"></div>
+          <div class="map-dot risk-med map-dot-pulse" style="width:20px;height:20px;top:60%;left:30%;animation-delay:1s"></div>
+          <div class="map-dot risk-med" style="width:14px;height:14px;top:25%;left:65%"></div>
+          <div class="map-dot risk-low map-dot-pulse" style="width:18px;height:18px;top:70%;left:65%;animation-delay:1.5s"></div>
+          <div class="map-dot risk-low" style="width:12px;height:12px;top:50%;left:20%"></div>
+          <div class="map-dot risk-low" style="width:10px;height:10px;top:80%;left:45%"></div>
+          <div class="map-label">
+            <div class="map-leg"><div class="map-leg-dot" style="background:#ef4444"></div> High Risk</div>
+            <div class="map-leg"><div class="map-leg-dot" style="background:#f59e0b"></div> Medium</div>
+            <div class="map-leg"><div class="map-leg-dot" style="background:#10b981"></div> Low Risk</div>
+          </div>
+          <div style="position:absolute;top:20px;left:20px;font-family:var(--font-mono);font-size:10px;color:rgba(255,255,255,.6)">LIVE · Ward-Level Health Map · Pune, MH</div>
+        </div>
+        <div class="city-stats">
+          <div class="city-stat"><div class="city-stat-num grad-text">28</div><div class="city-stat-label">Wards Monitored</div></div>
+          <div class="city-stat"><div class="city-stat-num" style="color:var(--green)">94%</div><div class="city-stat-label">Data Accuracy</div></div>
+          <div class="city-stat"><div class="city-stat-num" style="color:var(--blue)">5min</div><div class="city-stat-label">Update Frequency</div></div>
+          <div class="city-stat"><div class="city-stat-num grad-text">AQI</div><div class="city-stat-label">Live Env. Data</div></div>
+        </div>
+      </div>
+      <div class="city-benefits reveal reveal-d2">
+        <div class="section-label"><span class="badge badge-green">City Intelligence</span></div>
+        <h2 class="section-title">Health Intelligence at City Scale</h2>
+        <p class="section-sub" style="margin-bottom:40px">Anonymized, aggregated data from thousands of users creates a real-time public health surveillance layer — helping authorities act before outbreaks spread.</p>
+        <div class="city-benefits">
+          <div class="city-benefit">
+            <div class="cb-icon" style="background:var(--blue-pale)">🗺️</div>
+            <div>
+              <h4 style="font-family:var(--font-head);font-weight:700;margin-bottom:4px">Symptom Heatmaps</h4>
+              <p style="font-size:14px;color:var(--text-secondary);line-height:1.6">Ward-level visualization of disease spread, seasonal trends, and outbreak risks in real-time.</p>
+            </div>
+          </div>
+          <div class="city-benefit">
+            <div class="cb-icon" style="background:var(--green-pale)">🏛️</div>
+            <div>
+              <h4 style="font-family:var(--font-head);font-weight:700;margin-bottom:4px">Government Decision Support</h4>
+              <p style="font-size:14px;color:var(--text-secondary);line-height:1.6">Data-driven insights for health authorities to allocate resources and plan preventive campaigns.</p>
+            </div>
+          </div>
+          <div class="city-benefit">
+            <div class="cb-icon" style="background:#f0fdfa">🌿</div>
+            <div>
+              <h4 style="font-family:var(--font-head);font-weight:700;margin-bottom:4px">Environmental Correlation</h4>
+              <p style="font-size:14px;color:var(--text-secondary);line-height:1.6">AQI, temperature, and humidity data correlated with health patterns for predictive alerts.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EMERGENCY BANNER ===== -->
+<div class="emergency" aria-label="Emergency response feature">
+  <div class="container">
+    <div class="emergency-inner">
+      <div class="emergency-text">
+        <h2>🚨 Emergency Response Hub</h2>
+        <p>Chest pain? Stroke symptoms? Breathing difficulty? Pulses.life detects and responds in seconds — connecting you to 108 ambulance with live ETA tracking.</p>
+      </div>
+      <div class="emergency-actions">
+        <a href="tel:108" class="btn-emergency">📞 Call 108 Now</a>
+        <a href="#get-started" class="btn btn-outline-white">Enable Emergency Mode</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TEAM ===== -->
+<section class="team" id="team" aria-label="Founders team">
+  <div class="container">
+    <div class="section-header centered">
+      <div class="section-label"><span class="badge badge-blue">The Builders</span></div>
+      <h2 class="section-title">Meet the Founders</h2>
+      <p class="section-sub">Building India's healthcare future, one voice interaction at a time.</p>
+    </div>
+    <div class="team-grid">
+       <article class="team-card reveal">
+         <div class="team-top"></div>
+         <div class="team-avatar">MS</div>
+         <div class="team-body">
+           <h3 class="team-name">Meet Shah</h3>
+           <p class="team-role">Co-Founder & CEO</p>
+           <p class="team-bio">Visionary behind Pulses.life's mission to democratize healthcare access across India using voice AI and multilingual technology.</p>
+           <div class="team-links">
+             <a href="https://www.linkedin.com/in/meet-shah-co" target="_blank" rel="noopener noreferrer" class="team-link" aria-label="Meet Shah LinkedIn">
+               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+               LinkedIn
+             </a>
+             <a href="https://github.com/Pulses-life" target="_blank" rel="noopener noreferrer" class="team-link" aria-label="Pulses.life GitHub">
+               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+               GitHub
+             </a>
+           </div>
+         </div>
+       </article>
+       <article class="team-card reveal reveal-d2">
+         <div class="team-top"></div>
+         <div class="team-avatar">SR</div>
+         <div class="team-body">
+           <h3 class="team-name">Shivam Raut</h3>
+           <p class="team-role">Co-Founder & CEO</p>
+           <p class="team-bio">Technical architect driving the RAG-based AI engine, multilingual NLP pipeline, and scalable city health intelligence infrastructure.</p>
+           <div class="team-links">
+             <a href="https://www.linkedin.com/in/shivamraut1610" target="_blank" rel="noopener noreferrer" class="team-link" aria-label="Shivam Raut LinkedIn">
+               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+               LinkedIn
+             </a>
+             <a href="https://github.com/ShivamRaut16" target="_blank" rel="noopener noreferrer" class="team-link" aria-label="Shivam Raut GitHub">
+               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+               GitHub
+             </a>
+           </div>
+         </div>
+       </article>
+       <article class="team-card reveal reveal-d3">
+         <div class="team-top"></div>
+         <div class="team-avatar">DP</div>
+         <div class="team-body">
+           <h3 class="team-name">Dipak Pote</h3>
+           <p class="team-role">Co-Founder & CTO</p>
+           <p class="team-bio">Full-stack developer specializing in scalable web applications and healthcare technology integration.</p>
+           <div class="team-links">
+             <a href="#" target="_blank" rel="noopener noreferrer" class="team-link" aria-label="Dipak Pote LinkedIn">
+               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+               LinkedIn
+             </a>
+             <a href="https://github.com/Dipak-coder-06" target="_blank" rel="noopener noreferrer" class="team-link" aria-label="Dipak Pote GitHub">
+               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+               GitHub
+             </a>
+           </div>
+         </div>
+       </article>
+       <article class="team-card reveal reveal-d4">
+         <div class="team-top"></div>
+         <div class="team-avatar">PW</div>
+         <div class="team-body">
+           <h3 class="team-name">Pooja Wavdara</h3>
+           <p class="team-role">Co-Founder & Head of Product</p>
+           <p class="team-bio">Product strategist focused on user experience and healthcare accessibility for diverse Indian populations.</p>
+           <div class="team-links">
+             <a href="#" target="_blank" rel="noopener noreferrer" class="team-link" aria-label="Pooja Wavdara LinkedIn">
+               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+               LinkedIn
+             </a>
+             <a href="https://github.com/Poojax21" target="_blank" rel="noopener noreferrer" class="team-link" aria-label="Pooja Wavdara GitHub">
+               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+               GitHub
+             </a>
+           </div>
+         </div>
+       </article>
+    </div>
+    <div style="text-align:center;margin-top:40px">
+      <a href="https://github.com/Pulses-life" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        View on GitHub — Pulses.life
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section" id="get-started" aria-label="Get started with Pulses.life">
+  <div class="cta-bg-glow"></div>
+  <div class="container">
+    <div class="cta-inner">
+      <div class="section-label" style="margin-bottom:24px"><span class="badge badge-green"><span class="dot-pulse"></span>Early Access Open</span></div>
+      <h2 class="cta-title">India's Health Infrastructure<br /><em class="grad-text" style="font-style:normal">Starts Here</em></h2>
+      <p class="cta-sub">Join thousands of Indians already benefiting from voice-first, language-native AI healthcare guidance. No barriers. No confusion. Just care.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+          Start on WhatsApp
+        </a>
+        <a href="https://github.com/Pulses-life" target="_blank" rel="noopener noreferrer" class="btn btn-outline-white btn-lg">View on GitHub</a>
+      </div>
+      <p class="cta-note">Free to use · No app required · Available 24/7 in 22 languages</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer aria-label="Site footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+       <a href="/" class="footer-logo" aria-label="Pulses.life">
+         <img src="logo.jpeg" alt="Pulses.life" width="140" height="32" onerror="this.style.display='none';this.nextSibling.style.display='block'" />
+         <span style="display:none;font-family:var(--font-head);font-size:20px;font-weight:800;color:#fff">Pulses.life</span>
+       </a>
+        <p class="footer-tagline">India's voice-first multilingual AI health companion — bridging language, distance, and awareness gaps in healthcare.</p>
+        <div class="footer-socials">
+          <a href="https://github.com/Pulses-life" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/meet-shah-co" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <div class="footer-links">
+          <a href="#features">Features</a>
+          <a href="#platform">Mobile App</a>
+          <a href="#platform">Web Dashboard</a>
+          <a href="#how-it-works">How It Works</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Intelligence</h4>
+        <div class="footer-links">
+          <a href="#city">City Health Maps</a>
+          <a href="#city">Ward Risk Monitoring</a>
+          <a href="#city">Environmental Data</a>
+          <a href="#features">Emergency Response</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <div class="footer-links">
+          <a href="#team">Our Team</a>
+          <a href="https://github.com/Pulses-life" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="mailto:hello@pulses.life">Contact Us</a>
+          <a href="#get-started">Early Access</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+       <span class="footer-copy">© 2026 Pulses.life · Team VAKR · IMCC Pune · Built for Bharat</span>
+      <div class="footer-policy">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float Button -->
+<div class="wa-float">
+  <div class="wa-tooltip">Chat with Pulses.life</div>
+  <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer" class="wa-btn" aria-label="Chat on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 17.89c-.262.734-1.532 1.408-2.104 1.483-.571.076-1.27.109-2.049-.131-.476-.148-1.084-.345-1.862-.678-3.278-1.415-5.42-4.712-5.585-4.931C6.13 13.414 5 11.892 5 10.313c0-1.581.826-2.362 1.12-2.685.273-.298.596-.372.795-.372.199 0 .397.002.57.011.199.009.466-.075.729.556.271.652.918 2.249.999 2.409.082.16.136.348.027.561-.108.214-.163.347-.324.534-.163.186-.342.416-.487.559-.163.158-.333.33-.144.647.19.318.843 1.39 1.808 2.25 1.242 1.108 2.29 1.451 2.613 1.615.322.164.51.136.698-.082.189-.218.809-.943 1.023-1.268.214-.325.428-.271.72-.163.291.107 1.852.874 2.168 1.033.317.16.527.239.607.373.08.134.08.773-.18 1.514z"/></svg>
+  </a>
+</div>
+
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Close mobile menu on outside click
+  document.addEventListener('click', (e) => {
+    const menu = document.getElementById('mobileMenu');
+    if (!menu.contains(e.target) && !e.target.closest('.hamburger')) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
+</body>
+</html>

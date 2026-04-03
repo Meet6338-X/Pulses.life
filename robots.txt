@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pulses.life/sitemap.xml
+
+# Block access to any private paths (add as needed)
+Disallow: /admin/
+Disallow: /api/
