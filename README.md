@@ -38,9 +38,9 @@ A user speaks *"मला छाती दुखते"* (my chest hurts) in Mar
 
 | Layer | Technology | Justification |
 |---|---|---|
-| Speech Recognition (ASR) | Bhashini API — IndicASR | Govt. of India platform; 22 Indian languages; free for registered developers |
-| Translation | Bhashini — IndicTrans2 | State-of-the-art Indian language translation; open-source fallback available |
-| Text-to-Speech (TTS) | Bhashini — IndicTTS | Native-accent voice output in regional languages |
+| Speech Recognition (ASR) | Sarvam AI API — Saaras v3 | AI platform; supports multiple Indian languages; API key required |
+| Translation | Sarvam AI API — Mayura v1 | High-quality Indian language translation; reliable for regional languages |
+| Text-to-Speech (TTS) | Sarvam AI API — Bulbul v2 | Natural voice output in regional languages with speaker selection |
 | Primary LLM Inference | Groq API (Llama-3 70B) | Sub-2-second inference; free tier; no GPU hardware needed |
 | Multi-Model Fallback LLMs | OpenRouter API (StepFun 3.5, Nemotron 3 Nano) | Multi-model routing engine with reasoning-enabled models like stepfun/step-3.5-flash and nvidia/nemotron-3-nano-30b-a3b (free) for high-accuracy triage inference fallback |
 | Medical Knowledge Base | RAG on NHP India, MedQA, WHO guidelines | Retrieval-grounded responses eliminate hallucination risk |
@@ -57,10 +57,10 @@ A user speaks *"मला छाती दुखते"* (my chest hurts) in Mar
 [User Voice Input — any Indian language]
         │
         ▼
-[Bhashini IndicASR] ──► Speech → Regional Language Text
+[Sarvam Saaras v3] ──► Speech → Regional Language Text
         │
         ▼
-[Bhashini IndicTrans2] ──► Regional Text → English (for AI processing)
+[Sarvam Mayura v1] ──► Regional Text → English (for AI processing)
         │
         ▼
 [Intent Classifier]
@@ -85,10 +85,10 @@ A user speaks *"मला छाती दुखते"* (my chest hurts) in Mar
                      └── One-tap Call 108 button
         │
         ▼
-[Bhashini IndicTrans2] ──► English Response → User's Regional Language
+[Sarvam Mayura v1] ──► English Response → User's Regional Language
         │
         ▼
-[Bhashini IndicTTS] ──► Text → Spoken Voice Output in Regional Language
+[Sarvam Bulbul v2] ──► Text → Spoken Voice Output in Regional Language
         │
         ▼
 [WhatsApp / Web UI] ──► Voice + Text + Hospital Map Card delivered to user
@@ -100,7 +100,7 @@ Pulses.life does not rely solely on Google Maps for hospital navigation. The Nat
 
 **Step-by-step build plan (9 days):**
 
-Day 1–2: Register Bhashini API; integrate ASR + TTS pipeline; test with Hindi and Marathi samples. Load all three AIKosh hospital datasets into ChromaDB with geocoordinate indexing.
+Day 1–2: Obtain Sarvam AI API key; integrate ASR + TTS pipeline; test with Hindi and Marathi samples. Load all three AIKosh hospital datasets into ChromaDB with geocoordinate indexing.
 
 Day 3–4: Build RAG medical pipeline — index NHP India and WHO guidelines into ChromaDB; connect Groq LLM & OpenRouter LLMs; test medical Q&A accuracy and hallucination boundaries.
 
@@ -126,7 +126,7 @@ The entire stack uses free or low-cost APIs with no GPU or hardware requirement.
 
 | Challenge | Risk | Mitigation |
 |---|---|---|
-| Bhashini API approval delay | Medium | Register Day 1 of Phase 3; use open-source IndicTrans2 + Whisper as ASR fallback |
+| Sarvam API access delay | Medium | Obtain API key early; use open-source alternatives as fallback |
 | ASR accuracy in noisy rural environments | Medium | Add noise-filtering preprocessing (noisereduce library); provide text input fallback |
 | Medical AI hallucination | High | RAG architecture retrieves only from verified indexed sources; LLM cannot generate outside retrieved context; mandatory disclaimer on every response |
 | Google Maps quota limits | Low | AIKosh hospital database is the primary source; Maps API used only for routing display — reduces API dependency |
@@ -192,8 +192,8 @@ https://aikosh.indiaai.gov.in/home/datasets/details/telangana_health_centres_geo
 
 **Platform and API References:**
 
-8. Bhashini — National Language Translation Mission, Government of India.
-https://bhashini.gov.in/ and https://www.bhashini.ai/
+8. Sarvam AI — Multilingual AI Platform.
+https://sarvam.ai/
 
 9. OpenRouter AI — Unified API for high-performance reasoning models (StepFun, Nemotron).
 https://openrouter.ai/
