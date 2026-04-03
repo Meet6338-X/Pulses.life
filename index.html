@@ -107,14 +107,13 @@
     /* ─── NAV ─── */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: all .3s ease; }
     nav.scrolled { background: rgba(255,255,255,.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); box-shadow: var(--shadow-sm); }
-    .nav-inner { display: flex; align-items: center; justify-content: flex-start; height: 72px; }
-    .nav-logo-container { margin-right: auto; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
     .nav-logo { display: flex; align-items: center; gap: 12px; }
     .nav-logo img { height: 60px; width: auto; }
-    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links { display: flex; align-items: center; flex: 1; justify-content: space-around; }
     .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color .2s; }
     .nav-links a:hover { color: var(--blue); }
-    .nav-cta { display: flex; align-items: center; gap: 12px; margin-left: 40px; }
+    .nav-cta { display: flex; align-items: center; gap: 12px; }
     .hamburger { display: none; flex-direction: column; gap: 5px; background: none; padding: 8px; }
     .hamburger span { display: block; width: 22px; height: 2px; background: var(--text-primary); border-radius: 2px; transition: all .3s; }
     .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 20px 24px; z-index: 999; }
@@ -372,14 +371,12 @@
 <nav id="navbar">
   <div class="container">
     <div class="nav-inner">
-      <div class="nav-logo-container">
-        <a href="/" class="nav-logo" aria-label="Pulses.life Home">
-          <img src="logo.jpeg" alt="Pulses.life Logo — Voice-First AI Healthcare India" width="240" height="60" onerror="this.style.display='none';this.nextSibling.style.display='flex'" />
-          <span style="display:none;align-items:center;gap:8px;font-family:var(--font-head);font-weight:800;font-size:28px;letter-spacing:-.03em">
-            <span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Pulses</span><span style="color:var(--green)">.life</span>
-          </span>
-        </a>
-      </div>
+       <a href="/" class="nav-logo" aria-label="Pulses.life Home">
+         <img src="logo.jpeg" alt="Pulses.life Logo — Voice-First AI Healthcare India" width="240" height="60" onerror="this.style.display='none';this.nextSibling.style.display='flex'" />
+         <span style="display:none;align-items:center;gap:8px;font-family:var(--font-head);font-weight:800;font-size:28px;letter-spacing:-.03em">
+           <span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Pulses</span><span style="color:var(--green)">.life</span>
+         </span>
+       </a>
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#features">Features</a>
         <a href="#platform">Platform</a>
