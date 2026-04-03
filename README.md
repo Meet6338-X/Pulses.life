@@ -98,21 +98,31 @@ A user speaks *"मला छाती दुखते"* (my chest hurts) in Mar
 
 Pulses.life does not rely solely on Google Maps for hospital navigation. The National Hospital Directory (AIKosh, updated monthly) contains every hospital in India with geocoordinates, facility type, ownership, and service details. The CGHS Empaneled Hospital List provides a government quality benchmark — hospitals on this list are flagged as "Government Verified" in results, a critical trust signal for rural users wary of private facilities. The Telangana Health Centres dataset adds granular PHC and sub-centre level resolution for the demo region. All three datasets are indexed into ChromaDB alongside the medical knowledge base, creating a single unified query layer. Commercial mapping APIs surface corporate hospitals; this system surfaces the PHC 2 km away — which is exactly what a rural patient needs.
 
-**Step-by-step build plan (9 days):**
+**Step-by-step build plan (24-hour hackathon):**
 
-Day 1–2: Obtain Sarvam AI API key; integrate ASR + TTS pipeline; test with Hindi and Marathi samples. Load all three AIKosh hospital datasets into ChromaDB with geocoordinate indexing.
+**Phase 1 (Hours 0-6): Core Infrastructure Setup**
+- Obtain Sarvam AI API key and Groq API key
+- Set up Node.js backend with Express server and basic routes
+- Set up Next.js frontend with basic chat interface
+- Integrate Sarvam ASR + TTS pipeline for Hindi/Marathi
 
-Day 3–4: Build RAG medical pipeline — index NHP India and WHO guidelines into ChromaDB; connect Groq LLM & OpenRouter LLMs; test medical Q&A accuracy and hallucination boundaries.
+**Phase 2 (Hours 6-12): AI & Data Pipeline**
+- Implement Groq LLM integration for medical responses
+- Build basic RAG system with medical knowledge base
+- Load and process hospital data (AIKosh datasets)
+- Implement hospital search with geolocation
 
-Day 5: Build hospital navigation query layer; integrate CGHS cross-reference for verified tagging; connect Google Maps for routing. Render hospital card inside chat UI.
+**Phase 3 (Hours 12-18): Feature Integration**
+- Add emergency detection and 108 integration
+- Implement multilingual translation (Sarvam Mayura)
+- Build voice recorder and audio playback components
+- Connect frontend to backend APIs
 
-Day 6: Build emergency keyword detection; implement Emergency Mode UI with full-screen alert and 108 integration.
-
-Day 7: WhatsApp Business API integration; end-to-end pipeline testing across Hindi, Marathi, and Tamil.
-
-Day 8: Load testing, edge case handling, demo scenario rehearsal, cloud deployment.
-
-Day 9 (buffer): Bug fixes, offline fallback video preparation, jury Q&A rehearsal.
+**Phase 4 (Hours 18-24): Testing & Polish**
+- End-to-end testing across languages
+- UI/UX improvements and error handling
+- Demo scenario preparation and rehearsal
+- Final bug fixes and deployment readiness
 
 ---
 
