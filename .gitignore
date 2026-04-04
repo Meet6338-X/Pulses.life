@@ -111,7 +111,7 @@ build/
 secrets/
 keys/
 
-# MediRoute integration (separate system)
-nextmodule/
-nextmodule.zip
-Pulses.life/
+# MediRoute integration (now included)
+# nextmodule/
+# nextmodule.zip
+# Pulses.life/
