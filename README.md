@@ -1,20 +1,203 @@
----
+# 🚑 Pulses.life
 
-**Problem Statement ID –** Healthcare-2
+### Voice-First Multilingual AI Health Companion for Rural India
 
-**Problem Statement Title –** Multilingual AI Chatbot for Medical Guidance + Hospital Navigation
-
-**Theme –** Healthcare
-
-**Category –** Software
-
-**Team Name –** *(your registered portal name)*
+![Logo](https://github.com/Meet6338-X/Pulses.life/blob/master/logo.jpeg)
 
 ---
 
-**IDEA TITLE –** Pulses.life — Voice-First Multilingual AI Health Companion for Rural India
+## 📌 Overview
+
+**Pulses.life** is a voice-first, multilingual AI healthcare companion designed for India's non-English-speaking population. It enables users to speak symptoms in their native language and receive accurate, real-time medical guidance and hospital navigation.
+
+**Key Principles:**
+- Voice-first interaction
+- Multilingual accessibility (22+ Indian languages)
+- Zero-install (WhatsApp/Web)
+- Safe, retrieval-based medical AI
 
 ---
+
+## 🚀 Features
+
+- 🎙️ Speech-to-speech interaction in Indian languages  
+- 🧠 AI-powered medical triage (RAG-based)  
+- 🏥 Smart hospital discovery using government datasets  
+- 🚨 Emergency detection with instant escalation  
+- 📍 Real-time navigation with map integration  
+
+---
+
+## 🧠 Core Innovation
+
+Pulses.life uniquely combines:
+
+1. Multilingual voice AI (ASR + TTS)
+2. Retrieval-Augmented Generation (RAG) for medical safety
+3. Government-backed hospital datasets (AIKosh)
+4. Golden-hour emergency routing system
+5. WhatsApp-first accessibility
+
+---
+
+## 🎯 Example Flow
+
+User speaks: *"मला छाती दुखते"* (Marathi)
+
+System response:
+1. Converts speech → text  
+2. Detects high-risk symptom (cardiac)  
+3. Retrieves verified medical guidance  
+4. Finds nearest suitable hospital  
+5. Responds in Marathi (voice + text)  
+6. Triggers emergency option (Call 108)
+
+---
+
+## 🏗️ Architecture
+
+User Input (Voice)
+│
+▼
+Speech Recognition (ASR)
+▼
+Translation Layer
+▼
+Intent Classification
+│
+├── Medical Query → RAG Engine
+├── Hospital Search → Govt Dataset + Maps
+└── Emergency → Override Mode
+▼
+Text-to-Speech (TTS)
+▼
+User Output (Voice + UI)
+
+---
+
+---
+
+## 🚨 Golden Hour Emergency System
+
+### Problem
+Ambulances are typically routed to the nearest hospital, not the most suitable one, leading to critical delays.
+
+### Solution
+A real-time system that predicts patient needs and routes to the **optimal hospital**.
+
+---
+
+### Key Components
+
+#### 1. Severity Prediction
+- Inputs: symptoms, EMT data  
+- Outputs: ICU, ventilator, specialist requirements  
+
+#### 2. Constraint-Based Routing
+Optimizes:
+- Distance & ETA  
+- Hospital capacity  
+- Equipment availability  
+- Specialist availability  
+
+#### 3. Image-Based Triage (Twist)
+- Uses vision AI to assess accident severity  
+- Overrides routing for high-trauma cases  
+
+#### 4. Dynamic Rerouting
+- Detects road closures  
+- Updates route in real time  
+
+#### 5. Multi-Patient Optimization
+- Handles mass casualty scenarios  
+- Distributes patients across hospitals  
+
+---
+
+## 🧰 Tech Stack
+
+| Layer | Technology |
+|------|-----------|
+| ASR | Sarvam Saaras |
+| Translation | Sarvam Mayura |
+| TTS | Sarvam Bulbul |
+| LLM | Groq (LLaMA-3) |
+| Fallback | OpenRouter |
+| Vision | Google Cloud Vision |
+| Backend | FastAPI |
+| Frontend | React |
+| Database | ChromaDB |
+| Maps | Google Maps API |
+| Deployment | Docker / Cloud |
+
+---
+
+## 🧠 Medical Safety
+
+- No diagnosis or prescriptions  
+- RAG-based responses only  
+- Verified sources (WHO, Govt data)  
+- Mandatory disclaimer on all responses  
+- Emergency override for critical cases  
+
+---
+
+## 🌍 Impact
+
+**Target Users:**  
+500M+ rural & semi-urban Indians  
+
+**Benefits:**
+- Reduces language barriers  
+- Improves emergency response time  
+- Minimizes incorrect hospital visits  
+- Enables early intervention  
+
+---
+
+## 🔐 Compliance
+
+- Digital Personal Data Protection Act (DPDPA) compliant  
+- No long-term storage of user health data  
+- Privacy-first architecture  
+
+---
+
+## 🚀 Roadmap
+
+- WhatsApp production deployment  
+- ABDM integration  
+- Real-time hospital capacity APIs  
+- Offline support for low-connectivity regions  
+
+---
+
+## 📊 Deliverables
+
+- Severity prediction model  
+- Smart hospital routing engine  
+- Real-time ambulance dashboard  
+- Explainable AI decisions  
+- Multi-patient optimization system  
+
+---
+
+## 📄 License
+
+MIT License (or specify)
+
+---
+
+## 🤝 Contribution
+
+Contributions are welcome. Please open issues or submit pull requests.
+
+---
+
+## 🏁 Closing Note
+
+Pulses.life aims to become **public health infrastructure for India**, making healthcare
+
 
 **PROPOSED SOLUTION**
 
