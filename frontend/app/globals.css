@@ -755,6 +755,18 @@ h1, h2, h3, h4, h5, h6,
   background: var(--bg-body);
 }
 
+.action-btn.map {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  color: var(--text-body);
+}
+
+.action-btn.map:hover {
+  border-color: var(--accent-secondary);
+  color: var(--accent-secondary);
+  background: var(--bg-body);
+}
+
 /* Voice Recorder Waveform */
 .recorder-ui {
   display: flex;
