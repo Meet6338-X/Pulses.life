@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="MediRoute Emergency — Voice-powered emergency dispatch for India" />
+  <title>MediRoute — Emergency</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Top Header -->
+    <header id="header">
+      <div class="header-left">
+        <div class="pulse-dot"></div>
+        <span class="brand">Medi<span class="brand-accent">Route</span></span>
+      </div>
+      <div class="header-right" style="display:flex;align-items:center;gap:10px;">
+        <div class="connection-status">
+          <div class="conn-dot disconnected" id="connDot"></div>
+          <span class="conn-label disconnected" id="connLabel">OFFLINE</span>
+        </div>
+        <span class="lang-badge" id="langBadge">EN / हिं</span>
+      </div>
+    </header>
+
+    <!-- Screen 1: Chat Interface -->
+    <section id="chatScreen" class="screen active">
+      <div class="chat-container" id="chatContainer">
+        <div class="chat-welcome">
+          <div class="emergency-icon">🚨</div>
+          <h1>Emergency Assistance</h1>
+          <p>Describe your emergency in any language.<br/>आपातकालीन स्थिति बताएं।</p>
+        </div>
+        <div id="chatMessages" class="chat-messages"></div>
+      </div>
+      <div class="chat-input-area">
+        <button id="voiceBtn" class="voice-btn" aria-label="Voice Input">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" y1="19" x2="12" y2="23"/>
+            <line x1="8" y1="23" x2="16" y2="23"/>
+          </svg>
+        </button>
+        <input type="text" id="chatInput" class="chat-input" placeholder="Type your emergency or tap mic..." autocomplete="off" />
+        <button id="sendBtn" class="send-btn" aria-label="Send">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Screen 2: Severity Card + Assignment -->
+    <section id="severityScreen" class="screen">
+      <div id="severityCard" class="severity-card">
+        <div class="severity-header">
+          <span class="severity-label">SEVERITY ANALYSIS</span>
+          <div class="severity-badge" id="severityBadge">—</div>
+        </div>
+        <div class="severity-bar-container">
+          <div class="severity-bar" id="severityBar"></div>
+        </div>
+        <div class="severity-needs" id="severityNeeds"></div>
+        <div class="severity-specialist" id="severitySpecialist"></div>
+        <div class="severity-status" id="severityStatus">
+          <div class="connecting-pulse"></div>
+          <span>Connecting to dispatch...</span>
+        </div>
+      </div>
+
+      <div id="assignmentCard" class="assignment-card hidden">
+        <div class="assignment-header">
+          <div class="assignment-icon">🏥</div>
+          <div>
+            <div class="assignment-label">ASSIGNED HOSPITAL</div>
+            <h2 id="assignedHospitalName" class="assignment-hospital-name">—</h2>
+          </div>
+        </div>
+        <div class="assignment-details">
+          <div class="assignment-detail">
+            <span class="detail-icon">📍</span>
+            <span id="assignedDistance">—</span>
+          </div>
+          <div class="assignment-detail">
+            <span class="detail-icon">👨‍⚕️</span>
+            <span id="assignedSpecialist">—</span>
+          </div>
+          <div class="assignment-detail">
+            <span class="detail-icon">🛏️</span>
+            <span id="assignedBeds">—</span>
+          </div>
+        </div>
+        <div class="assignment-reason" id="assignmentReason"></div>
+        <div class="assignment-ambulance" id="ambulanceInfo">
+          <div class="ambulance-header">🚑 Ambulance Details</div>
+          <div id="ambulanceDetails"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 3: Live Tracking Map -->
+    <section id="trackingScreen" class="screen">
+      <div class="tracking-header">
+        <div class="eta-box" id="etaBox">
+          <div class="eta-label">ETA</div>
+          <div class="eta-value" id="etaValue">--</div>
+          <div class="eta-unit">min</div>
+        </div>
+        <div class="tracking-status" id="trackingStatus">Waiting for dispatch...</div>
+      </div>
+      <div id="trackingMap" class="tracking-map"></div>
+      <div class="tracking-footer" id="trackingFooter">
+        <div class="progress-info">
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="trackingProgress"></div>
+          </div>
+          <span id="trackingProgressText">0%</span>
+        </div>
+        <div class="driver-info" id="driverInfo"></div>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
