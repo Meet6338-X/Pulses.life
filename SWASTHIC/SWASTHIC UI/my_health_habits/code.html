@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Health Habits - SAMVED-VAKR</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df220",
+                        "background-light": "#f5f8f6",
+                        "background-dark": "#102211",
+                        "accent-purple": "#8b5cf6",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d1c0e] dark:text-white font-display">
+<!-- Top Navigation Bar -->
+<div class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="text-[#0d1c0e] dark:text-white flex size-12 shrink-0 items-center">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios</span>
+</div>
+<h2 class="text-[#0d1c0e] dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center">My Health Habits</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex size-10 items-center justify-center rounded-full bg-primary/10 text-[#0d1c0e] dark:text-white">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</div>
+</div>
+<main class="max-w-md mx-auto p-4 space-y-6 pb-24">
+<!-- Streak Banner -->
+<div class="bg-gradient-to-r from-primary to-[#0ad41c] rounded-xl p-5 shadow-lg shadow-primary/20 relative overflow-hidden">
+<div class="absolute right-[-10px] top-[-10px] opacity-20">
+<span class="material-symbols-outlined text-8xl text-white">local_fire_department</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-white text-3xl font-bold">local_fire_department</span>
+<p class="text-white text-2xl font-extrabold tracking-tight">7-Day Streak!</p>
+</div>
+<p class="text-white/90 text-sm font-medium">You're on fire! Keep it up for SAMVED-VAKR goal.</p>
+</div>
+</div>
+<!-- Main Progress Ring Section -->
+<div class="bg-white dark:bg-zinc-900 rounded-xl p-6 shadow-sm flex flex-col items-center">
+<div class="relative flex items-center justify-center">
+<!-- SVG Progress Ring -->
+<svg class="w-48 h-48">
+<circle class="text-primary/10" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-primary progress-ring-circle" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-dasharray="502.65" stroke-dashoffset="175.92" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute flex flex-col items-center justify-center">
+<span class="text-4xl font-black text-[#0d1c0e] dark:text-white">65%</span>
+<span class="text-xs font-semibold text-zinc-500 uppercase tracking-widest">Complete</span>
+</div>
+</div>
+<p class="mt-4 text-[#0d1c0e] dark:text-zinc-300 font-medium">4 of 6 habits completed today</p>
+</div>
+<!-- Habits Checklist -->
+<section class="space-y-3">
+<div class="flex items-center justify-between px-1">
+<h3 class="text-xl font-bold">Today's Habits</h3>
+<button class="text-primary font-bold text-sm">+ Add New</button>
+</div>
+<!-- Water Intake -->
+<div class="bg-white dark:bg-zinc-900 rounded-xl p-4 shadow-sm border border-primary/5">
+<div class="flex justify-between items-center mb-3">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-blue-500">
+<span class="material-symbols-outlined">water_drop</span>
+</div>
+<div>
+<h4 class="font-bold text-sm">Water Intake</h4>
+<p class="text-xs text-zinc-500">Goal: 2.5L • 1.8L logged</p>
+</div>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-[#0d1c0e] size-8 rounded-lg flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+<div class="w-full bg-zinc-100 dark:bg-zinc-800 rounded-full h-2">
+<div class="bg-blue-400 h-2 rounded-full" style="width: 72%;"></div>
+</div>
+</div>
+<!-- Sleep Tracking -->
+<div class="bg-white dark:bg-zinc-900 rounded-xl p-4 shadow-sm border border-primary/5">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-lg bg-indigo-50 dark:bg-indigo-900/20 flex items-center justify-center text-indigo-500">
+<span class="material-symbols-outlined">bedtime</span>
+</div>
+<div>
+<h4 class="font-bold text-sm">Sleep Duration</h4>
+<p class="text-xs text-zinc-500">Last night: 7.5 hours</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-zinc-400">edit_note</span>
+</div>
+</div>
+<!-- Exercise Timer -->
+<div class="bg-white dark:bg-zinc-900 rounded-xl p-4 shadow-sm border border-primary/5">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-lg bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center text-orange-500">
+<span class="material-symbols-outlined">exercise</span>
+</div>
+<div>
+<h4 class="font-bold text-sm">Morning Exercise</h4>
+<p class="text-xs text-zinc-500">Not started yet</p>
+</div>
+</div>
+<button class="bg-primary text-[#0d1c0e] px-4 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">play_arrow</span> Start
+                    </button>
+</div>
+</div>
+<!-- Healthy Eating -->
+<div class="bg-white dark:bg-zinc-900 rounded-xl p-4 shadow-sm border border-primary/5">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">nutrition</span>
+</div>
+<div>
+<h4 class="font-bold text-sm">Healthy Meals</h4>
+<p class="text-xs text-zinc-500">Goal: 3 nutritious meals</p>
+</div>
+</div>
+<div class="flex gap-1">
+<div class="size-6 rounded-full bg-primary flex items-center justify-center text-[#0d1c0e]">
+<span class="material-symbols-outlined text-xs font-bold">check</span>
+</div>
+<div class="size-6 rounded-full bg-primary flex items-center justify-center text-[#0d1c0e]">
+<span class="material-symbols-outlined text-xs font-bold">check</span>
+</div>
+<div class="size-6 rounded-full border-2 border-primary flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-xs font-bold">add</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Insights Link -->
+<div class="text-center py-2">
+<a class="text-accent-purple font-bold flex items-center justify-center gap-1 hover:underline" href="#">
+                View Insights <span class="material-symbols-outlined text-sm">trending_up</span>
+</a>
+</div>
+<!-- Weekly Snapshot -->
+<section class="bg-white dark:bg-zinc-900 rounded-xl p-5 shadow-sm">
+<h3 class="font-bold text-sm mb-4">Weekly Snapshot</h3>
+<div class="flex justify-between">
+<!-- Days of the week -->
+<div class="flex flex-col items-center gap-2">
+<span class="text-[10px] font-bold text-zinc-400 uppercase">Mon</span>
+<div class="size-8 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-[#0d1c0e] font-bold">check</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-[10px] font-bold text-zinc-400 uppercase">Tue</span>
+<div class="size-8 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-[#0d1c0e] font-bold">check</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-[10px] font-bold text-zinc-400 uppercase">Wed</span>
+<div class="size-8 rounded-full bg-primary/20 flex items-center justify-center">
+<div class="size-2 rounded-full bg-primary/40"></div>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-[10px] font-bold text-zinc-400 uppercase">Thu</span>
+<div class="size-8 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-[#0d1c0e] font-bold">check</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-[10px] font-bold text-zinc-400 uppercase">Fri</span>
+<div class="size-8 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-[#0d1c0e] font-bold">check</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-[10px] font-bold text-zinc-400 uppercase">Sat</span>
+<div class="size-8 rounded-full bg-primary flex items-center justify-center border-2 border-primary ring-2 ring-primary/20 ring-offset-2 ring-offset-white dark:ring-offset-zinc-900">
+<span class="material-symbols-outlined text-sm text-[#0d1c0e] font-bold">check</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-[10px] font-bold text-zinc-400 uppercase">Sun</span>
+<div class="size-8 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center">
+<span class="text-[10px] font-bold text-zinc-300">...</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Branding Footer -->
+<div class="text-center pb-8 opacity-40">
+<p class="text-[10px] uppercase font-bold tracking-tighter">SWASTHIC • SAMVED-VAKR Intelligence</p>
+</div>
+</main>
+<!-- Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-lg border-t border-zinc-200 dark:border-zinc-800 p-2 flex justify-around items-center">
+<button class="flex flex-col items-center gap-1 p-2">
+<span class="material-symbols-outlined text-zinc-400">dashboard</span>
+<span class="text-[10px] font-medium text-zinc-400">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 p-2">
+<span class="material-symbols-outlined text-primary fill-1">task_alt</span>
+<span class="text-[10px] font-bold text-primary">Habits</span>
+</button>
+<div class="relative -top-4">
+<button class="bg-primary size-14 rounded-full shadow-lg shadow-primary/40 flex items-center justify-center text-[#0d1c0e]">
+<span class="material-symbols-outlined text-3xl font-bold">medical_services</span>
+</button>
+</div>
+<button class="flex flex-col items-center gap-1 p-2">
+<span class="material-symbols-outlined text-zinc-400">emergency</span>
+<span class="text-[10px] font-medium text-zinc-400">SOS</span>
+</button>
+<button class="flex flex-col items-center gap-1 p-2">
+<span class="material-symbols-outlined text-zinc-400">account_circle</span>
+<span class="text-[10px] font-medium text-zinc-400">Profile</span>
+</button>
+</nav>
+</body></html>

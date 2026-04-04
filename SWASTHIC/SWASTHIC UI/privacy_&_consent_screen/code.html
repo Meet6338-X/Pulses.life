@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Privacy &amp; Consent - SWASTHIC</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df220",
+                        "background-light": "#f5f8f6",
+                        "background-dark": "#102211",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>body {
+    font-family: "Public Sans", sans-serif
+    }
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+/* Custom Checkbox Tick */
+.custom-checkbox:checked {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCaZFH5wOCNuvwsMi-Z8zPzYuqt0Am-yt72V21VxhbUsPrrx1i5oT8AyoVPS4h21HHBhFBXWw3tMcYSNorW2sBR9NPsGfqSy95gBI1QSYtmGy4L2WhXdlbmCmTHEeYfR4RyKp2LsCdzwCt3aQNtjEyG2I_XkujB7XXmaXZfZkzV6pXXGxOSNAWIoDez0cYJzvUmUIoUapRlZNevgYw5A-UVzu4IfDCmYj9VI612wj2EHJxx3I2Cbar90ODioqYHGPI8j9wVpNWAtYU)
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d1c0e] dark:text-white transition-colors duration-300">
+<div class="relative flex h-screen w-full max-w-[430px] mx-auto flex-col overflow-hidden bg-white dark:bg-background-dark shadow-2xl">
+<!-- Top App Bar (iOS style) -->
+<div class="flex items-center bg-white/80 dark:bg-background-dark/80 backdrop-blur-md sticky top-0 z-10 px-4 py-3 border-b border-gray-100 dark:border-gray-800">
+<button class="size-10 flex items-center justify-start text-[#0d1c0e] dark:text-white">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</button>
+<h2 class="flex-1 text-center text-base font-semibold leading-tight pr-10">Privacy &amp; Data Usage</h2>
+</div>
+<!-- Content Area -->
+<div class="flex-1 overflow-y-auto px-6 pt-8 pb-32">
+<!-- Hero Icon & Title -->
+<div class="flex flex-col items-center mb-8">
+<div class="size-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary text-4xl">verified_user</span>
+</div>
+<h1 class="text-2xl font-bold text-center tracking-tight">Your Privacy Matters</h1>
+<p class="text-sm text-center text-gray-600 dark:text-gray-400 mt-2 px-4">
+                    SWASTHIC (SAMVED-VAKR) uses anonymized health data to protect our city. Learn how we handle your information ethically.
+                </p>
+</div>
+<!-- Accordion Sections -->
+<div class="space-y-4">
+<!-- Accordion 1 -->
+<details class="group bg-[#f8fcf8] dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700 rounded-xl overflow-hidden transition-all duration-300">
+<summary class="flex items-center justify-between p-4 cursor-pointer list-none">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">data_usage</span>
+<span class="font-semibold text-[15px]">What We Collect</span>
+</div>
+<span class="material-symbols-outlined text-gray-400 group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-4 pb-4 text-sm leading-relaxed text-gray-600 dark:text-gray-400 border-t border-gray-50 dark:border-gray-800 pt-3">
+                        We only collect <strong>anonymized symptom data</strong> and blurred location info. Your personal identity, such as your full name or exact GPS coordinates, is never linked to the public health reports.
+                    </div>
+</details>
+<!-- Accordion 2 -->
+<details class="group bg-[#f8fcf8] dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700 rounded-xl overflow-hidden transition-all duration-300">
+<summary class="flex items-center justify-between p-4 cursor-pointer list-none">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<span class="font-semibold text-[15px]">How We Use Your Data</span>
+</div>
+<span class="material-symbols-outlined text-gray-400 group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-4 pb-4 text-sm leading-relaxed text-gray-600 dark:text-gray-400 border-t border-gray-50 dark:border-gray-800 pt-3">
+                        The data is aggregated to create <strong>city-wide health trends</strong>. This helps government bodies deploy emergency response teams and medical supplies to neighborhoods that need them most in real-time.
+                    </div>
+</details>
+<!-- Accordion 3 -->
+<details class="group bg-[#f8fcf8] dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700 rounded-xl overflow-hidden transition-all duration-300">
+<summary class="flex items-center justify-between p-4 cursor-pointer list-none">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">gpp_bad</span>
+<span class="font-semibold text-[15px]">What We DON'T Do</span>
+</div>
+<span class="material-symbols-outlined text-gray-400 group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-4 pb-4 text-sm leading-relaxed text-gray-600 dark:text-gray-400 border-t border-gray-50 dark:border-gray-800 pt-3">
+<ul class="space-y-2">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-red-500 text-xs mt-1">close</span>
+<span>We <strong>never sell your data</strong> to third-party advertisers or insurance companies.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-red-500 text-xs mt-1">close</span>
+<span>This app does <strong>not provide medical diagnosis</strong>; it is for reporting and surveillance only.</span>
+</li>
+</ul>
+</div>
+</details>
+</div>
+<!-- Policy Footer -->
+<div class="mt-8 text-center">
+<p class="text-[11px] text-gray-400 uppercase tracking-widest font-medium">
+                    Policy Version 1.2.0 | Updated Oct 2023
+                </p>
+</div>
+</div>
+<!-- Sticky Footer for iOS Action -->
+<div class="absolute bottom-0 left-0 right-0 bg-white/90 dark:bg-background-dark/90 backdrop-blur-xl border-t border-gray-100 dark:border-gray-800 p-6 pb-10">
+<div class="flex flex-col gap-4">
+<label class="flex items-start gap-3 cursor-pointer group">
+<div class="relative flex items-center">
+<input checked="" class="custom-checkbox peer h-5 w-5 rounded border-2 border-gray-300 dark:border-gray-600 bg-transparent text-primary focus:ring-primary/20 focus:ring-offset-0 transition-all checked:border-primary checked:bg-primary" id="consent-check" type="checkbox"/>
+</div>
+<span class="text-sm font-medium text-gray-700 dark:text-gray-300 leading-snug">
+                        I understand and consent to the SWASTHIC data usage terms.
+                    </span>
+</label>
+<!-- Accept Button (Enabled state shown as requested) -->
+<button class="w-full bg-primary py-4 rounded-xl font-bold text-[#0d1c0e] shadow-lg shadow-primary/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2" id="accept-btn">
+                    Accept &amp; Continue
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Background Pattern -->
+<div class="fixed inset-0 -z-10 h-full w-full bg-background-light dark:bg-background-dark opacity-30" data-alt="Subtle geometric green pattern background">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-primary/10"></div>
+</div>
+</body></html>

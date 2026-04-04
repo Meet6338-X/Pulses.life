@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Emergency Request Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df220",
+                        "emergency": "#FF3B30",
+                        "background-light": "#f5f8f6",
+                        "background-dark": "#102211",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        @keyframes pulse-red {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-pulse-red {
+            animation: pulse-red 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        .ios-blur {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0d1c0e] dark:text-white min-h-screen">
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden max-w-[430px] mx-auto bg-white dark:bg-background-dark shadow-2xl">
+<!-- Urgent Header -->
+<div class="bg-emergency p-4 pt-12 pb-6 text-white shadow-lg">
+<div class="flex items-center justify-between">
+<button class="flex size-10 items-center justify-center rounded-full bg-white/20 hover:bg-white/30 transition-colors">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios_new</span>
+</button>
+<div class="flex flex-col items-center">
+<h2 class="text-2xl font-extrabold tracking-widest animate-pulse-red">EMERGENCY</h2>
+<p class="text-[10px] font-bold opacity-80 uppercase tracking-tighter">SAMVED-VAKR / SWASTHIC</p>
+</div>
+<div class="size-10"></div> <!-- Spacer -->
+</div>
+</div>
+<!-- Emergency Category Selection -->
+<div class="flex flex-col p-4 flex-1">
+<h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-emergency">category</span>
+                Select Emergency Type
+            </h3>
+<!-- 2x2 Grid -->
+<div class="grid grid-cols-2 gap-4 mb-6">
+<!-- Medical -->
+<button class="flex flex-col items-center justify-center p-6 bg-white dark:bg-emerald-900/10 border-2 border-slate-100 dark:border-emerald-800/30 rounded-xl shadow-sm active:scale-95 transition-transform hover:border-emergency/30">
+<div class="size-14 bg-blue-50 dark:bg-blue-900/20 rounded-full flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-blue-500 text-4xl">medical_services</span>
+</div>
+<span class="font-bold text-sm">Medical</span>
+</button>
+<!-- Pregnancy -->
+<button class="flex flex-col items-center justify-center p-6 bg-white dark:bg-emerald-900/10 border-2 border-slate-100 dark:border-emerald-800/30 rounded-xl shadow-sm active:scale-95 transition-transform hover:border-emergency/30">
+<div class="size-14 bg-pink-50 dark:bg-pink-900/20 rounded-full flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-pink-500 text-4xl">pregnant_woman</span>
+</div>
+<span class="font-bold text-sm">Pregnancy</span>
+</button>
+<!-- Cardiac Arrest -->
+<button class="flex flex-col items-center justify-center p-6 bg-white dark:bg-emerald-900/10 border-2 border-slate-100 dark:border-emerald-800/30 rounded-xl shadow-sm active:scale-95 transition-transform border-emergency/20">
+<div class="size-14 bg-red-50 dark:bg-red-900/20 rounded-full flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-emergency text-4xl">cardiology</span>
+</div>
+<span class="font-bold text-sm">Cardiac Arrest</span>
+</button>
+<!-- Road Accident -->
+<button class="flex flex-col items-center justify-center p-6 bg-white dark:bg-emerald-900/10 border-2 border-slate-100 dark:border-emerald-800/30 rounded-xl shadow-sm active:scale-95 transition-transform hover:border-emergency/30">
+<div class="size-14 bg-orange-50 dark:bg-orange-900/20 rounded-full flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-orange-500 text-4xl">car_crash</span>
+</div>
+<span class="font-bold text-sm">Road Accident</span>
+</button>
+</div>
+<!-- Quick Dial Chips -->
+<div class="mb-6">
+<p class="text-xs font-bold text-slate-400 dark:text-emerald-500/50 uppercase mb-3 tracking-widest">Quick-Dial Services</p>
+<div class="flex gap-3 overflow-x-auto pb-2 no-scrollbar">
+<button class="flex items-center gap-2 px-5 py-2.5 bg-slate-100 dark:bg-white/5 rounded-full font-bold whitespace-nowrap active:bg-slate-200">
+<span class="material-symbols-outlined text-sm text-emergency">phone_in_talk</span>
+                        108 Ambulance
+                    </button>
+<button class="flex items-center gap-2 px-5 py-2.5 bg-slate-100 dark:bg-white/5 rounded-full font-bold whitespace-nowrap active:bg-slate-200">
+<span class="material-symbols-outlined text-sm text-emergency">phone_in_talk</span>
+                        102 Mother/Child
+                    </button>
+<button class="flex items-center gap-2 px-5 py-2.5 bg-slate-100 dark:bg-white/5 rounded-full font-bold whitespace-nowrap active:bg-slate-200">
+<span class="material-symbols-outlined text-sm text-emergency">phone_in_talk</span>
+                        104 Health
+                    </button>
+</div>
+</div>
+<!-- Location Module -->
+<div class="space-y-3 mb-8">
+<div class="flex flex-col">
+<p class="text-sm font-bold mb-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-base">my_location</span>
+                        Your Current Location
+                    </p>
+<div class="flex items-center bg-slate-100 dark:bg-white/5 p-4 rounded-xl border border-slate-200 dark:border-white/10">
+<div class="flex-1">
+<p class="text-base font-bold text-black dark:text-white">Shivajinagar, Pune</p>
+<p class="text-xs text-slate-500">Maharashtra, 411005</p>
+</div>
+<span class="material-symbols-outlined text-primary">verified</span>
+</div>
+</div>
+<!-- Map Preview -->
+<div class="w-full h-32 rounded-xl overflow-hidden relative shadow-inner">
+<div class="absolute inset-0 bg-slate-200 animate-pulse"></div>
+<img class="w-full h-full object-cover relative z-10" data-alt="Map showing current location in Shivajinagar Pune with a pulsing marker" data-location="Shivajinagar, Pune" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFntKuv-z3VgEW9xHXwOVSKn27LlNkxWBDVhpJMEODa3hmPkkS6pWK_YOYJVuIxgzjSRgR5JkEnAh21wlbH9tJcHpc1qIVN6pCpcJBlO_VqKjc7yo1ybcxM3XUC-blTbscLPAQ4RQVDwvUfgf8f59rjqVvYNgKKeJR05TnwW3ZuVhxEGXfZcLqsvTq9wfh4AuCbiMANrCj_YaXf_9RJI7IpxPJQLWk1pAdVo4WAXpXDPBNIYHElfrnpB1VaarCr81cN35NoKIrHEI"/>
+<div class="absolute inset-0 z-20 flex items-center justify-center">
+<div class="size-6 bg-primary/30 rounded-full flex items-center justify-center animate-ping"></div>
+<div class="size-3 bg-primary rounded-full absolute"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Action -->
+<div class="p-6 pt-0 bg-white dark:bg-background-dark/80 ios-blur sticky bottom-0 border-t border-slate-100 dark:border-white/5">
+<button class="w-full bg-emergency hover:bg-red-600 text-white flex flex-col items-center justify-center py-5 rounded-2xl shadow-lg shadow-red-500/30 transition-all active:scale-95 group relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 -translate-x-full group-hover:animate-[shimmer_2s_infinite]"></div>
+<span class="text-xl font-black tracking-tight flex items-center gap-2">
+<span class="material-symbols-outlined text-2xl">emergency_share</span>
+                    REQUEST AMBULANCE NOW
+                </span>
+<span class="text-[10px] font-bold opacity-75 uppercase mt-1">Average response time: 8-12 mins</span>
+</button>
+<p class="text-center text-[10px] text-slate-400 mt-4 uppercase font-bold tracking-widest">
+                Automated SOS sent to nearest dispatch hub
+            </p>
+</div>
+<!-- Bottom Safe Area Indicator (iOS) -->
+<div class="h-6 bg-white dark:bg-background-dark"></div>
+</div>
+<style>
+        @keyframes shimmer {
+            100% { transform: translateX(100%); }
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body></html>

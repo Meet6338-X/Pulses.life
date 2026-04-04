@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df220",
+                        "background-light": "#f5f8f6",
+                        "background-dark": "#102211",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.2; }
+            100% { transform: scale(1.4); opacity: 0; }
+        }
+        .animate-pulse-slow {
+            animation: pulse-ring 2.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+        }
+        .animate-pulse-delay {
+            animation: pulse-ring 2.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+            animation-delay: 1.25s;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased">
+<div class="relative flex h-screen w-full flex-col overflow-hidden bg-gradient-to-b from-primary/10 via-white to-white dark:from-background-dark dark:via-background-dark dark:to-background-dark">
+<!-- Main Content Area: Centered Branding -->
+<div class="flex flex-1 flex-col items-center justify-center px-8 text-center">
+<!-- Pulse Animation Container -->
+<div class="relative flex items-center justify-center mb-12">
+<!-- Outer Ring -->
+<div class="absolute h-48 w-48 rounded-full bg-primary/20 animate-pulse-slow"></div>
+<!-- Middle Ring -->
+<div class="absolute h-48 w-48 rounded-full bg-primary/20 animate-pulse-delay"></div>
+<!-- Logo Image/Icon Container -->
+<div class="relative z-10 flex h-32 w-32 items-center justify-center rounded-3xl bg-white dark:bg-gray-900 shadow-2xl shadow-primary/20">
+<div class="flex h-24 w-24 items-center justify-center rounded-2xl bg-primary/10">
+<span class="material-symbols-outlined text-primary !text-6xl" style="font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;">
+                            health_and_safety
+                        </span>
+</div>
+</div>
+</div>
+<!-- Branding Text -->
+<div class="space-y-2">
+<h1 class="text-4xl font-extrabold tracking-tight text-[#0d1c0e] dark:text-white">
+                    SWASTHIC
+                </h1>
+<p class="text-lg font-semibold tracking-wide text-primary/80 uppercase">
+                    City Health Intelligence
+                </p>
+<div class="mx-auto mt-4 h-1 w-12 rounded-full bg-primary/30"></div>
+</div>
+</div>
+<!-- Footer Area -->
+<div class="flex flex-col items-center gap-4 pb-12 px-8">
+<!-- Loading Indicator -->
+<div class="flex items-center gap-2 mb-4">
+<div class="h-1.5 w-1.5 rounded-full bg-primary animate-bounce"></div>
+<div class="h-1.5 w-1.5 rounded-full bg-primary animate-bounce [animation-delay:-0.15s]"></div>
+<div class="h-1.5 w-1.5 rounded-full bg-primary animate-bounce [animation-delay:-0.3s]"></div>
+</div>
+<!-- Legal and Version -->
+<div class="text-center space-y-2">
+<p class="text-xs font-medium text-gray-500 dark:text-gray-400 max-w-xs leading-relaxed">
+                    Official Government of India Health Portal. <br/>
+                    Data protected under privacy regulations.
+                </p>
+<p class="text-[10px] font-bold text-gray-400 dark:text-gray-600 uppercase tracking-widest">
+                    v2.0.0 • Variant 2
+                </p>
+</div>
+</div>
+<!-- Decorative Background Element -->
+<div class="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-primary/5 blur-3xl"></div>
+<div class="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-primary/5 blur-3xl"></div>
+</div>
+<!-- Hidden Hero for standard reference if needed -->
+<div class="hidden">
+<div class="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none flex-1" data-alt="Abstract medical technology and health data visualization background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDRymDB4wrlXOEnmgThEI_VM5-4h4Ft9e7sIRl2EZYzVXisdcAIBRi0VdZ2NJKuFVX26rDdXjTUOfiz2BG6Gs0De9seudARBtASgymmSlFKCe1vDzVADo7O8rBsJRUl2kABHv-yeWNPuiaiMvSxN99p75JYu-2wH4l7LpRhJIxWuPBxNMiLZTVEa-B6vSFOlWLN3C8eGCi4z1-jzkwBDVbcRnR5Ux6DDglNDJLHmGCqp01oqPugGbgD-kRDN22E3cjV2jMobWgfyao");'>
+</div>
+</div>
+</body></html>

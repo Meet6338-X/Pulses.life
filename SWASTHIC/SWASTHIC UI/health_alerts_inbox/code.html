@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Health Alerts Inbox - SWASTHIC</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df220",
+                        "background-light": "#f5f8f6",
+                        "background-dark": "#102211",
+                        "alert-high": "#ef4444",
+                        "alert-govt": "#3b82f6",
+                        "alert-reminder": "#0df220",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0d1c0e] selection:bg-primary/30">
+<div class="relative flex min-h-screen w-full flex-col max-w-[430px] mx-auto bg-background-light dark:bg-background-dark overflow-x-hidden shadow-2xl">
+<!-- Header Section -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 ios-blur border-b border-[#cee8d1] dark:border-[#2a3d2b]">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="text-[#0d1c0e] dark:text-white flex size-10 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios</span>
+</div>
+<h2 class="text-[#0d1c0e] dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center">Health Alerts</h2>
+<div class="flex w-10 items-center justify-end">
+<span class="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full ring-2 ring-white dark:ring-background-dark">5 NEW</span>
+</div>
+</div>
+<!-- Tabs -->
+<div class="px-4 overflow-x-auto hide-scrollbar">
+<div class="flex gap-6 whitespace-nowrap">
+<a class="flex flex-col items-center justify-center border-b-2 border-primary text-[#0d1c0e] dark:text-white pb-3 pt-4" href="#">
+<p class="text-sm font-bold">All</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-slate-500 dark:text-slate-400 pb-3 pt-4" href="#">
+<p class="text-sm font-medium">Unread</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-slate-500 dark:text-slate-400 pb-3 pt-4" href="#">
+<p class="text-sm font-medium">High Priority</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-slate-500 dark:text-slate-400 pb-3 pt-4" href="#">
+<p class="text-sm font-medium">Area Alerts</p>
+</a>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col">
+<!-- Quick Actions -->
+<div class="flex items-center gap-4 px-4 py-3 justify-between bg-white/40 dark:bg-white/5">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wider">Recent Notifications</p>
+<button class="text-primary text-sm font-semibold hover:opacity-80 transition-opacity flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">done_all</span>
+                    Mark all as read
+                </button>
+</div>
+<!-- Alert List -->
+<div class="flex flex-col gap-3 p-4">
+<!-- High Priority Alert -->
+<div class="relative overflow-hidden flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2e1b] p-4 shadow-sm border border-[#cee8d1]/30 dark:border-white/5">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-alert-high"></div>
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-alert-high text-xl">warning</span>
+<p class="text-alert-high text-[11px] font-bold tracking-widest uppercase">High Priority</p>
+</div>
+<p class="text-slate-400 text-[10px] font-medium">12 min ago</p>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col gap-1 flex-1">
+<p class="text-[#0d1c0e] dark:text-white text-base font-bold leading-tight">Dengue Cases Rising in Your Area</p>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Health dept reports a 15% increase in cases within 2km of your location. Stay alert.</p>
+</div>
+<div class="size-16 rounded-lg bg-cover bg-center shrink-0" data-alt="Microscopic view of virus particles" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC8PH3O8zFX_6fG5E6HPNkCNqTBI3o8aCHkVou1g2WOuV_cI6zXqTWXoYJbYUS-pZIgH7C_e74TXcw-_amGskXCDdE7JE0C_m83y9NqI0O4wsrip6GJGYUguKDxEW0DI4Nz-TBnB14zwnDkNmnlxJVt4LVDLY3T7u1tS5PJZ49-OfapSk7IWFr2Hx2w4aCHLM24pt5KB4Rbj2zH0tlbLDWDq7h6l3j-bjhWxOfTJKeaJEKyz_Lm0M2Q_lErNITy70TmwLJCLekY-44')"></div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-white/5">
+<button class="flex items-center gap-1 bg-alert-high/10 text-alert-high px-3 py-1.5 rounded-lg text-xs font-bold transition-all hover:bg-alert-high hover:text-white">
+                            View Details
+                            <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+<button class="text-slate-400 hover:text-slate-600">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Government Alert -->
+<div class="relative overflow-hidden flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2e1b] p-4 shadow-sm border border-[#cee8d1]/30 dark:border-white/5">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-alert-govt"></div>
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-alert-govt text-xl">account_balance</span>
+<p class="text-alert-govt text-[11px] font-bold tracking-widest uppercase">Government Update</p>
+</div>
+<p class="text-slate-400 text-[10px] font-medium">2 hours ago</p>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col gap-1 flex-1">
+<p class="text-[#0d1c0e] dark:text-white text-base font-bold leading-tight">New Vaccination Drive: Sector 5</p>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Official health department update regarding free booster clinics starting next Monday.</p>
+</div>
+<div class="size-16 rounded-lg bg-cover bg-center shrink-0" data-alt="Official government medical seal icon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCXZLqF-e3l69SdDqz7GL5MvOFmRNhTTD0hVSGo7X_LQVDGvxRMHIlktcqS7538EZ5_zUbmqJey2E-VHiAvMwbOS1ueFlix25bwMqEXpcGxfYl0_QtdatsikqpykXnaVYJQZyIowU022TclZKZp7Y5JGMnryg5ownqNt7p_ZI0xIY3V9PGcf-Ow5e2SXz3U2yRzyvyoLF8qNymfqTiJaoOlfCOPU5r8a4rtD2AFGKK4YeqT5PGfI0i45jju_Q064Jk0oUorrrmxM7A')"></div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-white/5">
+<button class="flex items-center gap-1 bg-alert-govt/10 text-alert-govt px-3 py-1.5 rounded-lg text-xs font-bold transition-all hover:bg-alert-govt hover:text-white">
+                            Find Centers
+                            <span class="material-symbols-outlined text-sm">map</span>
+</button>
+</div>
+</div>
+<!-- Area Alert (Map) -->
+<div class="relative overflow-hidden flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2e1b] p-4 shadow-sm border border-[#cee8d1]/30 dark:border-white/5">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-amber-500"></div>
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-500 text-xl">location_on</span>
+<p class="text-amber-500 text-[11px] font-bold tracking-widest uppercase">Area Alert</p>
+</div>
+<p class="text-slate-400 text-[10px] font-medium">4 hours ago</p>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex flex-col gap-1">
+<p class="text-[#0d1c0e] dark:text-white text-base font-bold leading-tight">Water Contamination Advisory</p>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Precautionary boil water notice for the North District due to main repairs.</p>
+</div>
+<div class="w-full h-24 bg-slate-100 dark:bg-slate-800 rounded-lg relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="City map highlighting affected district" data-location="North District" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAGzXwip3HuGCmhZ7CW5NIBpI127DcDRKXWvrvhq-A_VL-vXMZXnheyyTA1SxkoisbgukxWiRuWRI13Ijo8Saq-0f_zMQVpDpXZ-oY_arww4XJa1Ca402bEMl6kbjN_t57Tt8X7Tj-wCxB8aYCpi8TblkIaYVM0shFEQ7G27-G2Uko0gsKevzWpB30QlJOb5xP93uNZaQtMqJs7dtV98vktAGoO8ng1rtEs_VoU73QwwMQspXe5KhrwizpzZIpCbgg01v0gbEgfBDM')"></div>
+<div class="absolute inset-0 bg-amber-500/10 flex items-center justify-center">
+<span class="bg-white/90 dark:bg-black/80 px-2 py-1 rounded text-[10px] font-bold shadow-sm">Affected Zone: North District</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2">
+<button class="flex items-center gap-1 bg-amber-500/10 text-amber-600 px-3 py-1.5 rounded-lg text-xs font-bold">
+                            View Safe Zones
+                            <span class="material-symbols-outlined text-sm">explore</span>
+</button>
+</div>
+</div>
+<!-- Reminder Alert -->
+<div class="relative overflow-hidden flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2e1b] p-4 shadow-sm border border-[#cee8d1]/30 dark:border-white/5 opacity-75">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-alert-reminder"></div>
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-alert-reminder text-xl">check_circle</span>
+<p class="text-alert-reminder text-[11px] font-bold tracking-widest uppercase">Daily Reminder</p>
+</div>
+<p class="text-slate-400 text-[10px] font-medium">Yesterday</p>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-[#0d1c0e] dark:text-white text-base font-bold leading-tight">Daily Symptom Log Reminder</p>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Don't forget to update your daily health status to help community tracking.</p>
+</div>
+<div class="flex items-center justify-between pt-2">
+<button class="flex items-center gap-1 bg-primary text-[#0d1c0e] px-3 py-1.5 rounded-lg text-xs font-bold">
+                            Complete Log
+                            <span class="material-symbols-outlined text-sm">edit_note</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bottom Padding for Floating Actions -->
+<div class="h-20"></div>
+</main>
+<!-- iOS Bottom Tab Bar (Simplified) -->
+<nav class="fixed bottom-0 w-full max-w-[430px] bg-white/90 dark:bg-background-dark/90 ios-blur border-t border-[#cee8d1] dark:border-[#2a3d2b] flex justify-around items-center p-3 pb-6">
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-medium">Dashboard</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-[10px] font-medium">Alerts</span>
+<div class="absolute -top-1 right-0 size-2 bg-red-500 rounded-full border-2 border-white dark:border-background-dark"></div>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">health_metrics</span>
+<span class="text-[10px] font-medium">Symptoms</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</nav>
+<!-- iOS Home Indicator -->
+<div class="fixed bottom-1 left-1/2 -translate-x-1/2 w-32 h-1 bg-slate-300 dark:bg-slate-700 rounded-full"></div>
+</div>
+</body></html>

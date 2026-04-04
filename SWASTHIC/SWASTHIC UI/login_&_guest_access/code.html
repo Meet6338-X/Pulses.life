@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SWASTHIC - Login &amp; Guest Access</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#0df220",
+                "background-light": "#f5f8f6",
+                "background-dark": "#102211",
+                "emergency": "#dc2626",
+              },
+              fontFamily: {
+                "display": ["Public Sans"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+      </script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+        .ios-shadow {
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col">
+<!-- Emergency Banner -->
+<div class="bg-emergency w-full py-3 px-4 flex items-center justify-between sticky top-0 z-50">
+<div class="flex items-center gap-2 text-white">
+<span class="material-symbols-outlined text-xl">emergency</span>
+<span class="text-sm font-bold tracking-wide uppercase">Emergency Help</span>
+</div>
+<button class="bg-white/20 hover:bg-white/30 text-white text-xs font-bold px-4 py-1.5 rounded-full backdrop-blur-sm flex items-center gap-1 transition-all">
+            CALL NOW
+        </button>
+</div>
+<!-- Main Content Container -->
+<div class="flex-1 flex flex-col items-center justify-center p-6 @container">
+<!-- Branding & Logo Section -->
+<div class="w-full max-w-md text-center mb-8">
+<div class="inline-flex items-center justify-center size-20 bg-primary/10 rounded-3xl mb-4">
+<span class="material-symbols-outlined text-primary text-5xl" style="font-variation-settings: 'FILL' 1">health_and_safety</span>
+</div>
+<h1 class="text-3xl font-bold text-background-dark dark:text-white mb-2">SWASTHIC</h1>
+<p class="text-background-dark/60 dark:text-white/60 text-sm font-medium">City Health Intelligence System</p>
+</div>
+<!-- Login Card -->
+<div class="w-full max-w-md bg-white dark:bg-white/5 p-8 rounded-3xl ios-shadow border border-primary/5">
+<div class="mb-8">
+<h2 class="text-xl font-bold text-background-dark dark:text-white">Welcome back</h2>
+<p class="text-sm text-background-dark/50 dark:text-white/40 mt-1">Please enter your phone number to login</p>
+</div>
+<!-- Phone Input Form -->
+<form class="space-y-6" onsubmit="return false;">
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-background-dark/40 dark:text-white/40 uppercase tracking-widest ml-1">Phone Number</label>
+<div class="flex gap-3">
+<div class="relative min-w-[90px]">
+<select class="w-full bg-background-light dark:bg-white/10 border-none rounded-xl py-4 pl-4 pr-8 text-background-dark dark:text-white appearance-none focus:ring-2 focus:ring-primary/50 font-medium">
+<option value="+91">+91</option>
+<option value="+1">+1</option>
+<option value="+44">+44</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-background-dark/30 pointer-events-none">expand_more</span>
+</div>
+<input class="flex-1 bg-background-light dark:bg-white/10 border-none rounded-xl py-4 px-5 text-background-dark dark:text-white placeholder:text-background-dark/30 focus:ring-2 focus:ring-primary/50 font-medium" maxlength="10" placeholder="10-digit number" type="tel"/>
+</div>
+</div>
+<button class="w-full bg-primary hover:brightness-105 active:scale-[0.98] transition-all text-background-dark font-bold py-4 rounded-xl flex items-center justify-center gap-2">
+<span>Send OTP</span>
+<span class="material-symbols-outlined text-xl">arrow_forward</span>
+</button>
+</form>
+<!-- Divider -->
+<div class="relative my-8 text-center">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-background-dark/5 dark:border-white/5"></div>
+</div>
+<span class="relative px-4 bg-white dark:bg-[#102211] text-xs font-bold text-background-dark/30 dark:text-white/20 uppercase tracking-[0.2em]">OR</span>
+</div>
+<!-- Guest Access -->
+<button class="w-full bg-background-light dark:bg-white/5 hover:bg-background-light/80 dark:hover:bg-white/10 text-background-dark dark:text-white font-semibold py-4 rounded-xl flex items-center justify-center gap-3 transition-all">
+<span class="material-symbols-outlined text-xl">person_off</span>
+<span>Continue as Guest</span>
+</button>
+</div>
+<!-- Hero Illustration / Placeholder -->
+<div class="mt-12 w-full max-w-md px-4">
+<div class="aspect-video w-full rounded-2xl overflow-hidden bg-primary/5 flex flex-col items-center justify-center text-center p-6 border border-primary/10">
+<div class="size-16 rounded-full bg-white dark:bg-white/10 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary text-3xl">insights</span>
+</div>
+<h3 class="font-bold text-background-dark dark:text-white mb-1">Real-time Insights</h3>
+<p class="text-xs text-background-dark/60 dark:text-white/60">Access city-wide health reporting and symptom analysis instantly.</p>
+</div>
+</div>
+<!-- Footer Policy -->
+<div class="mt-auto py-8 text-center">
+<p class="text-xs text-background-dark/40 dark:text-white/30">
+                By continuing, you agree to our <br/>
+<a class="underline hover:text-primary transition-colors" href="#">Terms of Service</a> &amp; <a class="underline hover:text-primary transition-colors" href="#">Privacy Policy</a>
+</p>
+</div>
+</div>
+<!-- Hidden Map Context (for data-location requirement) -->
+<div class="hidden" data-location="City Center Health District" style=""></div>
+</body></html>

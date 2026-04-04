@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df220",
+                        "background-light": "#f5f8f6",
+                        "background-dark": "#102211",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .severity-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(to right, #0df220, #facc15, #ef4444);
+            border-radius: 3px;
+            outline: none;
+        }
+        .severity-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid #0d1c0e;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+    </style>
+<title>Symptom Details &amp; Severity - SWASTHIC</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0d1c0e] dark:text-white">
+<div class="relative flex min-h-screen w-full flex-col max-w-[430px] mx-auto bg-background-light dark:bg-background-dark overflow-x-hidden shadow-2xl">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-20 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-primary/10">
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-2xl" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold flex-1 text-center pr-10">Tell us more</h1>
+</header>
+<main class="flex-1 p-4 space-y-6 pb-32">
+<!-- Context Header -->
+<div class="space-y-1">
+<h2 class="text-2xl font-bold tracking-tight">Symptom Details</h2>
+<p class="text-sm opacity-70">Help SAMVED-VAKR analyze your condition by providing severity and duration.</p>
+</div>
+<!-- Card 1: Fever -->
+<section class="bg-white dark:bg-zinc-900 rounded-xl p-4 shadow-sm border border-primary/10 space-y-5">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">thermostat</span>
+</div>
+<h3 class="text-xl font-bold">Fever</h3>
+</div>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm font-medium">Severity (1-5)</span>
+<span class="text-xs font-bold px-2 py-1 rounded bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400">Moderate (3)</span>
+</div>
+<input class="severity-slider" max="5" min="1" type="range" value="3"/>
+<div class="flex justify-between mt-1 text-[10px] uppercase tracking-wider opacity-60">
+<span>Mild</span>
+<span>Severe</span>
+</div>
+</div>
+<div class="space-y-2">
+<span class="text-sm font-medium">How long has this lasted?</span>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-full text-xs font-semibold bg-primary/10 border border-primary/20 text-background-dark dark:text-white">Few hours</button>
+<button class="px-4 py-2 rounded-full text-xs font-semibold bg-primary text-background-dark border border-primary">1 day</button>
+<button class="px-4 py-2 rounded-full text-xs font-semibold bg-primary/10 border border-primary/20 text-background-dark dark:text-white">2-3 days</button>
+<button class="px-4 py-2 rounded-full text-xs font-semibold bg-primary/10 border border-primary/20 text-background-dark dark:text-white">More than a week</button>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">edit_note</span>
+                            Add details (Optional)
+                        </label>
+<textarea class="w-full rounded-lg bg-background-light dark:bg-zinc-800 border-none focus:ring-2 focus:ring-primary text-sm p-3 placeholder:opacity-50" placeholder="e.g. Temperature spikes at night..." rows="2"></textarea>
+</div>
+</div>
+</section>
+<!-- Card 2: Cough -->
+<section class="bg-white dark:bg-zinc-900 rounded-xl p-4 shadow-sm border border-primary/10 space-y-5 opacity-90">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">airwave</span>
+</div>
+<h3 class="text-xl font-bold">Cough</h3>
+</div>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm font-medium">Severity (1-5)</span>
+<span class="text-xs font-bold px-2 py-1 rounded bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">Mild (1)</span>
+</div>
+<input class="severity-slider" max="5" min="1" type="range" value="1"/>
+</div>
+<div class="space-y-2">
+<span class="text-sm font-medium">Duration</span>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-full text-xs font-semibold bg-primary text-background-dark border border-primary">Few hours</button>
+<button class="px-4 py-2 rounded-full text-xs font-semibold bg-primary/10 border border-primary/20 text-background-dark dark:text-white">1 day</button>
+<button class="px-4 py-2 rounded-full text-xs font-semibold bg-primary/10 border border-primary/20 text-background-dark dark:text-white">2-3 days</button>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-medium">Add details (Optional)</label>
+<textarea class="w-full rounded-lg bg-background-light dark:bg-zinc-800 border-none focus:ring-2 focus:ring-primary text-sm p-3 placeholder:opacity-50" placeholder="e.g. Dry cough, worse when lying down" rows="1"></textarea>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky Bottom Bar -->
+<footer class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] bg-white/90 dark:bg-zinc-950/90 backdrop-blur-xl border-t border-primary/20 p-4 pb-8 z-30">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between text-sm px-1">
+<span class="font-medium">Information Progress</span>
+<span class="font-bold text-primary">2/2 Complete</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-1.5 bg-primary/20 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-full transition-all duration-500"></div>
+</div>
+<button class="w-full bg-primary hover:brightness-95 text-background-dark font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-all">
+                    Continue to Summary
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</footer>
+</div>
+</body></html>

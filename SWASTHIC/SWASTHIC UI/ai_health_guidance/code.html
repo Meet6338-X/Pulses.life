@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Health Guidance</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df220",
+                        "background-light": "#f5f8f6",
+                        "background-dark": "#102211",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d1c0e]">
+<div class="relative flex h-auto min-h-screen w-full flex-col max-w-[480px] mx-auto bg-background-light dark:bg-background-dark overflow-x-hidden pb-20">
+<!-- Top App Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10 border-b border-primary/10">
+<div class="text-[#0d1c0e] dark:text-white flex size-12 shrink-0 items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-[#0d1c0e] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">AI Guidance</h2>
+</div>
+<!-- Success Banner -->
+<div class="p-4">
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-primary/10 p-4 border border-primary/20">
+<div class="flex flex-col gap-1 flex-[2_2_0px]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary font-bold">check_circle</span>
+<p class="text-[#0d1c0e] dark:text-white text-base font-bold leading-tight">Thank you!</p>
+</div>
+<p class="text-[#2d5c31] dark:text-primary/80 text-sm font-normal leading-normal">Your report has been submitted to SWASTHIC intelligence system.</p>
+</div>
+<div class="w-24 bg-center bg-no-repeat aspect-square bg-cover rounded-lg flex-1" data-alt="A clean medical icon or green checkmark graphic." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCA_J5xCKbgjAjVvdtI8H6haCVaOILqyFyE_yPqleGX96HbKtrrnbzFfArrtp4dKePru2VxQaZf5pbabls4n4b_WpLcUikCQvaRnaq4w8h_6zWN5kk4GJWD87WfVQKfzRvCq-y_LTh16lKE4FB74N0L1QsrSsRX_azEATLmmKRD_x67S9wtndo3STDq918sQRtls5Jc2LAcZJOGvOgzoTL_SKiNuvO3Rt96eiTpcaJrX59cRSjHaipmD6V9pd3chpcmLqzNJOGRbDo");'></div>
+</div>
+</div>
+<!-- Critical Disclaimer -->
+<div class="px-4 py-2 @container">
+<div class="flex flex-1 flex-col items-start justify-between gap-4 rounded-xl border-2 border-red-500 bg-red-50 p-5 dark:bg-red-900/10">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-red-600 dark:text-red-400">
+<span class="material-symbols-outlined">warning</span>
+<p class="text-base font-bold leading-tight">CRITICAL DISCLAIMER</p>
+</div>
+<p class="text-red-700 dark:text-red-300 text-sm font-medium leading-normal">
+                        This is NOT a medical diagnosis. For life-threatening emergencies, contact local services (102/108) immediately.
+                    </p>
+</div>
+<button class="w-full flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-red-600 text-white text-sm font-bold leading-normal">
+<span class="truncate">I Understand</span>
+</button>
+</div>
+</div>
+<!-- Symptoms Recap -->
+<div class="px-4 pt-4">
+<h3 class="text-[#0d1c0e] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] pb-2">Based on Your Symptoms</h3>
+<div class="flex gap-2 flex-wrap">
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary/20 border border-primary/30 px-4">
+<p class="text-[#0d1c0e] dark:text-white text-xs font-medium">Fever (101°F)</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary/20 border border-primary/30 px-4">
+<p class="text-[#0d1c0e] dark:text-white text-xs font-medium">Dry Cough</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary/20 border border-primary/30 px-4">
+<p class="text-[#0d1c0e] dark:text-white text-xs font-medium">Mild Fatigue</p>
+</div>
+</div>
+</div>
+<!-- Self-Care Recommendations -->
+<div class="px-4 pt-6">
+<h3 class="text-[#0d1c0e] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] mb-3">Self-Care Recommendations</h3>
+<div class="grid grid-cols-1 gap-3">
+<div class="flex items-center gap-4 p-4 bg-white dark:bg-background-dark border border-primary/10 rounded-xl shadow-sm">
+<div class="flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined">bed</span>
+</div>
+<div>
+<p class="font-bold text-sm text-[#0d1c0e] dark:text-white">Prioritize Rest</p>
+<p class="text-xs text-[#499c50]">Aim for 8-10 hours of sleep tonight.</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 bg-white dark:bg-background-dark border border-primary/10 rounded-xl shadow-sm">
+<div class="flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined">water_drop</span>
+</div>
+<div>
+<p class="font-bold text-sm text-[#0d1c0e] dark:text-white">Hydration</p>
+<p class="text-xs text-[#499c50]">Drink at least 2.5L of water daily.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Urgent Section -->
+<div class="px-4 pt-6">
+<div class="rounded-xl bg-red-50 dark:bg-red-950/20 p-4 border border-red-100 dark:border-red-900/30">
+<h3 class="text-red-700 dark:text-red-400 text-lg font-bold leading-tight tracking-[-0.015em] mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined">emergency_home</span>
+                    Seek Medical Care If
+                </h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-red-500 text-sm mt-0.5">report</span>
+<p class="text-sm text-red-800 dark:text-red-300">Difficulty breathing or shortness of breath</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-red-500 text-sm mt-0.5">report</span>
+<p class="text-sm text-red-800 dark:text-red-300">Persistent chest pain or pressure</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-red-500 text-sm mt-0.5">report</span>
+<p class="text-sm text-red-800 dark:text-red-300">New confusion or inability to wake</p>
+</li>
+</ul>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="p-4 flex flex-col gap-3">
+<button class="flex w-full items-center justify-center gap-2 rounded-xl h-12 bg-primary text-[#0d1c0e] font-bold text-base shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">local_hospital</span>
+                Find Nearby Hospital
+            </button>
+<button class="flex w-full items-center justify-center gap-2 rounded-xl h-12 border-2 border-primary/30 text-[#0d1c0e] dark:text-white font-bold text-base">
+<span class="material-symbols-outlined">history_edu</span>
+                Log Health Habits
+            </button>
+</div>
+<!-- Map Section (Find Nearby Preview) -->
+<div class="px-4 pb-8">
+<p class="text-xs text-[#499c50] font-medium mb-2 px-1 uppercase tracking-wider">Closest Emergency Center</p>
+<div class="relative h-32 w-full rounded-xl overflow-hidden border border-primary/10">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A stylized map showing medical facility markers." data-location="City Center" style='background-image: url("https://placeholder.pics/svg/300");'></div>
+<div class="absolute bottom-2 left-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur-sm p-2 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">location_on</span>
+<span class="text-xs font-bold dark:text-white">City General Hospital • 1.2km</span>
+</div>
+<span class="material-symbols-outlined text-primary text-sm">directions_car</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Mock (iOS Style) -->
+<div class="fixed bottom-0 left-0 right-0 max-w-[480px] mx-auto bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-t border-primary/10 px-6 py-3 flex justify-between items-center z-50">
+<div class="flex flex-col items-center text-primary">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center text-gray-400">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="text-[10px] font-medium">Stats</span>
+</div>
+<div class="flex flex-col items-center text-gray-400">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="text-[10px] font-medium">Services</span>
+</div>
+<div class="flex flex-col items-center text-gray-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</div>
+</body></html>

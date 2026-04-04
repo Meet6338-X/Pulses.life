@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Language Selection - SWASTHIC</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df220",
+                        "background-light": "#f5f8f6",
+                        "background-dark": "#102211",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .radio-selected {
+            border-color: #0df220;
+            background-color: rgba(13, 242, 32, 0.05);
+        }
+        .ios-shadow {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col font-display">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-3 flex items-center justify-between">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-slate-800 dark:text-slate-200">arrow_back_ios_new</span>
+</button>
+<div class="flex-1 text-center">
+<h1 class="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest">SWASTHIC</h1>
+</div>
+<div class="w-10"></div> <!-- Spacer for symmetry -->
+</header>
+<main class="flex-1 px-6 pt-8 pb-32">
+<!-- Hero Section -->
+<div class="mb-10 text-center">
+<div class="mb-6 inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[40px] font-light">language</span>
+</div>
+<h2 class="text-[28px] font-bold text-slate-900 dark:text-white leading-tight mb-2">
+                Choose Your Language
+            </h2>
+<h2 class="text-xl font-medium text-slate-600 dark:text-slate-300">
+                अपनी भाषा चुनें
+            </h2>
+</div>
+<!-- Language Options -->
+<div class="space-y-4">
+<!-- English -->
+<label class="relative flex items-center p-5 bg-white dark:bg-slate-900 border-2 border-transparent rounded-xl ios-shadow cursor-pointer transition-all active:scale-[0.98] group radio-selected">
+<input checked="" class="hidden peer" name="language" type="radio" value="english"/>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="text-lg font-bold text-slate-900 dark:text-white">English</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Welcome to SWASTHIC</p>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-primary flex items-center justify-center">
+<div class="w-3 h-3 bg-primary rounded-full"></div>
+</div>
+</label>
+<!-- Hindi -->
+<label class="relative flex items-center p-5 bg-white dark:bg-slate-900 border-2 border-slate-100 dark:border-slate-800 rounded-xl ios-shadow cursor-pointer transition-all active:scale-[0.98] group">
+<input class="hidden peer" name="language" type="radio" value="hindi"/>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="text-lg font-bold text-slate-900 dark:text-white">हिंदी</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">स्वास्थिक में आपका स्वागत है</p>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-slate-300 dark:border-slate-600 flex items-center justify-center">
+<div class="hidden w-3 h-3 bg-primary rounded-full"></div>
+</div>
+</label>
+<!-- Marathi -->
+<label class="relative flex items-center p-5 bg-white dark:bg-slate-900 border-2 border-slate-100 dark:border-slate-800 rounded-xl ios-shadow cursor-pointer transition-all active:scale-[0.98] group">
+<input class="hidden peer" name="language" type="radio" value="marathi"/>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="text-lg font-bold text-slate-900 dark:text-white">मराठी</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">स्वास्थिक मध्ये आपले स्वागत आहे</p>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-slate-300 dark:border-slate-600 flex items-center justify-center">
+<div class="hidden w-3 h-3 bg-primary rounded-full"></div>
+</div>
+</label>
+<!-- Other Local (Optional Placeholder for UI richness) -->
+<label class="relative flex items-center p-5 bg-white dark:bg-slate-900 border-2 border-slate-100 dark:border-slate-800 rounded-xl ios-shadow cursor-pointer transition-all active:scale-[0.98] group">
+<input class="hidden peer" name="language" type="radio" value="kannada"/>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="text-lg font-bold text-slate-900 dark:text-white">ಕನ್ನಡ</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">SWASTHIC ಗೆ ಸ್ವಾಗತ</p>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-slate-300 dark:border-slate-600 flex items-center justify-center">
+<div class="hidden w-3 h-3 bg-primary rounded-full"></div>
+</div>
+</label>
+</div>
+</main>
+<!-- Fixed Bottom Button -->
+<footer class="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background-light dark:from-background-dark via-background-light dark:via-background-dark to-transparent pt-12">
+<div class="max-w-md mx-auto">
+<button class="w-full bg-primary hover:bg-primary/90 text-slate-900 font-bold text-lg py-4 rounded-xl transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2 active:scale-[0.99]">
+<span>Continue / आगे बढ़ें</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<p class="text-center text-xs text-slate-400 dark:text-slate-500 mt-4 px-4 leading-relaxed">
+                By continuing, you agree to SWASTHIC's health data reporting protocols and terms of service.
+            </p>
+</div>
+</footer>
+<!-- Decorative Elements -->
+<div class="fixed top-0 right-0 -z-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+<div class="fixed bottom-0 left-0 -z-10 w-48 h-48 bg-primary/5 rounded-full blur-2xl translate-y-1/2 -translate-x-1/4"></div>
+</body></html>

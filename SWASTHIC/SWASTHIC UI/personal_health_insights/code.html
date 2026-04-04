@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Personal Health Insights - SAMVED-VAKR</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df220",
+                        "background-light": "#f5f8f6",
+                        "background-dark": "#102211",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .radial-progress {
+            background: radial-gradient(closest-side, white 79%, transparent 80% 100%),
+                        conic-gradient(#0df220 68%, #e7f4e8 0);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d1c0e] dark:text-[#f5f8f6] min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<div class="text-[#0d1c0e] dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-primary/10 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-[#0d1c0e] dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center">Your Health Insights</h2>
+<div class="flex size-10 items-center justify-center rounded-full bg-primary/20">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+</div>
+</header>
+<main class="max-w-md mx-auto pb-24">
+<!-- Period Selector -->
+<div class="px-4 py-4">
+<div class="flex h-11 items-center justify-center rounded-xl bg-primary/10 p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center rounded-lg px-2 has-[:checked]:bg-white has-[:checked]:shadow-sm text-sm font-semibold transition-all text-primary/70 has-[:checked]:text-[#0d1c0e]">
+<span>Week</span>
+<input checked="" class="hidden" name="period" type="radio" value="Week"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center rounded-lg px-2 has-[:checked]:bg-white has-[:checked]:shadow-sm text-sm font-semibold transition-all text-primary/70 has-[:checked]:text-[#0d1c0e]">
+<span>Month</span>
+<input class="hidden" name="period" type="radio" value="Month"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center rounded-lg px-2 has-[:checked]:bg-white has-[:checked]:shadow-sm text-sm font-semibold transition-all text-primary/70 has-[:checked]:text-[#0d1c0e]">
+<span>Year</span>
+<input class="hidden" name="period" type="radio" value="Year"/>
+</label>
+</div>
+</div>
+<!-- Overall Progress Hero Card -->
+<div class="px-4 py-2">
+<div class="bg-white dark:bg-[#1a2e1b] rounded-2xl p-6 shadow-[0_4px_20px_rgba(13,242,32,0.08)] flex items-center gap-6">
+<div class="relative flex-shrink-0">
+<div class="size-24 rounded-full radial-progress flex items-center justify-center">
+<span class="text-2xl font-bold">68%</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-sm font-medium text-primary uppercase tracking-wider">Overall Progress</p>
+<p class="text-lg font-bold leading-tight">Great job, Alex!</p>
+<p class="text-sm opacity-70">You're doing better than 75% of users this week.</p>
+</div>
+</div>
+</div>
+<!-- Trends Section -->
+<section class="mt-6">
+<div class="flex items-center justify-between px-4 mb-4">
+<h3 class="text-xl font-bold tracking-tight">Daily Trends</h3>
+<span class="material-symbols-outlined text-primary">insights</span>
+</div>
+<!-- Water Intake Chart -->
+<div class="px-4 mb-6">
+<div class="bg-white dark:bg-[#1a2e1b] rounded-2xl p-5 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-sm font-medium opacity-60">Water Intake</p>
+<p class="text-2xl font-bold">2.4L<span class="text-sm font-normal opacity-50 ml-1">/ day</span></p>
+</div>
+<div class="flex items-center gap-1 text-primary bg-primary/10 px-2 py-1 rounded-full text-xs font-bold">
+<span class="material-symbols-outlined text-xs">trending_up</span>
+                            +12%
+                        </div>
+</div>
+<!-- SVG Chart from components -->
+<div class="flex flex-col gap-4">
+<svg fill="none" height="100" preserveaspectratio="none" viewbox="-3 0 478 150" width="100%" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25V149H326.769H0V109Z" fill="url(#paint_water)"></path>
+<path d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25" stroke="#0df220" stroke-linecap="round" stroke-width="6"></path>
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="paint_water" x1="236" x2="236" y1="1" y2="149">
+<stop stop-color="#0df220" stop-opacity="0.3"></stop>
+<stop offset="1" stop-color="#0df220" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="flex justify-between px-1">
+<p class="text-[11px] font-bold opacity-40">M</p>
+<p class="text-[11px] font-bold opacity-40">T</p>
+<p class="text-[11px] font-bold opacity-40">W</p>
+<p class="text-[11px] font-bold opacity-40">T</p>
+<p class="text-[11px] font-bold opacity-40">F</p>
+<p class="text-[11px] font-bold opacity-40">S</p>
+<p class="text-[11px] font-bold opacity-40 text-primary">S</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Sleep & Screen Time Row -->
+<div class="flex gap-4 px-4 overflow-x-auto pb-4 scrollbar-hide">
+<!-- Sleep Quality -->
+<div class="min-w-[240px] bg-white dark:bg-[#1a2e1b] rounded-2xl p-5 shadow-sm">
+<p class="text-sm font-medium opacity-60">Sleep Quality</p>
+<p class="text-2xl font-bold mb-4">7.5 hrs</p>
+<div class="grid h-24 grid-flow-col gap-2 items-end justify-items-center">
+<div class="bg-primary/20 rounded-t w-full" style="height: 40%;"></div>
+<div class="bg-primary/20 rounded-t w-full" style="height: 70%;"></div>
+<div class="bg-primary/20 rounded-t w-full" style="height: 55%;"></div>
+<div class="bg-primary rounded-t w-full" style="height: 90%;"></div>
+<div class="bg-primary/20 rounded-t w-full" style="height: 65%;"></div>
+<div class="bg-primary/20 rounded-t w-full" style="height: 40%;"></div>
+<div class="bg-primary/20 rounded-t w-full" style="height: 80%;"></div>
+</div>
+<div class="flex justify-between mt-2">
+<p class="text-[10px] font-bold opacity-40">M</p>
+<p class="text-[10px] font-bold opacity-40">T</p>
+<p class="text-[10px] font-bold opacity-40">W</p>
+<p class="text-[10px] font-bold opacity-40">T</p>
+<p class="text-[10px] font-bold opacity-40">F</p>
+<p class="text-[10px] font-bold opacity-40">S</p>
+<p class="text-[10px] font-bold opacity-40">S</p>
+</div>
+</div>
+<!-- Screen Time -->
+<div class="min-w-[240px] bg-white dark:bg-[#1a2e1b] rounded-2xl p-5 shadow-sm">
+<p class="text-sm font-medium opacity-60">Screen Time</p>
+<p class="text-2xl font-bold mb-2">3h 20m</p>
+<div class="flex items-center gap-1 text-red-500 mb-4 text-xs font-bold">
+<span class="material-symbols-outlined text-xs">arrow_downward</span>
+                        -15% vs last week
+                    </div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="text-[10px] w-4 font-bold opacity-40">M</span>
+<div class="flex-1 h-2 bg-primary/10 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 45%;"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] w-4 font-bold opacity-40">T</span>
+<div class="flex-1 h-2 bg-primary/10 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 30%;"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] w-4 font-bold opacity-40">W</span>
+<div class="flex-1 h-2 bg-primary/10 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 65%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Achievements Section -->
+<section class="mt-6">
+<h3 class="text-xl font-bold tracking-tight px-4 mb-4">Achievements</h3>
+<div class="flex gap-6 px-4 overflow-x-auto pb-4">
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="size-20 rounded-full bg-gradient-to-tr from-primary to-green-300 flex items-center justify-center shadow-lg border-4 border-white dark:border-[#1a2e1b]">
+<span class="material-symbols-outlined text-3xl text-white">bolt</span>
+</div>
+<p class="text-xs font-bold text-center">7-Day Warrior</p>
+</div>
+<div class="flex flex-col items-center gap-2 shrink-0 opacity-40">
+<div class="size-20 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center border-4 border-white dark:border-[#1a2e1b]">
+<span class="material-symbols-outlined text-3xl text-gray-400">water_drop</span>
+</div>
+<p class="text-xs font-bold text-center">Hydration King</p>
+</div>
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="size-20 rounded-full bg-gradient-to-tr from-blue-400 to-blue-200 flex items-center justify-center shadow-lg border-4 border-white dark:border-[#1a2e1b]">
+<span class="material-symbols-outlined text-3xl text-white">bedtime</span>
+</div>
+<p class="text-xs font-bold text-center">Sleep Master</p>
+</div>
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="size-20 rounded-full bg-gradient-to-tr from-orange-400 to-yellow-200 flex items-center justify-center shadow-lg border-4 border-white dark:border-[#1a2e1b]">
+<span class="material-symbols-outlined text-3xl text-white">mindfulness</span>
+</div>
+<p class="text-xs font-bold text-center">Zen Master</p>
+</div>
+</div>
+</section>
+<!-- Correlation Insight Card -->
+<div class="px-4 mt-6">
+<div class="bg-gradient-to-br from-primary/20 to-primary/5 dark:from-primary/10 dark:to-transparent border border-primary/20 rounded-2xl p-6 relative overflow-hidden">
+<div class="relative z-10 flex gap-4 items-start">
+<div class="bg-white dark:bg-background-dark p-2 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+</div>
+<div>
+<p class="text-sm font-bold text-primary mb-1 uppercase tracking-tight">AI Health Insight</p>
+<p class="text-lg font-bold leading-tight text-[#0d1c0e] dark:text-white">"When you sleep well, you exercise more."</p>
+<p class="mt-2 text-sm opacity-70">Our data shows a 25% increase in physical activity on days following 8+ hours of sleep.</p>
+</div>
+</div>
+<!-- Abstract Pattern Decoration -->
+<div class="absolute -right-10 -bottom-10 size-32 bg-primary/10 rounded-full blur-2xl"></div>
+</div>
+</div>
+<!-- Goverment Disclaimer/System Tag -->
+<div class="mt-8 px-4 text-center">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full">
+<div class="size-1.5 bg-primary rounded-full animate-pulse"></div>
+<p class="text-[10px] font-bold uppercase tracking-widest opacity-50">SWASTHIC Health Intelligence Platform</p>
+</div>
+</div>
+</main>
+<!-- Navigation Tab Bar (iOS Style) -->
+<nav class="fixed bottom-0 inset-x-0 bg-white/80 dark:bg-background-dark/80 backdrop-blur-xl border-t border-gray-200 dark:border-gray-800 pb-8 pt-3 z-50">
+<div class="flex justify-around items-center max-w-md mx-auto px-6">
+<div class="flex flex-col items-center gap-1 opacity-40">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px] font-bold">Insights</span>
+</div>
+<div class="relative -top-6">
+<div class="size-14 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-primary/40 border-4 border-white dark:border-background-dark">
+<span class="material-symbols-outlined text-white text-3xl">add</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-1 opacity-40">
+<span class="material-symbols-outlined">emergency_share</span>
+<span class="text-[10px] font-bold">SOS</span>
+</div>
+<div class="flex flex-col items-center gap-1 opacity-40">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold">Settings</span>
+</div>
+</div>
+</nav>
+</body></html>

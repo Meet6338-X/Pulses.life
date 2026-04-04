@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Government Health Schemes - SAMVED-VAKR</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df220",
+                        "background-light": "#f5f8f6",
+                        "background-dark": "#102211",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d1c0e] dark:text-white">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 pt-10 pb-4 border-b border-primary/10">
+<div class="flex items-center justify-between mb-4">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios</span>
+</button>
+<h1 class="text-xl font-bold tracking-tight">Government Health Schemes</h1>
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+</button>
+</div>
+<!-- Search Bar -->
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-primary text-xl">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-3 border-none bg-white dark:bg-zinc-900 rounded-xl shadow-sm focus:ring-2 focus:ring-primary/50 text-sm placeholder-zinc-400 dark:placeholder-zinc-500 transition-all" placeholder="Search health schemes or benefits..." type="text"/>
+</div>
+</header>
+<main class="pb-24">
+<!-- Filter Chips -->
+<div class="flex overflow-x-auto px-4 py-4 gap-2 hide-scrollbar">
+<button class="flex-none px-5 py-2 rounded-full bg-primary text-[#0d1c0e] text-sm font-semibold shadow-md shadow-primary/20">All</button>
+<button class="flex-none px-5 py-2 rounded-full bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-300 text-sm font-medium border border-zinc-100 dark:border-zinc-800">Insurance</button>
+<button class="flex-none px-5 py-2 rounded-full bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-300 text-sm font-medium border border-zinc-100 dark:border-zinc-800">Maternal</button>
+<button class="flex-none px-5 py-2 rounded-full bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-300 text-sm font-medium border border-zinc-100 dark:border-zinc-800">Senior Citizens</button>
+<button class="flex-none px-5 py-2 rounded-full bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-300 text-sm font-medium border border-zinc-100 dark:border-zinc-800">Medicines</button>
+</div>
+<!-- Schemes Listing -->
+<div class="px-4 flex flex-col gap-4">
+<!-- Scheme Card 1 -->
+<div class="bg-white dark:bg-zinc-900 rounded-2xl p-5 shadow-sm border border-zinc-100 dark:border-zinc-800 relative overflow-hidden group">
+<div class="flex justify-between items-start mb-3">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-lg text-xs font-semibold bg-primary/10 text-primary uppercase tracking-wider">
+                        Insurance
+                    </span>
+<div class="flex gap-3">
+<button class="text-zinc-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+</div>
+<h3 class="text-lg font-bold mb-2 leading-tight">Ayushman Bharat (PM-JAY)</h3>
+<p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-4">
+                    Provides health insurance cover of ₹5 lakhs per family per year for secondary and tertiary care hospitalization.
+                </p>
+<div class="flex items-center justify-between pt-4 border-t border-zinc-50 dark:border-zinc-800">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[18px] font-bold">check_circle</span>
+<span class="text-xs font-bold uppercase tracking-wide">Eligible</span>
+</div>
+<button class="flex items-center gap-1 bg-zinc-50 dark:bg-zinc-800 px-3 py-1.5 rounded-lg hover:bg-primary hover:text-[#0d1c0e] transition-all group-hover:bg-primary group-hover:text-[#0d1c0e]">
+<span class="text-xs font-bold uppercase">Details</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Scheme Card 2 -->
+<div class="bg-white dark:bg-zinc-900 rounded-2xl p-5 shadow-sm border border-zinc-100 dark:border-zinc-800 relative overflow-hidden group">
+<div class="flex justify-between items-start mb-3">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-lg text-xs font-semibold bg-primary/10 text-primary uppercase tracking-wider">
+                        Maternal
+                    </span>
+<div class="flex gap-3">
+<button class="text-zinc-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+</div>
+<h3 class="text-lg font-bold mb-2 leading-tight">Janani Suraksha Yojana</h3>
+<p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-4">
+                    Safe motherhood intervention under NHM providing cash assistance for institutional delivery among poor pregnant women.
+                </p>
+<div class="flex items-center justify-between pt-4 border-t border-zinc-50 dark:border-zinc-800">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[18px] font-bold">check_circle</span>
+<span class="text-xs font-bold uppercase tracking-wide">Eligible</span>
+</div>
+<button class="flex items-center gap-1 bg-zinc-50 dark:bg-zinc-800 px-3 py-1.5 rounded-lg hover:bg-primary hover:text-[#0d1c0e] transition-all">
+<span class="text-xs font-bold uppercase">Details</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Image Banner for Featured Update -->
+<div class="relative w-full aspect-[21/9] rounded-2xl overflow-hidden shadow-lg my-2">
+<img class="w-full h-full object-cover" data-alt="Modern clinic interior with professional medical equipment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT-FALUQin4s7e6Zxoo7YCGWvUXTsSDsQgwYJw8m0SisQcLIreDYGAPesWbWSRlbL9OpX2CMG_3vwL1jIRnYyh6i9Q3_Tl4BQg2Zv629FrVrCG0FJiKZwZWLiP8CiZXtPoW8LgbNYUOObiRXipBPLMCqZ68Zv4vVyNh62T5dyPQkiFx0PXk-hVf49_CQVphK8jYQrOuWgHZZcTVT2SZt1dh1xueDdleOp8yfvxD8_VXWMENfxigKrkcu4kyuD4OMNqW0hPlF5CKBI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5">
+<span class="text-primary text-[10px] font-black uppercase tracking-widest mb-1">New Update</span>
+<h4 class="text-white font-bold text-lg leading-tight">Expanded Coverage for Senior Citizens</h4>
+</div>
+</div>
+<!-- Scheme Card 3 -->
+<div class="bg-white dark:bg-zinc-900 rounded-2xl p-5 shadow-sm border border-zinc-100 dark:border-zinc-800 relative overflow-hidden group">
+<div class="flex justify-between items-start mb-3">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-lg text-xs font-semibold bg-primary/10 text-primary uppercase tracking-wider">
+                        Medicines
+                    </span>
+<div class="flex gap-3">
+<button class="text-zinc-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+</div>
+<h3 class="text-lg font-bold mb-2 leading-tight">PM Jan Aushadhi Kendra</h3>
+<p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-4">
+                    Availability of quality generic medicines at much lower prices than the market through specialized kendras.
+                </p>
+<div class="flex items-center justify-between pt-4 border-t border-zinc-50 dark:border-zinc-800">
+<div class="flex items-center gap-1.5 text-zinc-400">
+<span class="material-symbols-outlined text-[18px]">info</span>
+<span class="text-xs font-bold uppercase tracking-wide">Verification Needed</span>
+</div>
+<button class="flex items-center gap-1 bg-zinc-50 dark:bg-zinc-800 px-3 py-1.5 rounded-lg hover:bg-primary hover:text-[#0d1c0e] transition-all">
+<span class="text-xs font-bold uppercase">Details</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Scheme Card 4 -->
+<div class="bg-white dark:bg-zinc-900 rounded-2xl p-5 shadow-sm border border-zinc-100 dark:border-zinc-800 relative overflow-hidden group">
+<div class="flex justify-between items-start mb-3">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-lg text-xs font-semibold bg-primary/10 text-primary uppercase tracking-wider">
+                        Senior Citizens
+                    </span>
+<div class="flex gap-3">
+<button class="text-zinc-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+</div>
+<h3 class="text-lg font-bold mb-2 leading-tight">Varishtha Pension Bima</h3>
+<p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-4">
+                    A pension scheme for senior citizens providing social security and health expenditure support via monthly payments.
+                </p>
+<div class="flex items-center justify-between pt-4 border-t border-zinc-50 dark:border-zinc-800">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[18px] font-bold">check_circle</span>
+<span class="text-xs font-bold uppercase tracking-wide">Eligible</span>
+</div>
+<button class="flex items-center gap-1 bg-zinc-50 dark:bg-zinc-800 px-3 py-1.5 rounded-lg hover:bg-primary hover:text-[#0d1c0e] transition-all">
+<span class="text-xs font-bold uppercase">Details</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button -->
+<div class="fixed bottom-8 right-6">
+<button class="w-16 h-16 bg-primary rounded-full shadow-2xl flex items-center justify-center text-[#0d1c0e] hover:scale-105 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-4xl font-bold">add</span>
+</button>
+<div class="absolute bottom-20 right-0 bg-zinc-900 text-white text-[10px] py-1 px-3 rounded-md whitespace-nowrap shadow-lg">
+            Suggest Scheme
+        </div>
+</div>
+<!-- iOS Tab Bar (Optional but good for context) -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-xl border-t border-zinc-100 dark:border-zinc-800 px-6 py-3 flex justify-between items-center z-40">
+<button class="flex flex-col items-center gap-1 text-zinc-400">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">clinical_notes</span>
+<span class="text-[10px] font-medium">Schemes</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-zinc-400">
+<span class="material-symbols-outlined">emergency_share</span>
+<span class="text-[10px] font-medium">Response</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-zinc-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</nav>
+</body></html>
