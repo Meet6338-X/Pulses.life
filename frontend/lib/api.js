@@ -1,4 +1,4 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5002';
 
 /**
  * Send a chat message (text or audio) to the backend
@@ -74,6 +74,8 @@ export function blobToBase64(blob) {
     reader.readAsDataURL(blob);
   });
 }
+
+
 
 /**
  * Play base64 audio in browser.
