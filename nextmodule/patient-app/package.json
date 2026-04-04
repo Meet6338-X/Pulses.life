@@ -1,0 +1,17 @@
+{
+  "name": "mediroute-patient-app",
+  "version": "1.0.0",
+  "description": "MediRoute Patient App — Voice emergency input + live ambulance tracking",
+  "scripts": {
+    "dev": "vite --port 5173 --host",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4",
+    "socket.io-client": "^4.7.4"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}

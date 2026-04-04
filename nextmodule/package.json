@@ -1,0 +1,13 @@
+{
+  "name": "mediroute",
+  "version": "1.0.0",
+  "description": "MediRoute — 3-Screen Real-Time Emergency Dispatch System",
+  "private": true,
+  "scripts": {
+    "install:all": "cd backend && npm install && cd ../patient-app && npm install && cd ../admin-app && npm install && cd ../hospital-app && npm install",
+    "start:backend": "cd backend && node index.js",
+    "start:patient": "cd patient-app && npx vite --port 5173 --host",
+    "start:admin": "cd admin-app && npx vite --port 5174 --host",
+    "start:hospital": "cd hospital-app && npx vite --port 5175 --host"
+  }
+}

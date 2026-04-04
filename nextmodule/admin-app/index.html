@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MediRoute Admin Dashboard — Real-time emergency dispatch command center" />
+  <title>MediRoute — Command Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Top Metrics Bar -->
+    <header id="metricsBar" class="metrics-bar">
+      <div class="metrics-brand">
+        <div class="pulse-dot-red"></div>
+        <span class="brand">Medi<span class="accent">Route</span></span>
+        <span class="brand-sub">COMMAND CENTER</span>
+      </div>
+      <div class="metrics-strip">
+        <div class="metric-item">
+          <span class="metric-value" id="metricCases">0</span>
+          <span class="metric-label">Cases Today</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric-item">
+          <span class="metric-value" id="metricAvgTime">0<span class="metric-unit">s</span></span>
+          <span class="metric-label">Avg Assignment</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric-item">
+          <span class="metric-value" id="metricHospitals">6</span>
+          <span class="metric-label">Hospitals Active</span>
+        </div>
+      </div>
+      <div class="metrics-live">
+        <div class="live-dot"></div>
+        <span>LIVE</span>
+      </div>
+    </header>
+
+    <!-- Three Column Layout -->
+    <main class="dashboard-main">
+      <!-- Left Column: Case Queue -->
+      <aside class="col-left" id="caseQueueCol">
+        <div class="col-header">
+          <h2>📋 Case Queue</h2>
+          <span class="case-count" id="caseCount">0</span>
+        </div>
+        <div class="case-queue" id="caseQueue">
+          <div class="empty-state" id="emptyState">
+            <div class="empty-icon">📡</div>
+            <p>Waiting for incoming cases...</p>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Center Column: City Map -->
+      <section class="col-center">
+        <div id="cityMap" class="city-map"></div>
+      </section>
+
+      <!-- Right Column: Hospital Grid -->
+      <aside class="col-right" id="hospitalGridCol">
+        <div class="col-header">
+          <h2>🏥 Hospitals</h2>
+        </div>
+        <div class="hospital-grid" id="hospitalGrid"></div>
+      </aside>
+    </main>
+
+    <!-- Routing Explainer Drawer -->
+    <div class="explainer-overlay hidden" id="explainerOverlay"></div>
+    <div class="explainer-drawer hidden" id="explainerDrawer">
+      <div class="explainer-header">
+        <h3>🧠 Routing Decision</h3>
+        <button class="explainer-close" id="explainerClose">✕</button>
+      </div>
+      <div class="explainer-content" id="explainerContent"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

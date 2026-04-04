@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MediRoute Hospital Panel — Incoming case alerts, Pune map, and ambulance dispatch" />
+  <title>MediRoute — Hospital Panel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Hospital Selector (shown initially) -->
+    <div id="hospitalSelector" class="hospital-selector">
+      <div class="selector-content">
+        <div class="selector-icon">🏥</div>
+        <h1>MediRoute Hospital Panel</h1>
+        <p>Select your hospital to begin receiving emergency dispatch alerts</p>
+        <div class="selector-grid" id="selectorGrid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Panel (shown after selection) -->
+    <div id="mainPanel" class="main-panel hidden">
+      <!-- Header -->
+      <header class="panel-header">
+        <div class="panel-header-left">
+          <div class="panel-logo">🏥</div>
+          <div>
+            <div class="panel-hospital-name" id="panelHospitalName">—</div>
+            <div class="panel-sub">MEDIROUTE CONNECTED • PUNE</div>
+          </div>
+        </div>
+        <div class="panel-header-right">
+          <div class="live-indicator">
+            <div class="live-dot"></div>
+            <span>LIVE</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Stat Boxes -->
+      <div class="stats-row" id="statsRow">
+        <div class="stat-box">
+          <div class="stat-value" id="statBeds">—</div>
+          <div class="stat-label">Beds Available</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="statCases">—</div>
+          <div class="stat-label">Active Cases</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="statAmbulances">—</div>
+          <div class="stat-label">Ambulances Ready</div>
+        </div>
+      </div>
+
+      <!-- Content Grid: Map + Ambulance List -->
+      <div class="content-grid">
+        <!-- Map Section -->
+        <div class="map-section">
+          <h3 class="section-title">📍 Pune Hospital Map</h3>
+          <div class="map-container" id="hospitalMap"></div>
+          <div class="map-legend">
+            <div class="legend-item"><span class="legend-dot legend-hospital"></span> Hospitals</div>
+            <div class="legend-item"><span class="legend-dot legend-selected"></span> Your Hospital</div>
+            <div class="legend-item"><span class="legend-dot legend-ambulance"></span> Ambulance</div>
+            <div class="legend-item"><span class="legend-dot legend-patient"></span> Patient</div>
+          </div>
+        </div>
+
+        <!-- Ambulance List -->
+        <div class="ambulance-section">
+          <h3 class="section-title">🚑 Ambulance Fleet</h3>
+          <div class="ambulance-list" id="ambulanceList">
+            <!-- Populated by JS -->
+          </div>
+
+          <!-- Case History -->
+          <h3 class="section-title" style="margin-top:20px;">📋 Case History</h3>
+          <div class="case-history" id="caseHistory">
+            <div class="case-history-empty">No cases yet. Waiting for incoming emergencies...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Incoming Alert Banner (hidden by default) -->
+      <div id="incomingAlert" class="incoming-alert hidden">
+        <div class="alert-content">
+          <div class="alert-header">
+            <div class="alert-icon">🚨</div>
+            <div class="alert-title">INCOMING CASE</div>
+          </div>
+          <div class="alert-severity" id="alertSeverity">CRITICAL</div>
+          <div class="alert-details">
+            <div class="alert-detail" id="alertNeeds"></div>
+            <div class="alert-detail" id="alertSpecialist"></div>
+            <div class="alert-detail" id="alertSummary"></div>
+            <div class="alert-detail" id="alertLocation"></div>
+          </div>
+          <div class="alert-actions">
+            <button class="dispatch-btn" id="dispatchBtn">
+              <span class="dispatch-btn-icon">🚑</span>
+              <span class="dispatch-btn-text">DISPATCH AMBULANCE</span>
+            </button>
+            <button class="reject-btn" id="rejectBtn">
+              CANNOT ACCEPT
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dim Overlay -->
+      <div id="dimOverlay" class="dim-overlay hidden"></div>
+
+      <!-- Dispatched confirmation -->
+      <div id="dispatchedConfirm" class="dispatched-confirm hidden">
+        <div class="dispatched-icon">
+          <svg width="80" height="80" viewBox="0 0 80 80" class="checkmark-svg">
+            <circle cx="40" cy="40" r="36" fill="none" stroke="#10b981" stroke-width="3" class="checkmark-circle"/>
+            <path d="M24 40 L35 51 L56 30" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="checkmark-check"/>
+          </svg>
+        </div>
+        <div class="dispatched-text">AMBULANCE DISPATCHED</div>
+        <div class="dispatched-sub" id="dispatchedSub">Ambulance en route to patient</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+  <script src="/src/main.js"></script>
+</body>
+</html>

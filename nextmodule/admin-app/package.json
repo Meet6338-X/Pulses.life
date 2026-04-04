@@ -1,0 +1,17 @@
+{
+  "name": "mediroute-admin-app",
+  "version": "1.0.0",
+  "description": "MediRoute Admin Dashboard — Real-time dispatch command center",
+  "scripts": {
+    "dev": "vite --port 5174 --host",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4",
+    "socket.io-client": "^4.7.4"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}

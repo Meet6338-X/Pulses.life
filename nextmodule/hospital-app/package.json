@@ -1,0 +1,16 @@
+{
+  "name": "mediroute-hospital-app",
+  "version": "1.0.0",
+  "description": "MediRoute Hospital Panel — Incoming case alerts + dispatch",
+  "scripts": {
+    "dev": "vite --port 5175 --host",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "socket.io-client": "^4.7.4"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}

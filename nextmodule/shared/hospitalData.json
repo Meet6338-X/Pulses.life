@@ -1,0 +1,202 @@
+{
+  "hospitals": [
+    {
+      "hospitalId": "h1",
+      "name": "Sahyadri Hospital, Deccan",
+      "coordinates": { "lat": 18.5158, "lng": 73.8402 },
+      "bedsAvailable": 6,
+      "bedsTotal": 14,
+      "specialistsOnDuty": ["Cardiologist", "Neurologist", "General"],
+      "currentLoad": 57,
+      "activeCases": 2,
+      "ambulances": [
+        {
+          "ambulanceId": "a1",
+          "driverName": "Rajesh Kulkarni",
+          "driverPhone": "+91-9876543210",
+          "vehicleNumber": "MH-12-AB-1234",
+          "status": "AVAILABLE",
+          "currentLocation": { "lat": 18.5162, "lng": 73.8408 },
+          "assignedCaseId": null
+        },
+        {
+          "ambulanceId": "a2",
+          "driverName": "Amit Jadhav",
+          "driverPhone": "+91-9876543211",
+          "vehicleNumber": "MH-12-CD-5678",
+          "status": "AVAILABLE",
+          "currentLocation": { "lat": 18.5155, "lng": 73.8395 },
+          "assignedCaseId": null
+        }
+      ]
+    },
+    {
+      "hospitalId": "h2",
+      "name": "Ruby Hall Clinic, Sassoon Road",
+      "coordinates": { "lat": 18.5308, "lng": 73.8774 },
+      "bedsAvailable": 4,
+      "bedsTotal": 12,
+      "specialistsOnDuty": ["Cardiologist", "Trauma Surgeon", "Orthopedic"],
+      "currentLoad": 67,
+      "activeCases": 3,
+      "ambulances": [
+        {
+          "ambulanceId": "a3",
+          "driverName": "Suresh Patil",
+          "driverPhone": "+91-9876543212",
+          "vehicleNumber": "MH-12-EF-9012",
+          "status": "AVAILABLE",
+          "currentLocation": { "lat": 18.5312, "lng": 73.8780 },
+          "assignedCaseId": null
+        },
+        {
+          "ambulanceId": "a4",
+          "driverName": "Manoj Deshmukh",
+          "driverPhone": "+91-9876543213",
+          "vehicleNumber": "MH-12-GH-3456",
+          "status": "AVAILABLE",
+          "currentLocation": { "lat": 18.5305, "lng": 73.8768 },
+          "assignedCaseId": null
+        }
+      ]
+    },
+    {
+      "hospitalId": "h3",
+      "name": "Deenanath Mangeshkar Hospital",
+      "coordinates": { "lat": 18.4988, "lng": 73.8318 },
+      "bedsAvailable": 9,
+      "bedsTotal": 18,
+      "specialistsOnDuty": ["Neurologist", "General", "Orthopedic", "Cardiologist"],
+      "currentLoad": 44,
+      "activeCases": 1,
+      "ambulances": [
+        {
+          "ambulanceId": "a5",
+          "driverName": "Vikram Shinde",
+          "driverPhone": "+91-9876543214",
+          "vehicleNumber": "MH-12-IJ-7890",
+          "status": "AVAILABLE",
+          "currentLocation": { "lat": 18.4992, "lng": 73.8322 },
+          "assignedCaseId": null
+        },
+        {
+          "ambulanceId": "a6",
+          "driverName": "Deepak Bhosale",
+          "driverPhone": "+91-9876543215",
+          "vehicleNumber": "MH-12-KL-1234",
+          "status": "AVAILABLE",
+          "currentLocation": { "lat": 18.4985, "lng": 73.8312 },
+          "assignedCaseId": null
+        },
+        {
+          "ambulanceId": "a7",
+          "driverName": "Prakash Gaikwad",
+          "driverPhone": "+91-9876543216",
+          "vehicleNumber": "MH-12-MN-5678",
+          "status": "AVAILABLE",
+          "currentLocation": { "lat": 18.4990, "lng": 73.8320 },
+          "assignedCaseId": null
+        }
+      ]
+    },
+    {
+      "hospitalId": "h4",
+      "name": "Jehangir Hospital",
+      "coordinates": { "lat": 18.5285, "lng": 73.8725 },
+      "bedsAvailable": 3,
+      "bedsTotal": 10,
+      "specialistsOnDuty": ["Trauma Surgeon", "General"],
+      "currentLoad": 70,
+      "activeCases": 4,
+      "ambulances": [
+        {
+          "ambulanceId": "a8",
+          "driverName": "Anil Mane",
+          "driverPhone": "+91-9876543217",
+          "vehicleNumber": "MH-12-OP-9012",
+          "status": "AVAILABLE",
+          "currentLocation": { "lat": 18.5288, "lng": 73.8730 },
+          "assignedCaseId": null
+        },
+        {
+          "ambulanceId": "a9",
+          "driverName": "Rahul Pawar",
+          "driverPhone": "+91-9876543218",
+          "vehicleNumber": "MH-12-QR-3456",
+          "status": "AVAILABLE",
+          "currentLocation": { "lat": 18.5282, "lng": 73.8720 },
+          "assignedCaseId": null
+        }
+      ]
+    },
+    {
+      "hospitalId": "h5",
+      "name": "Sassoon General Hospital",
+      "coordinates": { "lat": 18.5255, "lng": 73.8685 },
+      "bedsAvailable": 12,
+      "bedsTotal": 25,
+      "specialistsOnDuty": ["Trauma Surgeon", "Neurologist", "General", "Cardiologist", "Orthopedic"],
+      "currentLoad": 38,
+      "activeCases": 2,
+      "ambulances": [
+        {
+          "ambulanceId": "a10",
+          "driverName": "Sanjay Kale",
+          "driverPhone": "+91-9876543219",
+          "vehicleNumber": "MH-12-ST-7890",
+          "status": "AVAILABLE",
+          "currentLocation": { "lat": 18.5258, "lng": 73.8688 },
+          "assignedCaseId": null
+        },
+        {
+          "ambulanceId": "a11",
+          "driverName": "Kiran Thorat",
+          "driverPhone": "+91-9876543220",
+          "vehicleNumber": "MH-12-UV-1234",
+          "status": "AVAILABLE",
+          "currentLocation": { "lat": 18.5252, "lng": 73.8682 },
+          "assignedCaseId": null
+        },
+        {
+          "ambulanceId": "a12",
+          "driverName": "Nitin Sawant",
+          "driverPhone": "+91-9876543221",
+          "vehicleNumber": "MH-12-WX-5678",
+          "status": "AVAILABLE",
+          "currentLocation": { "lat": 18.5256, "lng": 73.8686 },
+          "assignedCaseId": null
+        }
+      ]
+    },
+    {
+      "hospitalId": "h6",
+      "name": "Bharati Vidyapeeth Hospital",
+      "coordinates": { "lat": 18.4590, "lng": 73.8508 },
+      "bedsAvailable": 8,
+      "bedsTotal": 16,
+      "specialistsOnDuty": ["General", "Trauma Surgeon", "Orthopedic"],
+      "currentLoad": 50,
+      "activeCases": 2,
+      "ambulances": [
+        {
+          "ambulanceId": "a13",
+          "driverName": "Mohan Kadam",
+          "driverPhone": "+91-9876543222",
+          "vehicleNumber": "MH-12-YZ-9012",
+          "status": "AVAILABLE",
+          "currentLocation": { "lat": 18.4594, "lng": 73.8512 },
+          "assignedCaseId": null
+        },
+        {
+          "ambulanceId": "a14",
+          "driverName": "Ganesh Wagh",
+          "driverPhone": "+91-9876543223",
+          "vehicleNumber": "MH-12-AA-3456",
+          "status": "AVAILABLE",
+          "currentLocation": { "lat": 18.4587, "lng": 73.8504 },
+          "assignedCaseId": null
+        }
+      ]
+    }
+  ]
+}
