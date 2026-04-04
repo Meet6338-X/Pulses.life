@@ -1,11 +1,15 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
+import dynamic from 'next/dynamic';
 import LanguageSelector from './LanguageSelector';
 import MessageBubble, { TypingIndicator } from './MessageBubble';
 import VoiceRecorder from './VoiceRecorder';
 import EmergencyAlert from './EmergencyAlert';
 import { sendMessage, sendEmergency, playAudioBase64 } from '../lib/api';
+
+// Dynamically import map component to avoid SSR issues
+const MapModal = dynamic(() => import('./MapModal'), { ssr: false });
 
 const SUGGESTIONS = [
   { icon: '🤒', text: 'I have a fever and headache' },
@@ -33,6 +37,7 @@ export default function ChatInterface() {
   const [location, setLocation] = useState(null);
   const [locationActive, setLocationActive] = useState(false);
   const [error, setError] = useState(null);
+  const [isMapOpen, setIsMapOpen] = useState(false);
   const currentAudioRef = useRef(null);
 
   const chatAreaRef = useRef(null);
@@ -272,6 +277,15 @@ export default function ChatInterface() {
           />
 
           <div className="input-actions">
+            <button
+              className="action-btn map"
+              onClick={() => setIsMapOpen(true)}
+              title="View hospital map"
+              aria-label="Open hospital map"
+            >
+              🗺️
+            </button>
+
             <VoiceRecorder
               language={language}
               onAudioReady={handleVoiceReady}
@@ -307,6 +321,11 @@ export default function ChatInterface() {
           </button>
         </div>
       </footer>
+
+      <MapModal
+        isOpen={isMapOpen}
+        onClose={() => setIsMapOpen(false)}
+      />
     </div>
   );
 }
