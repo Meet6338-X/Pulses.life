@@ -1,5 +1,5 @@
 // ============================================================
-// MediRoute Admin Dashboard — Main Entry Point
+// Pulses.life Admin Dashboard — Main Entry Point
 // Connects to backend, manages all panels
 // ============================================================
 

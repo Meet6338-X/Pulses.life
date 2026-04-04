@@ -1,5 +1,5 @@
 // ============================================================
-// MediRoute — Severity Parser
+// Pulses.life — Severity Parser
 // Extracts structured severity data from symptom text.
 // Uses keyword-based NLP (swappable for OpenAI/Groq later).
 // ============================================================

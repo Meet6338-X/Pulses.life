@@ -1,5 +1,5 @@
 // ============================================================
-// MediRoute Admin — Case Queue Module (Left Column)
+// Pulses.life Admin — Case Queue Module (Left Column)
 // Live case cards with severity colors and time counters
 // ============================================================
 

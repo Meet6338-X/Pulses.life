@@ -1,7 +1,7 @@
 {
-  "name": "mediroute-patient-app",
+  "name": "pulses.life-patient-app",
   "version": "1.0.0",
-  "description": "MediRoute Patient App — Voice emergency input + live ambulance tracking",
+  "description": "Pulses.life Patient App — Voice emergency input + live ambulance tracking",
   "scripts": {
     "dev": "vite --port 5173 --host",
     "build": "vite build",

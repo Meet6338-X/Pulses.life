@@ -1,7 +1,7 @@
 {
-  "name": "mediroute-admin-app",
+  "name": "pulses.life-admin-app",
   "version": "1.0.0",
-  "description": "MediRoute Admin Dashboard — Real-time dispatch command center",
+  "description": "Pulses.life Admin Dashboard — Real-time dispatch command center",
   "scripts": {
     "dev": "vite --port 5174 --host",
     "build": "vite build",

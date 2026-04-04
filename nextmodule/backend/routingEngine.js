@@ -1,5 +1,5 @@
 // ============================================================
-// MediRoute — Routing Engine
+// Pulses.life — Routing Engine
 // Scores each hospital on a 100-point scale to find the 
 // optimal match for an emergency case.
 // ============================================================
@@ -37,23 +37,23 @@ function scoreHospital(hospital, patientLocation, specialistRequired) {
     isAvailable: true
   };
 
-  // --- Distance Score (0-30 points) ---
+  // --- Distance Score (0-45 points) ---
   // Closer = higher score. Max distance we consider is 30km.
   const dist = haversineDistance(
     patientLocation.lat, patientLocation.lng,
     hospital.coordinates.lat, hospital.coordinates.lng
   );
   scores.distanceKm = Math.round(dist * 10) / 10;
-  scores.distanceScore = Math.max(0, Math.round(30 * (1 - dist / 30)));
+  scores.distanceScore = Math.max(0, Math.round(45 * (1 - dist / 30)));
 
-  // --- Bed Availability Score (0-25 points) ---
+  // --- Bed Availability Score (0-15 points) ---
   // More free beds = higher score
   if (hospital.bedsAvailable <= 0) {
     scores.bedScore = 0;
     scores.isAvailable = false;
   } else {
     const bedRatio = hospital.bedsAvailable / hospital.bedsTotal;
-    scores.bedScore = Math.round(25 * bedRatio);
+    scores.bedScore = Math.round(15 * bedRatio);
   }
 
   // --- Specialist Match Score (0-30 points) ---
@@ -68,9 +68,9 @@ function scoreHospital(hospital, patientLocation, specialistRequired) {
     scores.specialistScore = 10;
   }
 
-  // --- Current Load Score (0-15 points) ---
+  // --- Current Load Score (0-10 points) ---
   // Lower load = higher score
-  scores.loadScore = Math.round(15 * (1 - hospital.currentLoad / 100));
+  scores.loadScore = Math.round(10 * (1 - hospital.currentLoad / 100));
 
   // --- Total ---
   scores.totalScore = scores.distanceScore + scores.bedScore + scores.specialistScore + scores.loadScore;
@@ -84,14 +84,24 @@ function scoreHospital(hospital, patientLocation, specialistRequired) {
  * @param {Object} patientLocation - { lat, lng }
  * @param {string} specialistRequired - Required specialist type
  * @param {string|null} excludeHospitalId - Hospital to exclude (for re-routing)
+ * @param {boolean} requireLevel1Trauma - If true, only consider Level 1 Trauma Centers
  * @returns {{ bestHospital, allScores }} - Winner + full breakdown
  */
-function routeCase(hospitals, patientLocation, specialistRequired, excludeHospitalId = null) {
+function routeCase(hospitals, patientLocation, specialistRequired, excludeHospitalId = null, requireLevel1Trauma = false) {
   let candidates = hospitals;
   
   // Exclude rejected hospital if re-routing
   if (excludeHospitalId) {
-    candidates = hospitals.filter(h => h.hospitalId !== excludeHospitalId);
+    candidates = candidates.filter(h => h.hospitalId !== excludeHospitalId);
+  }
+
+  // If high severity accident scene, filter to Level 1 Trauma Centers
+  if (requireLevel1Trauma) {
+    candidates = candidates.filter(h => h.isLevel1Trauma);
+    // Fallback just in case no trauma center is found
+    if (candidates.length === 0) {
+      candidates = hospitals; 
+    }
   }
 
   // Score all hospitals

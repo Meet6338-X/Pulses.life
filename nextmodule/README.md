@@ -1,4 +1,4 @@
-# 🚑 MediRoute — Real-Time Emergency Dispatch System
+# 🚑 Pulses.life — Real-Time Emergency Dispatch System
 
 > **Built on top of Pulses.life** — extending India's multilingual voice health companion into a full emergency routing & ambulance dispatch platform.
 
@@ -10,7 +10,7 @@
 
 ## 🎯 What Is This?
 
-MediRoute is a **3-screen real-time emergency dispatch system** where:
+Pulses.life is a **3-screen real-time emergency dispatch system** where:
 
 1. **Device 1 (Patient's Phone)** — A patient speaks their symptoms via voice/text. AI extracts severity, and a live ambulance tracking map appears after dispatch.
 2. **Device 2 (Admin Dashboard)** — A command center showing live case queue, city map with hospital markers & moving ambulances, and hospital capacity grid.
@@ -45,7 +45,7 @@ All three screens are connected through **one backend** with genuine **WebSocket
 ## 📁 Project Structure
 
 ```
-mediroute/
+pulses.life/
 ├── README.md                ← You are here
 ├── package.json             ← Root workspace config
 │

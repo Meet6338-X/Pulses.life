@@ -1,7 +1,7 @@
 {
-  "name": "mediroute",
+  "name": "pulses.life",
   "version": "1.0.0",
-  "description": "MediRoute — 3-Screen Real-Time Emergency Dispatch System",
+  "description": "Pulses.life — 3-Screen Real-Time Emergency Dispatch System",
   "private": true,
   "scripts": {
     "install:all": "cd backend && npm install && cd ../patient-app && npm install && cd ../admin-app && npm install && cd ../hospital-app && npm install",

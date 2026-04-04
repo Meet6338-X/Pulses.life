@@ -1,12 +1,12 @@
 // ============================================================
-// MediRoute Patient App — Chat Module
+// Pulses.life Patient App — Chat Module
 // Voice/text emergency input with simulated bot conversation
 // ============================================================
 
 // Bot conversation flow — guides patient through symptom collection
 const BOT_FLOW = [
   {
-    message: "🚨 Namaste! I'm MediRoute Emergency Assistant.\n\nPlease describe your emergency. You can speak in Hindi or English.\n\nआपकी आपातकालीन स्थिति क्या है?",
+    message: "🚨 Namaste! I'm Pulses.life Emergency Assistant.\n\nPlease describe your emergency. You can speak in Hindi or English.\n\nआपकी आपातकालीन स्थिति क्या है?",
     waitForUser: true
   },
   {

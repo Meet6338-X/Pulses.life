@@ -1,5 +1,5 @@
 // ============================================================
-// MediRoute Patient App — Demo Mode
+// Pulses.life Patient App — Demo Mode
 // One-click demo that simulates the full emergency flow
 // for hackathon presentation (90 seconds)
 // Pune City Centric — all locations are in Pune
@@ -29,7 +29,7 @@ const DEMO_SCENARIOS = [
   {
     name: 'Stroke',
     messages: [
-      'My grandmother suddenly cannot move her left side and cannot speak properly',
+      'My grandmother had a stroke, she suddenly cannot move her left side and cannot speak properly',
       'We are at home near Sinhagad Road, Pune',
       'It happened just 10 minutes ago - she fell down suddenly'
     ],

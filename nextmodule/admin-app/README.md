@@ -17,7 +17,7 @@ npx vite --port 5174 --host
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  🔴 MediRoute COMMAND CENTER  │  Cases: 3  │  Avg: 0.2s  │ LIVE │
+│  🔴 Pulses.life COMMAND CENTER  │  Cases: 3  │  Avg: 0.2s  │ LIVE │
 ├──────────┬───────────────────────────────────┬──────────────┤
 │          │                                   │              │
 │  Case    │       City Map                    │  Hospital    │

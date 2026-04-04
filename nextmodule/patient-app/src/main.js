@@ -1,5 +1,5 @@
 // ============================================================
-// MediRoute Patient App — Main Entry Point
+// Pulses.life Patient App — Main Entry Point
 // Orchestrates chat → severity → tracking flow
 // ============================================================
 
@@ -15,7 +15,7 @@ const BACKEND_URL = 'http://localhost:3000';
 const socket = io(BACKEND_URL);
 
 socket.on('connect', () => {
-  console.log('✅ Connected to MediRoute backend:', socket.id);
+  console.log('✅ Connected to Pulses.life backend:', socket.id);
   updateConnectionUI(true);
 });
 
@@ -46,7 +46,9 @@ function updateConnectionUI(connected) {
 
 // ---- State ----
 let currentCaseId = null;
+let currentCaseData = null;
 let patientLocation = null;
+let isHighSeverityScene = false;
 
 // ---- Get user's actual location ----
 function getPatientLocation() {
@@ -99,6 +101,33 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Initialize demo mode (for hackathon presentation)
   createDemoButton(chatMessages, chatInput, onConversationComplete);
 
+  // Camera Button (Scene Photo)
+  const cameraBtn = document.getElementById('cameraBtn');
+  const cameraModal = document.getElementById('cameraModal');
+  const cameraStatusText = document.getElementById('cameraStatusText');
+  const cameraSpinner = document.getElementById('cameraSpinner');
+  if (cameraBtn) {
+    cameraBtn.addEventListener('click', () => {
+      cameraModal.style.display = 'flex';
+      cameraStatusText.style.color = '#94a3b8';
+      cameraStatusText.textContent = 'Running lightweight image classification...';
+      cameraSpinner.style.display = 'block';
+      cameraSpinner.style.borderColor = '#334155';
+      cameraSpinner.style.borderTopColor = '#3b82f6';
+      
+      setTimeout(() => {
+         cameraSpinner.style.borderTopColor = '#ef4444'; // Red for critical
+         cameraStatusText.style.color = '#ef4444';
+         cameraStatusText.innerHTML = '<strong>HIGH-SEVERITY TRAUMA DETECTED!</strong><br/>Routing restricted to Level 1 Trauma Centers only.';
+         isHighSeverityScene = true;
+         
+         setTimeout(() => {
+           cameraModal.style.display = 'none';
+         }, 2500);
+      }, 2000);
+    });
+  }
+
   // Send button
   sendBtn.addEventListener('click', () => {
     const text = chatInput.value.trim();
@@ -116,16 +145,46 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   });
 
+  // Demo Dispatch Button (in map view)
+  const demoDispatchBtn = document.getElementById('demoDispatchBtn');
+  const roadClosureBtn = document.getElementById('roadClosureBtn');
+  if (demoDispatchBtn) {
+    demoDispatchBtn.addEventListener('click', () => {
+      if (!currentCaseData || !currentCaseData.assignedHospital || !currentCaseData.assignedAmbulance) return;
+      demoDispatchBtn.style.display = 'none'; // hide button after click
+      roadClosureBtn.style.display = 'block'; // show road closure button for demo
+      socket.emit('ambulance:dispatched', {
+        caseId: currentCaseId,
+        hospitalId: currentCaseData.assignedHospital.hospitalId,
+        ambulanceId: currentCaseData.assignedAmbulance.ambulanceId
+      });
+    });
+  }
+
+  // Road Closure Demo Button
+  if (roadClosureBtn) {
+    roadClosureBtn.addEventListener('click', () => {
+       roadClosureBtn.style.display = 'none';
+       const trackingStatus = document.getElementById('trackingStatus');
+       if (trackingStatus) trackingStatus.innerHTML = '<span style="color:var(--error);">🚨 ROAD CLOSURE DETECTED. Re-routing...</span>';
+       socket.emit('admin:triggerRoadClosure', {});
+    });
+  }
+
   // ---- Socket Event: case:assigned ----
   socket.on('case:assigned', (caseData) => {
     console.log('📋 Case assigned:', caseData);
     currentCaseId = caseData.caseId;
+    currentCaseData = caseData;
     showAssignment(caseData);
 
     // After 3 seconds, show tracking map
     setTimeout(() => {
       showScreen('trackingScreen');
       
+      const demoDispatchBtn = document.getElementById('demoDispatchBtn');
+      if (demoDispatchBtn) demoDispatchBtn.style.display = 'block';
+
       if (caseData.assignedHospital) {
         const mapPatientLocation = caseData.patientLocation || patientLocation;
         initTrackingMap(
@@ -163,6 +222,38 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   });
 
+  // ---- Socket Event: case:rerouted ----
+  socket.on('case:rerouted', (data) => {
+    if (data.caseId === currentCaseId) {
+      console.log('🔄 Map Rerouting:', data);
+      
+      // Update case data
+      currentCaseData.assignedHospital = data.assignedHospital;
+      currentCaseData.assignedAmbulance = data.ambulance;
+      
+      // Re-initialize map with new hospital
+      const mapPatientLocation = currentCaseData.patientLocation || patientLocation;
+      initTrackingMap(
+         mapPatientLocation,
+         data.assignedHospital.coordinates,
+         data.assignedHospital.name
+      );
+
+      // Re-initialize tracking UI
+      const trackingStatus = document.getElementById('trackingStatus');
+      if (trackingStatus) {
+         trackingStatus.innerHTML = `Rerouted to ${data.assignedHospital.name}! ETA: ${data.estimatedTimeMinutes} min`;
+      }
+      const driverInfo = document.getElementById('driverInfo');
+      if (driverInfo && data.ambulance) {
+        driverInfo.innerHTML = `🚑 ${data.ambulance.vehicleNumber} • Driver: ${data.ambulance.driverName} <span style="color:var(--warning); margin-left:8px;">(REROUTED)</span>`;
+      }
+      
+      // Update severity card with new hospital info internally
+      showAssignment(currentCaseData);
+    }
+  });
+
   // ---- Socket Event: ambulance:arrived ----
   socket.on('ambulance:arrived', (data) => {
     console.log('🎉 Ambulance arrived!');
@@ -195,7 +286,8 @@ async function onConversationComplete(symptomsText) {
   socket.emit('case:new', {
     caseId: currentCaseId,
     patientLocation: caseLocation,
-    symptoms: symptomsText
+    symptoms: symptomsText,
+    requireLevel1Trauma: isHighSeverityScene
   });
 }
 

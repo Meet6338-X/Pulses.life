@@ -1,5 +1,5 @@
 // ============================================================
-// MediRoute — Ambulance Simulator
+// Pulses.life — Ambulance Simulator
 // Simulates ambulance movement from hospital to patient 
 // location by interpolating coordinates every 2 seconds.
 // For demo: accelerated to arrive in ~30 seconds for wow factor.

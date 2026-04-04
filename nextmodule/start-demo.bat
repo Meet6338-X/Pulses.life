@@ -1,6 +1,6 @@
 @echo off
 echo ================================================================
-echo   MediRoute Emergency Dispatch System - Demo Launcher
+echo   Pulses.life Emergency Dispatch System - Demo Launcher
 echo ================================================================
 echo.
 echo Starting all services...
@@ -8,22 +8,22 @@ echo.
 
 :: Start Backend
 echo [1/4] Starting Backend Server (port 3000)...
-start "MediRoute Backend" cmd /k "cd /d %~dp0backend && node index.js"
+start "Pulses.life Backend" cmd /k "cd /d %~dp0backend && node index.js"
 timeout /t 3 /nobreak > nul
 
 :: Start Patient App
 echo [2/4] Starting Patient App (port 5173)...
-start "MediRoute Patient" cmd /k "cd /d %~dp0patient-app && npx vite --port 5173 --host"
+start "Pulses.life Patient" cmd /k "cd /d %~dp0patient-app && npx vite --port 5173 --host"
 timeout /t 2 /nobreak > nul
 
 :: Start Admin Dashboard
 echo [3/4] Starting Admin Dashboard (port 5174)...
-start "MediRoute Admin" cmd /k "cd /d %~dp0admin-app && npx vite --port 5174 --host"
+start "Pulses.life Admin" cmd /k "cd /d %~dp0admin-app && npx vite --port 5174 --host"
 timeout /t 2 /nobreak > nul
 
 :: Start Hospital Panel
 echo [4/4] Starting Hospital Panel (port 5175)...
-start "MediRoute Hospital" cmd /k "cd /d %~dp0hospital-app && npx vite --port 5175 --host"
+start "Pulses.life Hospital" cmd /k "cd /d %~dp0hospital-app && npx vite --port 5175 --host"
 timeout /t 3 /nobreak > nul
 
 echo.

@@ -1,5 +1,5 @@
 // ============================================================
-// MediRoute — Backend Server
+// Pulses.life — Backend Server
 // Express + Socket.io server connecting all 3 devices.
 // This is the spine of the entire system.
 // ============================================================
@@ -107,12 +107,33 @@ function processNewCase(payload) {
   // 1. Parse severity from symptoms
   const severityData = parseSeverity(payload.symptoms || '');
 
-  // 2. Run routing engine
-  const { bestHospital, allScores, winnerScore } = routeCase(
-    store.hospitals,
-    payload.patientLocation || { lat: 18.5204, lng: 73.8567 },
-    severityData.specialistRequired
-  );
+  // 2. Run routing engine (or use targetHospitalId for direct assignment)
+  let bestHospital, allScores, winnerScore;
+  if (payload.targetHospitalId) {
+    // Force-assign to a specific hospital (for demo/simulation)
+    bestHospital = store.hospitals.find(h => h.hospitalId === payload.targetHospitalId);
+    const { allScores: scores, winnerScore: ws } = routeCase(
+      store.hospitals,
+      payload.patientLocation || { lat: 18.5204, lng: 73.8567 },
+      severityData.specialistRequired,
+      null,
+      payload.requireLevel1Trauma || false
+    );
+    allScores = scores;
+    winnerScore = scores.find(s => s.hospitalId === payload.targetHospitalId) || scores[0];
+    console.log(`🎯 Force-assigned to hospital: ${bestHospital?.name}`);
+  } else {
+    const result = routeCase(
+      store.hospitals,
+      payload.patientLocation || { lat: 18.5204, lng: 73.8567 },
+      severityData.specialistRequired,
+      null,
+      payload.requireLevel1Trauma || false
+    );
+    bestHospital = result.bestHospital;
+    allScores = result.allScores;
+    winnerScore = result.winnerScore;
+  }
 
   // 3. Find available ambulance from best hospital
   const hospitalInStore = store.hospitals.find(h => h.hospitalId === bestHospital.hospitalId);
@@ -129,6 +150,7 @@ function processNewCase(payload) {
     predictedNeeds: severityData.predictedNeeds,
     specialistRequired: severityData.specialistRequired,
     summaryForHospital: severityData.summaryForHospital,
+    requireLevel1Trauma: payload.requireLevel1Trauma || false,
     status: 'ASSIGNED',
     assignedHospital: bestHospital ? {
       hospitalId: bestHospital.hospitalId,
@@ -278,7 +300,8 @@ io.on('connection', (socket) => {
       store.hospitals,
       caseObj.patientLocation,
       caseObj.specialistRequired,
-      hospitalId
+      hospitalId,
+      caseObj.requireLevel1Trauma
     );
 
     // Update case
@@ -312,6 +335,102 @@ io.on('connection', (socket) => {
     console.log(`✅ Case ${caseId} re-routed to ${bestHospital.name}`);
   });
 
+  // --- admin:triggerRoadClosure — Emergency road block — re-route en-route ambulances ---
+  socket.on('admin:triggerRoadClosure', () => {
+    console.log(`🚧 EMERGENCY ROAD CLOSURE TRIGGERED. Re-evaluating active cases...`);
+    const dispatchedCases = store.cases.filter(c => c.status === 'DISPATCHED');
+    
+    dispatchedCases.forEach(caseObj => {
+      const currentHospitalId = caseObj.assignedHospital.hospitalId;
+      console.log(`Checking case ${caseObj.caseId} (currently going to ${caseObj.assignedHospital.name})...`);
+      
+      const { bestHospital, allScores, winnerScore } = routeCase(
+        store.hospitals,
+        caseObj.patientLocation,
+        caseObj.specialistRequired,
+        currentHospitalId, // Exclude current hospital due to road closure
+        caseObj.requireLevel1Trauma
+      );
+
+      if (bestHospital && bestHospital.hospitalId !== currentHospitalId) {
+        console.log(`🔄 Re-routing case ${caseObj.caseId} to better hospital: ${bestHospital.name}`);
+        
+        // Find new ambulance
+        const hospitalInStore = store.hospitals.find(h => h.hospitalId === bestHospital.hospitalId);
+        const availableAmbulance = hospitalInStore
+          ? hospitalInStore.ambulances.find(a => a.status === 'AVAILABLE')
+          : null;
+
+        if (!availableAmbulance) {
+          console.log(`⚠️  Could not find available ambulance at new hospital - keeping current assignment.`);
+          return;
+        }
+
+        // Free up old ambulance
+        const oldHospital = store.hospitals.find(h => h.hospitalId === currentHospitalId);
+        if (oldHospital) {
+           const oldAmb = oldHospital.ambulances.find(a => a.ambulanceId === caseObj.assignedAmbulance.ambulanceId);
+           if (oldAmb) {
+             oldAmb.status = 'AVAILABLE';
+             oldAmb.assignedCaseId = null;
+           }
+        }
+
+        // Cancel old simulation
+        stopSimulation(caseObj.caseId);
+
+        // Update case
+        caseObj.assignedHospital = {
+          hospitalId: bestHospital.hospitalId,
+          name: bestHospital.name,
+          coordinates: bestHospital.coordinates,
+          bedsAvailable: bestHospital.bedsAvailable,
+          specialistsOnDuty: bestHospital.specialistsOnDuty,
+          distanceKm: winnerScore.distanceKm
+        };
+        caseObj.assignedAmbulance = {
+          ambulanceId: availableAmbulance.ambulanceId,
+          driverName: availableAmbulance.driverName,
+          driverPhone: availableAmbulance.driverPhone,
+          vehicleNumber: availableAmbulance.vehicleNumber
+        };
+        caseObj.routingScores = allScores;
+
+        // Assign new ambulance
+        availableAmbulance.status = 'DISPATCHED';
+        availableAmbulance.assignedCaseId = caseObj.caseId;
+
+        // Start new simulation from new hospital
+        const simInfo = startSimulation(
+          io,
+          caseObj.caseId,
+          availableAmbulance,
+          bestHospital.coordinates,
+          caseObj.patientLocation
+        );
+
+        // Notify UI components
+        const updateData = {
+          caseId: caseObj.caseId,
+          assignedHospital: caseObj.assignedHospital,
+          ambulance: {
+            ambulanceId: availableAmbulance.ambulanceId,
+            driverName: availableAmbulance.driverName,
+            vehicleNumber: availableAmbulance.vehicleNumber,
+            currentLocation: bestHospital.coordinates
+          },
+          estimatedTimeMinutes: simInfo.estimatedTimeMinutes,
+          totalDistanceKm: simInfo.totalDistanceKm
+        };
+        
+        // Broad event for the patient map to redraw
+        io.emit('case:rerouted', updateData);
+        // Refresh hospital panels
+        io.emit('hospital:update', { hospitals: store.hospitals });
+      }
+    });
+  });
+
   // --- Disconnect ---
   socket.on('disconnect', () => {
     console.log(`❎ Client disconnected: ${socket.id}`);
@@ -326,7 +445,7 @@ server.listen(PORT, () => {
   console.log(`
 ╔══════════════════════════════════════════════════════════════╗
 ║                                                              ║
-║   🚑 MediRoute Backend Server                               ║
+║   🚑 Pulses.life Backend Server                               ║
 ║   Running on http://localhost:${PORT}                          ║
 ║                                                              ║
 ║   REST Endpoints:                                            ║

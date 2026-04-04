@@ -1,5 +1,5 @@
 // ============================================================
-// MediRoute Admin — Metrics Bar Module (Top Strip)
+// Pulses.life Admin — Metrics Bar Module (Top Strip)
 // Live-updating operational metrics
 // ============================================================
 

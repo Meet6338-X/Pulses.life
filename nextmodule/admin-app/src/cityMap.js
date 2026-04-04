@@ -1,5 +1,5 @@
 // ============================================================
-// MediRoute Admin — City Map Module (Center Column)
+// Pulses.life Admin — City Map Module (Center Column)
 // Leaflet.js map with hospital/ambulance/patient markers
 // Pune City Centric
 // ============================================================

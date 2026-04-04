@@ -1,5 +1,5 @@
 // ============================================================
-// MediRoute — Socket Event Constants
+// Pulses.life — Socket Event Constants
 // Every socket event in the system is defined here.
 // Do NOT use raw strings for event names anywhere else.
 // ============================================================

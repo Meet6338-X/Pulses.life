@@ -1,7 +1,7 @@
 {
-  "name": "mediroute-backend",
+  "name": "pulses.life-backend",
   "version": "1.0.0",
-  "description": "MediRoute real-time emergency dispatch backend — Express + Socket.io",
+  "description": "Pulses.life real-time emergency dispatch backend — Express + Socket.io",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

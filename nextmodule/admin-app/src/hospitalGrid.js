@@ -1,5 +1,5 @@
 // ============================================================
-// MediRoute Admin — Hospital Grid Module (Right Column)
+// Pulses.life Admin — Hospital Grid Module (Right Column)
 // Hospital capacity cards with load bars and specialist chips
 // ============================================================
 

@@ -1,5 +1,5 @@
 // ============================================================
-// MediRoute Admin — Explainer Drawer Module
+// Pulses.life Admin — Explainer Drawer Module
 // Shows routing decision breakdown with score table
 // ============================================================
 

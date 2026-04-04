@@ -1,5 +1,5 @@
 // ============================================================
-// MediRoute Patient App — Tracking Map Module
+// Pulses.life Patient App — Tracking Map Module
 // Leaflet.js with live ambulance position tracking
 // ============================================================
 
@@ -8,6 +8,7 @@ let patientMarker = null;
 let hospitalMarker = null;
 let ambulanceMarker = null;
 let routeLine = null;
+let cachedRouteCoords = null;
 
 const MAP_TILES = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
 
@@ -57,18 +58,30 @@ export function initTrackingMap(patientLocation, hospitalLocation, hospitalName)
     icon: hospitalIcon
   }).addTo(map).bindPopup(`🏥 ${hospitalName}`);
 
-  // Route line (dashed)
-  routeLine = L.polyline(
-    [[hospitalLocation.lat, hospitalLocation.lng], [patientLocation.lat, patientLocation.lng]],
-    {
-      color: '#2563eb',
-      weight: 3,
-      dashArray: '8, 8',
-      opacity: 0.5
-    }
-  ).addTo(map);
+  // Route line (Direct shortest path along roads using OSRM)
+  cachedRouteCoords = null; // reset for new route
+  const routingControl = L.Routing.control({
+    waypoints: [
+      L.latLng(hospitalLocation.lat, hospitalLocation.lng),
+      L.latLng(patientLocation.lat, patientLocation.lng)
+    ],
+    router: L.Routing.osrmv1({
+      serviceUrl: 'https://router.project-osrm.org/route/v1'
+    }),
+    lineOptions: {
+      styles: [{color: '#10b981', opacity: 0.8, weight: 5}]
+    },
+    createMarker: function() { return null; }, // Hide default routing markers
+    fitSelectedRoutes: true,
+    show: false,
+    addWaypoints: false
+  }).addTo(map);
 
-  // Fit bounds to show both points
+  routingControl.on('routesfound', function(e) {
+    cachedRouteCoords = e.routes[0].coordinates;
+  });
+
+  // Backup fit bounds just in case routing takes time
   const bounds = L.latLngBounds(
     [patientLocation.lat, patientLocation.lng],
     [hospitalLocation.lat, hospitalLocation.lng]
@@ -94,12 +107,15 @@ export function initTrackingMap(patientLocation, hospitalLocation, hospitalName)
 export function updateAmbulancePosition(lat, lng, progress, etaMinutes) {
   if (!ambulanceMarker) return;
 
-  ambulanceMarker.setLatLng([lat, lng]);
-
-  // Update the route line (from ambulance to patient)
-  if (routeLine && patientMarker) {
-    const patientPos = patientMarker.getLatLng();
-    routeLine.setLatLngs([[lat, lng], [patientPos.lat, patientPos.lng]]);
+  // If real road routes are loaded, use progress % to snap to road coordinates
+  if (cachedRouteCoords && cachedRouteCoords.length > 0) {
+    const p = Math.max(0, Math.min(1, progress / 100)); // clamp 0-1
+    const targetIdx = Math.floor(p * (cachedRouteCoords.length - 1));
+    const pos = cachedRouteCoords[targetIdx];
+    ambulanceMarker.setLatLng(pos);
+  } else {
+    // Fallback if routing API hasn't responded yet
+    ambulanceMarker.setLatLng([lat, lng]);
   }
 
   // Update ETA display

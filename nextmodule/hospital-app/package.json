@@ -1,7 +1,7 @@
 {
-  "name": "mediroute-hospital-app",
+  "name": "pulses.life-hospital-app",
   "version": "1.0.0",
-  "description": "MediRoute Hospital Panel — Incoming case alerts + dispatch",
+  "description": "Pulses.life Hospital Panel — Incoming case alerts + dispatch",
   "scripts": {
     "dev": "vite --port 5175 --host",
     "build": "vite build",

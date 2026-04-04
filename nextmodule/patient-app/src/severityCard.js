@@ -1,5 +1,5 @@
 // ============================================================
-// MediRoute Patient App — Severity Card Module
+// Pulses.life Patient App — Severity Card Module
 // Displays AI severity analysis with animated bar
 // ============================================================
 
@@ -81,9 +81,9 @@ export function showAssignment(caseData) {
   const reason = document.getElementById('assignmentReason');
   const topScore = caseData.routingScores?.[0];
   if (topScore) {
-    reason.textContent = `Selected because: Specialist match (${topScore.specialistScore}/30), Distance score (${topScore.distanceScore}/30), Bed availability (${topScore.bedScore}/25), Load score (${topScore.loadScore}/15). Total: ${topScore.totalScore}/100`;
+    reason.innerHTML = `<strong>Balanced Routing:</strong><br/> Selected based on Proximity (${topScore.distanceScore}/45), Specialist match (${topScore.specialistScore}/30), Bed availability (${topScore.bedScore}/15), and Resource load (${topScore.loadScore}/10). Total Score: <strong>${topScore.totalScore}/100</strong>`;
   } else {
-    reason.textContent = 'Selected as the optimal hospital based on specialist availability, proximity, and bed capacity.';
+    if (reason) reason.textContent = 'Selected as the optimal hospital based on specialist availability, proximity, and bed capacity.';
   }
 
   // Ambulance info

@@ -1,5 +1,5 @@
 // ============================================================
-// MediRoute Hospital Panel — Main Entry Point
+// Pulses.life Hospital Panel — Main Entry Point
 // Hospital selector → status board → map → incoming alert → dispatch
 // Pune-Centric with Leaflet Map + Real-time Ambulance Tracking
 // ============================================================
