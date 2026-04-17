@@ -1,8 +1,8 @@
 // Emergency detection service
 
 const EMERGENCY_KEYWORDS = {
+  // True critical - immediate emergency response
   critical: [
-    'chest pain', 'heart attack', 'cardiac arrest', 'stroke', 'brain stroke',
     'cant breathe', "can't breathe", 'cannot breathe', 'not breathing',
     'stopped breathing', 'unconscious', 'unresponsive', 'no pulse',
     'severe bleeding', 'heavy bleeding', 'blood loss', 'brain hemorrhage',
@@ -10,6 +10,7 @@ const EMERGENCY_KEYWORDS = {
     'poisoning', 'suicide', 'seizure', 'epilepsy attack', 'convulsion',
     'electric shock', 'drowning', 'head injury', 'spinal injury'
   ],
+  // High priority - needs assessment
   high: [
     'difficulty breathing', 'shortness of breath', 'breathless',
     'very high fever', 'high fever', 'fainting', 'fainted', 'collapsed',
@@ -18,16 +19,59 @@ const EMERGENCY_KEYWORDS = {
     'sudden vision loss', 'sudden hearing loss', 'severe headache',
     'worst headache', 'thunderclap', 'fracture', 'bone broken',
     'snake bite', 'scorpion sting', 'allergic reaction'
+  ],
+  // Needs triage assessment - ask questions first
+  needs_assessment: [
+    'chest pain', 'heart attack', 'cardiac arrest', 'stroke', 'brain stroke',
+    'pain in chest', 'chest hurts', 'chest discomfort'
+  ]
+};
+
+// Triage questions for assessment-needed symptoms
+const TRIAGE_QUESTIONS = {
+  chest_pain: [
+    {
+      question: "How would you rate your chest pain on a scale of 1-10? (1 = mild discomfort, 10 = worst pain imaginable)",
+      type: "severity",
+      critical_threshold: 7
+    },
+    {
+      question: "Is the chest pain spreading to your arm, neck, or jaw?",
+      type: "radiation",
+      critical_answers: ["yes", "y", "yeah", "spreading", "radiating"]
+    },
+    {
+      question: "Are you experiencing shortness of breath along with the chest pain?",
+      type: "associated",
+      critical_answers: ["yes", "y", "yeah", "shortness", "breath", "breathing"]
+    },
+    {
+      question: "How long have you had this chest pain?",
+      type: "duration",
+      critical_answers: ["sudden", "suddenly", "just started", "now"]
+    }
   ]
 };
 
 /**
  * Detect if a message contains emergency keywords
  * @param {string} text
- * @returns {{ isEmergency: boolean, severity: 'critical'|'high'|null, matchedKeywords: string[] }}
+ * @returns {{
+ *   isEmergency: boolean,
+ *   severity: 'critical'|'high'|null,
+ *   matchedKeywords: string[],
+ *   needsAssessment: boolean,
+ *   assessmentType: string|null
+ * }}
  */
 export function detectEmergency(text) {
-  if (!text) return { isEmergency: false, severity: null, matchedKeywords: [] };
+  if (!text) return {
+    isEmergency: false,
+    severity: null,
+    matchedKeywords: [],
+    needsAssessment: false,
+    assessmentType: null
+  };
 
   const normalizedText = text.toLowerCase()
     .replace(/[।,।!?]/g, ' ')
@@ -36,27 +80,59 @@ export function detectEmergency(text) {
 
   const matchedKeywords = [];
 
-  // Check critical first
+  // Check critical first - these trigger immediate emergency
   for (const kw of EMERGENCY_KEYWORDS.critical) {
     if (normalizedText.includes(kw)) {
       matchedKeywords.push(kw);
     }
   }
   if (matchedKeywords.length > 0) {
-    return { isEmergency: true, severity: 'critical', matchedKeywords };
+    return {
+      isEmergency: true,
+      severity: 'critical',
+      matchedKeywords,
+      needsAssessment: false,
+      assessmentType: null
+    };
   }
 
-  // Check high
+  // Check high priority - these trigger emergency
   for (const kw of EMERGENCY_KEYWORDS.high) {
     if (normalizedText.includes(kw)) {
       matchedKeywords.push(kw);
     }
   }
   if (matchedKeywords.length > 0) {
-    return { isEmergency: true, severity: 'high', matchedKeywords };
+    return {
+      isEmergency: true,
+      severity: 'high',
+      matchedKeywords,
+      needsAssessment: false,
+      assessmentType: null
+    };
   }
 
-  return { isEmergency: false, severity: null, matchedKeywords: [] };
+  // Check needs assessment - these require triage questions first
+  for (const kw of EMERGENCY_KEYWORDS.needs_assessment) {
+    if (normalizedText.includes(kw)) {
+      matchedKeywords.push(kw);
+      return {
+        isEmergency: false,
+        severity: null,
+        matchedKeywords,
+        needsAssessment: true,
+        assessmentType: 'chest_pain'
+      };
+    }
+  }
+
+  return {
+    isEmergency: false,
+    severity: null,
+    matchedKeywords: [],
+    needsAssessment: false,
+    assessmentType: null
+  };
 }
 
 /**

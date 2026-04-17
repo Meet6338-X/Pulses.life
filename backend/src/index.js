@@ -4,17 +4,19 @@ import dotenv from 'dotenv';
 import chatRouter from './routes/chat.js';
 import hospitalRouter from './routes/hospital.js';
 import emergencyRouter from './routes/emergency.js';
+import digilockerRouter from './routes/digilocker.js';
+import emergencyAutoFillRouter from './routes/emergencyAutoFill.js';
 import { initVectorStore } from './services/vectorStore.js';
 
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5002;
+const PORT = process.env.PORT || 5003;
 
 // Middleware
 app.use(cors({
   origin: process.env.FRONTEND_URL || 'http://localhost:3000',
-  methods: ['GET', 'POST'],
+  methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json({ limit: '50mb' }));
@@ -29,6 +31,8 @@ app.get('/health', (req, res) => {
 app.use('/api/chat', chatRouter);
 app.use('/api/hospital', hospitalRouter);
 app.use('/api/emergency', emergencyRouter);
+app.use('/api/digilocker', digilockerRouter);
+app.use('/api/emergency', emergencyAutoFillRouter);
 
 // 404 handler
 app.use((req, res) => {

@@ -2,7 +2,7 @@
 
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { playAudioBase64 } from '../lib/api';
+import { playAudioBase64, stopAudioPlayback } from '../lib/api';
 
 function formatTime(date) {
   return date.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
@@ -23,8 +23,8 @@ function locationLabel(h) {
   return 'India';
 }
 
-export default function MessageBubble({ message }) {
-  const { role, content, timestamp, audioBase64, hospitals } = message;
+export default function MessageBubble({ message, onFeedbackAction }) {
+  const { role, content, timestamp, audioBase64, hospitals, showFeedbackButtons, questionType, assessment } = message;
   const isUser = role === 'user';
   const isAI = role === 'ai';
 
@@ -91,14 +91,25 @@ export default function MessageBubble({ message }) {
           )}
 
           {isAI && audioBase64 && (
-            <button
-              className="tts-btn"
-              onClick={handlePlayTTS}
-              title="Play voice response"
-              id={`tts-${timestamp}`}
-            >
-              🔊
-            </button>
+            <>
+              <button
+                className="tts-btn"
+                onClick={handlePlayTTS}
+                title="Play voice response"
+                id={`tts-${timestamp}`}
+              >
+                🔊
+              </button>
+              <button
+                className="tts-btn mute-btn"
+                onClick={stopAudioPlayback}
+                title="Mute voice response"
+                id={`mute-${timestamp}`}
+                style={{ marginLeft: '8px', cursor: 'pointer', background: 'transparent', border: '1px solid currentColor', borderRadius: '4px', padding: '2px 6px', fontSize: '13px' }}
+              >
+                🔇 Mute
+              </button>
+            </>
           )}
         </div>
 
@@ -147,6 +158,54 @@ export default function MessageBubble({ message }) {
                 </div>
               </div>
             ))}
+          </div>
+        )}
+
+        {/* Assessment results display */}
+        {assessment && (
+          <div className="assessment-results">
+            <div className={`assessment-badge ${assessment.careLevel}`}>
+              <span className="assessment-label">
+                {assessment.careLevel === 'emergency' && '🚨 EMERGENCY'}
+                {assessment.careLevel === 'urgent' && '⚠️ URGENT CARE'}
+                {assessment.careLevel === 'primary_care' && '🏥 PRIMARY CARE'}
+                {assessment.careLevel === 'self_care' && '🏠 HOME CARE'}
+              </span>
+            </div>
+            {assessment.confidence && assessment.confidence < 0.8 && (
+              <div className="assessment-confidence">
+                Assessment confidence: {Math.round(assessment.confidence * 100)}%
+              </div>
+            )}
+            {assessment.riskFactors && assessment.riskFactors.length > 0 && (
+              <div className="assessment-factors">
+                Key factors: {assessment.riskFactors.join(', ')}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Feedback buttons for conversation flow */}
+        {showFeedbackButtons && onFeedbackAction && (
+          <div className="feedback-buttons">
+            <button
+              className="feedback-btn"
+              onClick={() => onFeedbackAction('continue')}
+            >
+              ➕ Tell me more
+            </button>
+            <button
+              className="feedback-btn"
+              onClick={() => onFeedbackAction('feedback')}
+            >
+              💬 Ask another question
+            </button>
+            <button
+              className="feedback-btn"
+              onClick={() => onFeedbackAction('guidance')}
+            >
+              ✅ Get guidance
+            </button>
           </div>
         )}
       </div>

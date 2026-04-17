@@ -1,6 +1,6 @@
 'use client';
 
-export default function EmergencyAlert({ severity, hospitals = [], onDismiss }) {
+export default function EmergencyAlert({ severity, hospitals = [], onDismiss, onDigiLocker }) {
   return (
     <div className="emergency-alert" role="alert" aria-live="assertive">
       <div className="emergency-header">
@@ -69,10 +69,21 @@ export default function EmergencyAlert({ severity, hospitals = [], onDismiss }) 
         </div>
       )}
 
+      {/* DigiLocker auto-fill CTA */}
+      {onDigiLocker && (
+        <button
+          id="emergency-digilocker-btn"
+          className="digilocker-emergency-btn"
+          onClick={onDigiLocker}
+        >
+          🪪 Auto-Fill Hospital Admission Form via DigiLocker
+        </button>
+      )}
+
       <button
         onClick={onDismiss}
         style={{
-          marginTop: 14,
+          marginTop: 10,
           background: 'none',
           border: '1px solid rgba(244, 63, 94, 0.3)',
           color: 'var(--text-muted)',
@@ -89,3 +100,4 @@ export default function EmergencyAlert({ severity, hospitals = [], onDismiss }) 
     </div>
   );
 }
+

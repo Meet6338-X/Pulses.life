@@ -7,6 +7,7 @@ import MessageBubble, { TypingIndicator } from './MessageBubble';
 import VoiceRecorder from './VoiceRecorder';
 import EmergencyAlert from './EmergencyAlert';
 import { sendMessage, sendEmergency, playAudioBase64 } from '../lib/api';
+import DigiLockerModal from './DigiLockerModal';
 
 // Dynamically import map component to avoid SSR issues
 const MapModal = dynamic(() => import('./MapModal'), { ssr: false });
@@ -38,6 +39,7 @@ export default function ChatInterface() {
   const [locationActive, setLocationActive] = useState(false);
   const [error, setError] = useState(null);
   const [isMapOpen, setIsMapOpen] = useState(false);
+  const [isDigiLockerOpen, setIsDigiLockerOpen] = useState(false);
   const currentAudioRef = useRef(null);
 
   const chatAreaRef = useRef(null);
@@ -93,6 +95,10 @@ export default function ChatInterface() {
         hospitals: result.type === 'hospital' ? result.hospitals : [],
       });
 
+      if (result.showMapTrigger) {
+        setIsMapOpen(true);
+      }
+
       // Auto-play TTS voice response
       if (result.audioBase64) {
         setIsSpeaking(true);
@@ -145,6 +151,10 @@ export default function ChatInterface() {
         audioBase64: result.audioBase64,
         hospitals: result.type === 'hospital' ? result.hospitals : [],
       });
+
+      if (result.showMapTrigger) {
+        setIsMapOpen(true);
+      }
 
       // Auto-play TTS voice response
       if (result.audioBase64) {
@@ -200,6 +210,14 @@ export default function ChatInterface() {
           </div>
         </div>
         <div className="header-actions">
+          <button 
+            className="action-btn"
+            onClick={() => setIsDigiLockerOpen(true)}
+            title="DigiLocker Auto-Fill"
+            style={{ fontSize: '1.2rem', padding: '0 8px', background: 'transparent', border: 'none', cursor: 'pointer' }}
+          >
+            🪪
+          </button>
           <LanguageSelector language={language} onChange={setLanguage} />
         </div>
       </header>
@@ -326,6 +344,12 @@ export default function ChatInterface() {
         isOpen={isMapOpen}
         onClose={() => setIsMapOpen(false)}
       />
+      {isDigiLockerOpen && (
+        <DigiLockerModal
+          onClose={() => setIsDigiLockerOpen(false)}
+          location={location}
+        />
+      )}
     </div>
   );
 }
