@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pulses.life/sitemap.xml
+Sitemap: https://meet6338-x.github.io/Pulses.life/sitemap.xml
 
 # Block access to any private paths (add as needed)
 Disallow: /admin/
